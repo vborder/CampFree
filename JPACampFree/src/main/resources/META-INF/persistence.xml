@@ -9,12 +9,12 @@
     </provider>
     
 		<class>com.skilldistillery.campfree.entities.User</class>
-		<class>com.skilldistillery.campfree.entities.Feature</class>
 		<class>com.skilldistillery.campfree.entities.Campsite</class>
 		<class>com.skilldistillery.campfree.entities.Comment</class>
+		<class>com.skilldistillery.campfree.entities.Feature</class>
 		<class>com.skilldistillery.campfree.entities.Person</class>
 		<class>com.skilldistillery.campfree.entities.Picture</class>
-		<class>com.skilldistillery.campfree.entities.Feature</class>
+		<class>com.skilldistillery.campfree.entities.State</class>
 		
 		
 		<properties>
