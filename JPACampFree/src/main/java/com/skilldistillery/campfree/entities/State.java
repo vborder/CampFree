@@ -10,14 +10,14 @@ public class State {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String abbreviation;
+	private String abbr;
 	private String name;
 	
 	
 	//toString
 	@Override
 	public String toString() {
-		return "State [id=" + id + ", abbreviation=" + abbreviation + ", name=" + name + "]";
+		return "State [id=" + id + ", abbreviation=" + abbr + ", name=" + name + "]";
 	}
 	
 	
@@ -25,10 +25,10 @@ public class State {
 	public State() {
 		super();
 	}
-	public State(int id, String abbreviation, String name) {
+	public State(int id, String abbr, String name) {
 		super();
 		this.id = id;
-		this.abbreviation = abbreviation;
+		this.abbr = abbr;
 		this.name = name;
 	}
 	
@@ -63,11 +63,11 @@ public class State {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAbbreviation() {
-		return abbreviation;
+	public String getAbbr() {
+		return abbr;
 	}
-	public void setAbbreviation(String abbreviation) {
-		this.abbreviation = abbreviation;
+	public void setAbbr(String abbr) {
+		this.abbr = abbr;
 	}
 	public String getName() {
 		return name;

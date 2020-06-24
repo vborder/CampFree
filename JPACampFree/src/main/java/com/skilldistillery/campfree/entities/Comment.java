@@ -7,22 +7,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name= "comment")
 public class Comment {
 	
 	//Class Fields
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
+	@Column(name="comment_date")
 	private LocalDateTime createdDateTime;
 	private String remark;
+	@ManyToOne
+	@JoinColumn(name= "campsite_id")
 	private Campsite campsite;
+	@ManyToOne
+	@JoinColumn(name= "person_id")
 	private Person person;
 	private boolean enabled;
 	@Column(name= "campsite_rating")
 	private Integer campsiteRating;
-	private Integer helpfulnessRating;
+	//Stretch private Integer helpfulnessRating;
 	
 	
 
@@ -32,7 +41,7 @@ public class Comment {
 	public String toString() {
 		return "Comment [id=" + id + ", createdDateTime=" + createdDateTime + ", remark=" + remark + ", campsite="
 				+ campsite + ", person=" + person + ", enabled=" + enabled + ", campsiteRating=" + campsiteRating
-				+ ", helpfulnessRating=" + helpfulnessRating + "]";
+				+ ", helpfulnessRating="  + "]";
 	}
 	
 	
@@ -41,7 +50,7 @@ public class Comment {
 		super();
 	}
 	public Comment(int id, LocalDateTime createdDateTime, String remark, Campsite campsite, Person person,
-			boolean enabled, Integer campsiteRating, Integer helpfulnessRating) {
+			boolean enabled, Integer campsiteRating) {
 		super();
 		this.id = id;
 		this.createdDateTime = createdDateTime;
@@ -50,7 +59,7 @@ public class Comment {
 		this.person = person;
 		this.enabled = enabled;
 		this.campsiteRating = campsiteRating;
-		this.helpfulnessRating = helpfulnessRating;
+		//this.helpfulnessRating = helpfulnessRating;
 	}
 	
 	
@@ -96,11 +105,51 @@ public class Comment {
 	public boolean isEnabled() {
 		return enabled;
 	}
+//	public Integer getCampsiteRating() {
+//		return campsiteRating;
+//	}
+//	public Integer getHelpfulnessRating() {
+//		return helpfulnessRating;
+//	}
+
+
 	public Integer getCampsiteRating() {
 		return campsiteRating;
 	}
-	public Integer getHelpfulnessRating() {
-		return helpfulnessRating;
+
+
+	public void setCampsiteRating(Integer campsiteRating) {
+		this.campsiteRating = campsiteRating;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public void setCreatedDateTime(LocalDateTime createdDateTime) {
+		this.createdDateTime = createdDateTime;
+	}
+
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+
+	public void setCampsite(Campsite campsite) {
+		this.campsite = campsite;
+	}
+
+
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 	
