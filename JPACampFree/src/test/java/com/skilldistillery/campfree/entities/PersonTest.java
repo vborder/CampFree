@@ -17,7 +17,7 @@ class PersonTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Person person;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,19 +32,26 @@ class PersonTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class,1);
+		person = em.find(Person.class,1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		person = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+		assertNotNull(person);
+		assertEquals(1, person.getId());
+		assertEquals("adminguy@gmail.com", person.getEmail());
+		assertEquals("Steven", person.getFirstName());
+		assertEquals("Pinker", person.getLastName());
+		assertEquals("1", person.getProfileImage());
+		assertEquals("Just a camper trying to find great sites", person.getBio());
+		assertEquals(1, person.getUser().getId());
+		assertEquals(1, person.getState().getId());
 	}
 
 }

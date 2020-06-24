@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class User {
 	
@@ -19,7 +21,8 @@ public class User {
 	private String password;
 	private String role;
 	private boolean enabled;
-	//TODO Auto Generate
+	
+	@CreationTimestamp
 	@Column(name="creation_date")
 	private LocalDateTime creationDate;
 	

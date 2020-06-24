@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Picture {
 
@@ -20,10 +22,11 @@ public class Picture {
 	private String imageURL;
 	private boolean enabled;
 	//TODO AutoGenerate
+	@CreationTimestamp
 	@Column(name="creation_date")
 	private LocalDateTime creationDate;
 	@ManyToOne
-	@JoinColumn(name="person_id")
+	@JoinColumn(name="person_user_id")
 	private Person person;
 	@ManyToOne
 	@JoinColumn(name="campsite_id")
@@ -34,7 +37,7 @@ public class Picture {
 	@Override
 	public String toString() {
 		return "Picture [id=" + id + ", imageURL=" + imageURL + ", enabled=" + enabled + ", creationDate="
-				+ creationDate + ", person=" + person + ", campsite=" + campsite + "]";
+				+ creationDate + ", campsite=" + campsite + "]";
 	}
 	
 	

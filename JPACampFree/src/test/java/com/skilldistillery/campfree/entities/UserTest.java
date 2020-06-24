@@ -2,7 +2,10 @@ package com.skilldistillery.campfree.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import java.time.LocalDateTime;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -46,6 +49,14 @@ class UserTest {
 	void test() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
+		assertEquals("admin", user.getPassword());
+		assertEquals("admin", user.getRole());
+		assertTrue(user.isEnabled());
+		LocalDateTime time = user.getCreationDate();
+		assertEquals(2020, time.getYear());
+		assertEquals(5, time.getMonthValue());
+		assertEquals(25, time.getDayOfMonth());
+		
 	}
 
 }
