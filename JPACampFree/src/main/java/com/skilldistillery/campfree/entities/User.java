@@ -19,6 +19,7 @@ public class User {
 	private String password;
 	private String role;
 	private boolean enabled;
+	//TODO Auto Generate
 	@Column(name="creation_date")
 	private LocalDateTime creationDate;
 	
