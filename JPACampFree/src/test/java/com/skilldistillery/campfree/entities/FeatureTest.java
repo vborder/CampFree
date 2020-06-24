@@ -17,7 +17,7 @@ class FeatureTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Feature feature;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,19 +32,21 @@ class FeatureTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class,1);
+		feature = em.find(Feature.class,1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		feature = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+		assertNotNull(feature);
+		assertEquals(1, feature.getId());
+		assertEquals("restroom", feature.getName());
+		assertEquals("clean restrooms here", feature.getDescription());
 	}
 
 }

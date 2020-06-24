@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name= "comment")
 public class Comment {
@@ -19,6 +21,8 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
+	
+	@CreationTimestamp
 	@Column(name="comment_date")
 	private LocalDateTime createdDateTime;
 	private String remark;

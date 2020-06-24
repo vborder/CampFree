@@ -2,6 +2,8 @@ package com.skilldistillery.campfree.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,7 +18,7 @@ class CommentTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Comment comment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,19 +33,28 @@ class CommentTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class,1);
+		comment = em.find(Comment.class,1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		comment = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
+		assertNotNull(comment);
+		assertEquals(1, comment.getId());
+		LocalDateTime time = comment.getCreatedDateTime();
+		assertEquals(2020, time.getYear());
+		assertEquals(5, time.getMonthValue());
+		assertEquals(26, time.getDayOfMonth());
+		assertEquals("This is one of my favorite spots.", comment.getRemark());
+		assertEquals(5, comment.getCampsiteRating());
+		assertTrue(comment.isEnabled());
+		assertEquals(1, comment.getCampsite().getId());
+		assertEquals(1, comment.getPerson().getId());
 	}
 
 }
