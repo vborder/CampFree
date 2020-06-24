@@ -76,34 +76,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `picture`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `picture` ;
-
-CREATE TABLE IF NOT EXISTS `picture` (
-  `id` INT NOT NULL,
-  `campsite_id` INT NOT NULL,
-  `image_url` VARCHAR(5000) NOT NULL,
-  `enabled` TINYINT NOT NULL DEFAULT 1,
-  `creation_date` DATETIME NOT NULL,
-  `person_user_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_picture_person1_idx` (`person_user_id` ASC),
-  INDEX `fk_picture_campsite_idx` (`campsite_id` ASC),
-  CONSTRAINT `fk_picture_campsite`
-    FOREIGN KEY (`campsite_id`)
-    REFERENCES `campsite` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_picture_person1`
-    FOREIGN KEY (`person_user_id`)
-    REFERENCES `person` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `campsite`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `campsite` ;
@@ -118,11 +90,10 @@ CREATE TABLE IF NOT EXISTS `campsite` (
   `creator_id` INT NOT NULL,
   `creation_date` DATETIME NOT NULL,
   `state_id` INT NOT NULL,
-  `picture_id` INT NULL,
+  `picture_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_campsite_person1_idx` (`creator_id` ASC),
   INDEX `fk_campsite_state1_idx` (`state_id` ASC),
-  INDEX `fk_campsite_picture1_idx` (`picture_id` ASC),
   CONSTRAINT `fk_campsite_person1`
     FOREIGN KEY (`creator_id`)
     REFERENCES `person` (`id`)
@@ -131,11 +102,6 @@ CREATE TABLE IF NOT EXISTS `campsite` (
   CONSTRAINT `fk_campsite_state1`
     FOREIGN KEY (`state_id`)
     REFERENCES `state` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_campsite_picture1`
-    FOREIGN KEY (`picture_id`)
-    REFERENCES `picture` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -164,6 +130,34 @@ CREATE TABLE IF NOT EXISTS `comment` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_person1`
     FOREIGN KEY (`person_id`)
+    REFERENCES `person` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `picture`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `picture` ;
+
+CREATE TABLE IF NOT EXISTS `picture` (
+  `id` INT NOT NULL,
+  `campsite_id` INT NOT NULL,
+  `image_url` VARCHAR(5000) NOT NULL,
+  `enabled` TINYINT NOT NULL DEFAULT 1,
+  `creation_date` DATETIME NOT NULL,
+  `person_user_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_picture_person1_idx` (`person_user_id` ASC),
+  INDEX `fk_picture_campsite_idx` (`campsite_id` ASC),
+  CONSTRAINT `fk_picture_campsite`
+    FOREIGN KEY (`campsite_id`)
+    REFERENCES `campsite` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_picture_person1`
+    FOREIGN KEY (`person_user_id`)
     REFERENCES `person` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -213,6 +207,10 @@ CREATE USER 'campfreeuser'@'localhost' IDENTIFIED BY 'campfreeuser';
 
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'campfreeuser'@'localhost';
 
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 -- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
@@ -244,21 +242,11 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `picture`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `campfreedb`;
-INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (1, 1, 'https://www.alltrails.com/trail/us/colorado/ute-creek-trail/photos', 1, '2020-05-27T010:12:00', 1);
-
-COMMIT;
-
-
--- -----------------------------------------------------
 -- Data for table `campsite`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `campfreedb`;
-INSERT INTO `campsite` (`id`, `name`, `location`, `latitude`, `longitude`, `enabled`, `creator_id`, `creation_date`, `state_id`, `picture_id`) VALUES (1, 'Ute Creek', 'Colorado', 37.76053, -107.34258, 1, 1, '2020-05-27T08:12:00', 1, 1);
+INSERT INTO `campsite` (`id`, `name`, `location`, `latitude`, `longitude`, `enabled`, `creator_id`, `creation_date`, `state_id`, `picture_url`) VALUES (1, 'Ute Creek', 'Colorado', 37.76053, -107.34258, 1, 1, '2020-05-27T08:12:00', 1, 'https://www.pexels.com/photo/six-camping-tents-in-forest-699558/');
 
 COMMIT;
 
@@ -269,6 +257,16 @@ COMMIT;
 START TRANSACTION;
 USE `campfreedb`;
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (1, '2020-05-26T06:14:00', 'This is one of my favorite spots.', 5, 1, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `picture`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `campfreedb`;
+INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (1, 1, 'https://www.alltrails.com/trail/us/colorado/ute-creek-trail/photos', 1, '2020-05-27T010:12:00', 1);
 
 COMMIT;
 
@@ -292,7 +290,3 @@ INSERT INTO `campsite_has_feature` (`campsite_id`, `feature_id`) VALUES (1, 1);
 
 COMMIT;
 
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
