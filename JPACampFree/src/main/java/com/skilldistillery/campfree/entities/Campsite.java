@@ -1,14 +1,21 @@
 package com.skilldistillery.campfree.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="campsite")
 public class Campsite {
 	
 	//Class fields
@@ -19,12 +26,23 @@ public class Campsite {
 	private String location;
 	private Double latitude;
 	private Double longitude;
-	//@ManyToOne()
+	
+	@ManyToOne
+	@JoinColumn(name= "state_id")
 	private State state;
+	
 	@Column(name="creation_date")
+	//TODO: AutoGenerate
 	private LocalDateTime creationTime;
-	//@OneToOne()
-	private User creator;
+	
+	@OneToOne
+	@JoinColumn(name= "person_id")
+	private Person creator;
+	
+	@JoinTable(name="campsite_has_feature",
+			joinColumns= @JoinColumn(name="campsite_id"),
+			inverseJoinColumns= @JoinColumn(name="feature_id"))
+	private List<Feature> features;
 	private boolean enabled;
 	
 	
@@ -42,7 +60,7 @@ public class Campsite {
 		super();
 	}
 	public Campsite(int id, String name, String location, Double latitude, Double longitude, State state,
-			LocalDateTime creationTime, User creator, boolean enabled) {
+			LocalDateTime creationTime, Person creator, boolean enabled) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -122,10 +140,10 @@ public class Campsite {
 	public void setCreationTime(LocalDateTime creationTime) {
 		this.creationTime = creationTime;
 	}
-	public User getCreator() {
+	public Person getCreator() {
 		return creator;
 	}
-	public void setCreator(User creator) {
+	public void setCreator(Person creator) {
 		this.creator = creator;
 	}
 	public boolean isEnabled() {
