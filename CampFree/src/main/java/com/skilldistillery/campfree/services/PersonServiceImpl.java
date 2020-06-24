@@ -13,15 +13,15 @@ public class PersonServiceImpl implements PersonService{
 	private PersonRepository peRepo;
 
 	@Override
-	public Person personById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Person findById(int id) {
+		return peRepo.findById(id);
+		
 	}
 
 	@Override
 	public Person create(Person person) {
-		// TODO Auto-generated method stub
-		return null;
+		return peRepo.saveAndFlush(person);
+
 	}
 
 	@Override
