@@ -2,7 +2,11 @@
 
 ### Final Capstone Project for 16-week Skill Distillery Bootcamp
 
-TODO: Overview of project tech and what it demonstrates
+  CampFree is an online guide to dispersed camping in the United States. Our community
+members can view, create, and comment on our list of dispersed camping sites. Non registered
+users are still afforded most of the functionality, but cannot create campsites or make
+community comments. Our goal is to educate and provide the best community-sourced
+dispersed camping information. 
 
 ### Team
 * Michael D-something- Developer, SCRUM Master
