@@ -1,7 +1,6 @@
 package com.skilldistillery.campfree.services;
 
 import java.util.List;
-
 import com.skilldistillery.campfree.entities.Campsite;
 
 public interface CampsiteService {
