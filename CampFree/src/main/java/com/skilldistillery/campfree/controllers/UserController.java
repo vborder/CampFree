@@ -33,10 +33,20 @@ public class UserController {
 			HttpServletRequest req,
 			HttpServletResponse res,
 			Principal principal) {
-		user = useSvc.updateUser(user, id);
-	}
-			){
+		
+			try {
+				user = useSvc.updateUser(user, id);
+				if(user == null) {
+					res.setStatus(404);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				res.setStatus(400);
+				user = null;
+			}
+			return user; }
+		
 		
 	}
 
-}
+
