@@ -37,7 +37,7 @@ public class CampsiteController {
 	public Campsite show(
 			@PathVariable Integer id, 
 			HttpServletResponse response) {
-		Campsite campsite = campSvc.campsiteById(id);
+		Campsite campsite = campSvc.findCampsiteById(id);
 		if (campsite == null) {
 			response.setStatus(404);
 		}
@@ -50,7 +50,7 @@ public class CampsiteController {
 			HttpServletRequest request,
 			HttpServletResponse response) {
 		try {
-			campsite = campSvc.create(campsite);
+			campsite = campSvc.createCampsite(campsite);
 			response.setStatus(201);
 			StringBuffer url = request.getRequestURL();
 			url.append("/").append(campsite.getId());
@@ -67,7 +67,7 @@ public class CampsiteController {
 	@DeleteMapping("campsite/{id}")
 	public void delete(@PathVariable Integer id, HttpServletResponse response) {
 		try {
-			if(campSvc.delete(id)) {
+			if(campSvc.disableCampsite(id)) {
 			response.setStatus(204);
 			}else {
 				response.setStatus(404);
@@ -85,7 +85,7 @@ public class CampsiteController {
 			HttpServletResponse response
 			) {
 		try {
-			campsite= campSvc.update(campsite, id);
+			campsite= campSvc.updateCampsite(campsite, id);
 			if (campsite == null) {
 				response.setStatus(404);
 			}
@@ -99,7 +99,7 @@ public class CampsiteController {
 	
 	@GetMapping("campsite/search/{keyword}")
 	public List<Campsite> campsiteForKeyword(@PathVariable String keyword) {
-		return campSvc.findCampsiteByName(keyword);
+		return campSvc.findByName(keyword);
 	}
 	
 

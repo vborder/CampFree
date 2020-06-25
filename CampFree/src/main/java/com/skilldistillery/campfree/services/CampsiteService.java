@@ -9,4 +9,5 @@ public interface CampsiteService {
 	Campsite createCampsite(Campsite campsite);
 	Campsite updateCampsite(Campsite campsite, int campsiteId);
 	boolean disableCampsite(int campsiteId);
+	List<Campsite> findByName(String name);
 }
