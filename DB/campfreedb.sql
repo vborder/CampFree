@@ -81,7 +81,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `campsite` ;
 
 CREATE TABLE IF NOT EXISTS `campsite` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NULL,
   `location` TEXT NULL,
   `latitude` DECIMAL(9,6) NULL,
@@ -113,7 +113,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `comment` ;
 
 CREATE TABLE IF NOT EXISTS `comment` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `comment_date` DATETIME NOT NULL,
   `remark` TEXT NULL,
   `campsite_rating` INT NULL,
@@ -142,7 +142,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `picture` ;
 
 CREATE TABLE IF NOT EXISTS `picture` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `campsite_id` INT NOT NULL,
   `image_url` VARCHAR(5000) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
