@@ -31,7 +31,7 @@ public class PersonController {
 	@GetMapping("person/{id}")
 	public Person personById(@PathVariable Integer id, HttpServletResponse req, HttpServletResponse res,
 			Principal principal) {
-		Person person = perSvc.personById(id);
+		Person person = perSvc.findById(id);
 		if (person == null) {
 			res.setStatus(404);
 		}
