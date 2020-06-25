@@ -77,4 +77,13 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	}
 
+	@Override
+	public List<Campsite> findByName(String name) {
+		List<Campsite> campsites= campRepo.findByName(name);
+		return campsites;
+		//Definitely needs to be tested.... Or Vince can verify this is what we need to do.
+	}
+	
+	
+
 }
