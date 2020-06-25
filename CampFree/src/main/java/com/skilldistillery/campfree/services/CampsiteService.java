@@ -1,16 +1,12 @@
 package com.skilldistillery.campfree.services;
 
 import java.util.List;
-
 import com.skilldistillery.campfree.entities.Campsite;
 
 public interface CampsiteService {
-	
-	Campsite campsiteById(int id);
-	Campsite create(Campsite campsite);
-	Boolean delete(int id);
-	Campsite update(Campsite campsite, int id);
+	Campsite findCampsiteById(int campsiteId);
 	List<Campsite> findAllCampsites();
-	List<Campsite> findCampsiteByName(String keyword);
-
+	Campsite createCampsite(Campsite campsite);
+	Campsite updateCampsite(Campsite campsite, int campsiteId);
+	boolean disableCampsite(int campsiteId);
 }

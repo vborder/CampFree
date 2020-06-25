@@ -1,53 +1,80 @@
 package com.skilldistillery.campfree.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.campfree.entities.Campsite;
 import com.skilldistillery.campfree.repositories.CampsiteRepository;
+import com.skilldistillery.campfree.repositories.PersonRepository;
+
 
 @Service
-public class CampsiteServiceImpl implements CampsiteService{
-	
+public class CampsiteServiceImpl implements CampsiteService {
+
 	@Autowired
 	private CampsiteRepository campRepo;
-
+	
+	@Autowired
+	private PersonRepository personRepo;
+	
 	@Override
-	public Campsite campsiteById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Campsite create(Campsite campsite) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean delete(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Campsite update(Campsite campsite, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Campsite findCampsiteById(int campsiteId) {
+		Optional<Campsite> campsiteOpt = campRepo.findById(campsiteId);
+		Campsite campsite= null;
+		if(campsiteOpt.isPresent()) {
+			campsite= campsiteOpt.get();
+		}
+		return campsite;
 	}
 
 	@Override
 	public List<Campsite> findAllCampsites() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Campsite> campsites= campRepo.findAll();
+		return campsites;
 	}
 
 	@Override
-	public List<Campsite> findCampsiteByName(String keyword) {
-		// TODO Auto-generated method stub
-		return null;
+	public Campsite createCampsite(Campsite campsite) {
+		return campRepo.saveAndFlush(campsite);
+	}
+
+	@Override
+	public Campsite updateCampsite(Campsite campsite, int campsiteId) {
+		Optional<Campsite> campsiteOpt= campRepo.findById(campsiteId);
+		Campsite newerCampsite= null;
+		if(campsiteOpt.isPresent()) {
+			newerCampsite= campsiteOpt.get();
+			newerCampsite.setCreationTime(LocalDateTime.now());
+			newerCampsite.setFeatures(campsite.getFeatures());
+			newerCampsite.setLatitude(campsite.getLatitude());
+			newerCampsite.setLongitude(campsite.getLongitude());
+			newerCampsite.setName(campsite.getName());
+			newerCampsite.setCreator(campsite.getCreator());
+			newerCampsite.setPictureUrl(campsite.getPictureUrl());
+			newerCampsite.setLocation(campsite.getLocation());
+			newerCampsite.setState(campsite.getState());
+		}
+		return newerCampsite;
+	}
+
+	@Override
+	public boolean disableCampsite(int campsiteId) {
+		Optional<Campsite> campsiteOpt = campRepo.findById(campsiteId);
+		if(campsiteOpt.isPresent()) {
+			Campsite deleteThis= campsiteOpt.get();
+			deleteThis.setEnabled(false);
+			campRepo.saveAndFlush(deleteThis);
+			return true;
+					
+		}
+		else {
+			return false;
+		}
+
 	}
 
 }
