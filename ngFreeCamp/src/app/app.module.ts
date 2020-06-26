@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { WhoComponent } from './components/who/who.component';
 import { WhyComponent } from './components/why/why.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { WhyComponent } from './components/why/why.component';
       apiKey: 'AIzaSyBsCj7AmihtNZUsUjwnDrgZS57oy_QSJN4'
     })
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
