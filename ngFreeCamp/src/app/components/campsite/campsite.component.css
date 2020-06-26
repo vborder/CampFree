@@ -1,6 +1,5 @@
 *{
 
-
   margin-left: auto;
   margin-right: auto;
   }
@@ -11,15 +10,9 @@
   height: 30%;
   width: 60%;
   margin-top: 30px;
-
-
  }
 
- #logo
- {
-height: 50%;
-width: 50%;
- }
+
 
 
 #map
@@ -31,11 +24,13 @@ width: 50%;
 
 .picsum-img-wrapper > img
 {
-/* height: 30em; */
 width: 60%;
+margin-top: 10px;;
 }
 
 .picsum-img-wrapper
 {
   width:100%;
 }
+
+
