@@ -4,10 +4,10 @@ import java.util.List;
 import com.skilldistillery.campfree.entities.Campsite;
 
 public interface CampsiteService {
-	Campsite findCampsiteById(int campsiteId);
+	Campsite findCampsiteById(String username, int campsiteId);
 	List<Campsite> findAllCampsites();
-	Campsite createCampsite(Campsite campsite);
-	Campsite updateCampsite(Campsite campsite, int campsiteId);
-	boolean disableCampsite(int campsiteId);
+	Campsite createCampsite(String username, Campsite campsite);
+	Campsite updateCampsite(String username,Campsite campsite, int campsiteId);
+	boolean disableCampsite(String username, int campsiteId);
 	List<Campsite> findByName(String name);
 }

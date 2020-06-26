@@ -1,6 +1,7 @@
 package com.skilldistillery.campfree.controllers;
 
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,8 @@ public class CampsiteController {
 	@Autowired
 	private CampsiteService campSvc;
 	
+//	private String username = "outlier";
+	
 	@GetMapping("campsite")
 	public List<Campsite> findAllcampsites() {
 		return campSvc.findAllCampsites();
@@ -36,8 +39,11 @@ public class CampsiteController {
 	@GetMapping("campsite/{id}")
 	public Campsite show(
 			@PathVariable Integer id, 
-			HttpServletResponse response) {
-		Campsite campsite = campSvc.findCampsiteById(id);
+			HttpServletResponse response,
+			HttpServletRequest request,
+			Principal principal
+			) {
+		Campsite campsite = campSvc.findCampsiteById(principal.getName(), id);
 		if (campsite == null) {
 			response.setStatus(404);
 		}
@@ -48,9 +54,10 @@ public class CampsiteController {
 	public Campsite create(
 			@RequestBody Campsite campsite, 
 			HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response,
+			Principal principal) {
 		try {
-			campsite = campSvc.createCampsite(campsite);
+			campsite = campSvc.createCampsite(principal.getName(), campsite);
 			response.setStatus(201);
 			StringBuffer url = request.getRequestURL();
 			url.append("/").append(campsite.getId());
@@ -65,11 +72,16 @@ public class CampsiteController {
 	
 	
 	@DeleteMapping("campsite/{id}")
-	public void delete(@PathVariable Integer id, HttpServletResponse response) {
+	public void delete(@PathVariable Integer id, 
+			HttpServletResponse response,
+			HttpServletRequest request,
+			Principal principal
+			) {
 		try {
-			if(campSvc.disableCampsite(id)) {
+			if(campSvc.disableCampsite(principal.getName(), id)) {
 			response.setStatus(204);
-			}else {
+			}
+			else {
 				response.setStatus(404);
 			}
 		} catch (Exception e) {
@@ -82,10 +94,12 @@ public class CampsiteController {
 	public Campsite update(
 			@PathVariable Integer id, 
 			@RequestBody Campsite campsite, 
-			HttpServletResponse response
+			HttpServletResponse response,
+			HttpServletRequest request,
+			Principal principal
 			) {
 		try {
-			campsite= campSvc.updateCampsite(campsite, id);
+			campsite= campSvc.updateCampsite(principal.getName(), campsite, id);
 			if (campsite == null) {
 				response.setStatus(404);
 			}
