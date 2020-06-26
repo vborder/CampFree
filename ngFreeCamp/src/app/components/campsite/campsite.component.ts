@@ -3,7 +3,7 @@ import {  Component, OnInit, AfterViewInit, ViewChild, ElementRef } from
   '@angular/core';
 
 @Component({
-  selector: 'app-campsite',
+  selector: 'app-campsite, ngbd-carousel-basic',
   templateUrl: './campsite.component.html',
   styleUrls: ['./campsite.component.css']
 })
@@ -36,6 +36,13 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.mapOptions);
     this.marker.setMap(this.map);
   }
+
+  images = [
+    'https://images.pexels.com/photos/3232542/pexels-photo-3232542.jpeg?auto=compress&cs=tinysrgb&dpr=1',
+    'https://images.pexels.com/photos/1118785/pexels-photo-1118785.jpeg?auto=compress&cs=tinysrgb&dpr=1',
+    'https://images.pexels.com/photos/618848/pexels-photo-618848.jpeg?auto=compress&cs=tinysrgb&dpr=1'
+
+  ];
 
   constructor() { }
 

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&display=swap');
+
+#navFont
+{
+  font-family: 'Farro' !important;
+  /* font-family: fantasy; */
+}
+
+
+#logo
+{
+height: 90px;
+width: 90px;
+
+}
+
+
+#navColor
+{
+background-color: #2068b5 ;
+font-size: .8em ;
+
+}
+
+.navbar-brand
+{
+  font-size: 1.5 !important;
+}
