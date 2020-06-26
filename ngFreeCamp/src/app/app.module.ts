@@ -14,6 +14,7 @@ import { PictureComponent } from './components/picture/picture.component';
 import { StateComponent } from './components/state/state.component';
 import { UserComponent } from './components/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PersonComponent,
     PictureComponent,
     StateComponent,
-    UserComponent
+    UserComponent,
+    NavBarComponent
 
   ],
   imports: [

@@ -1,8 +1,42 @@
-#map {
-  height: 500px;
-  width: 100%;
+*{
+
+
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+
+
+#map-div {
+  height: 30%;
+  width: 80%;
+  margin-top: 30px;
+
+
  }
 
- agm-map {
-  height: 500px;
+ #carousel-container
+ {
+
+  /* height: 20em;
+  justify-content: center; */
+ }
+
+
+#map
+{
+
+  height: 25em;
+
+}
+
+.picsum-img-wrapper > img
+{
+/* height: 30em; */
+width: 80%;
+}
+
+.picsum-img-wrapper
+{
+  width:100%;
 }
