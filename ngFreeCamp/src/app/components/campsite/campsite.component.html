@@ -47,13 +47,13 @@
 
 
   <!-- campsite image thumbnail gallery  -->
-  <div *ngFor = 'let campsite of campsites'>
+  <!-- <div *ngFor = 'let campsite of campsites'>
     <div class="row">
       <div class="column">
         <img src="{{campsite.pictureUrl}}" class="img-thumbnail" style="width:100%">
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- CAMPSITE INFORMATION PRESENTATION -->
   <div *ngIf ='selected'>
@@ -70,6 +70,22 @@
      </div>
   </div>
 
+</div>
 
+<div >
+  <tbody>
+    <tr *ngFor = 'let campsite of campsites' (click)= 'onSubmit(campsite)'>
+      <td>{{campsite.name}}</td>
+      <td>{{campsite.location}}</td>
+      <td>{{campsite.longitude}}</td>
+      <td>{{campsite.latitude}}</td>
+      <td>{{campsite.state}}</td>
+      <img src="{{campsite.pictureUrl}}" class="img-thumbnail" style="width:100%">
+     <!-- CAMPSITE FEATURES LIST -->
+      <div *ngFor = 'let feature of campsite.features'>
+        <td>{{feature}}</td>
+      </div>
+     </tr>
+  </tbody>
 
 </div>

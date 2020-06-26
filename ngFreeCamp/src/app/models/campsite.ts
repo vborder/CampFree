@@ -1,17 +1,19 @@
+import { State } from './state';
+
 export class Campsite {
   id: number;
   name: string;
   location: string;
   latitude: number;
   longitude: number;
-  state: string;
+  state: State;
   features: string;
   pictureUrl: string;
 
 
 
   constructor(id?: number, name?: string, location?: string, latitude?: number,
-              longitude?: number, state?: string, features?: string, pictureUrl?: string){
+              longitude?: number, state?: State, features?: string, pictureUrl?: string){
       this.id = id;
 		    this.name = name;
 		    this.location = location;
