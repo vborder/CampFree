@@ -216,12 +216,12 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `campfreedb`;
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (1, 'admin', 'admin', 'admin', 1, '2020-01-11T07:32:00');
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (2, 'outlier', 'outlier', 'user', 1, '2020-03-12T08:32:00');
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (3, 'sgoodman', 'sgoodman', 'user', 1, '2020-03-13T09:22:00');
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (4, 'radmax', 'radmax', 'user', 1, '2020-02-14T10:12:00');
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (5, 'gijane', 'armyjane', 'user', 1, '2020-03-15T11:52:00');
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (6, 'dobberman', 'dobberman', 'user', 1, '2020-02-16T13:42:00');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (1, 'admin', '$2a$10$mRgGZXvX5bOZxEkoojcajuflgAYXSB9x1v.CJ8puIrQq12OtcBq5O', 'admin', 1, '2020-01-11T07:32:00');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (2, 'outlier', '$2a$10$jQvnReudo1FNuxLAYSibkOWxQHgZ1NxMjYG5jt5vMq5DGrBLP96Qm', 'user', 1, '2020-03-12T08:32:00');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (3, 'sgoodman', '$2a$10$9CnkfPVlewtTofMGCh7X8OYlpeRx3bNrCdfeVRSqZFYN16BibWwhq', 'user', 1, '2020-03-13T09:22:00');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (4, 'radmax', '$2a$10$ajXggAS/YzQAlomkQGWI/ezhv0DchsgrCkoyMlbyuhZ7jwuI1MnZi', 'user', 1, '2020-02-14T10:12:00');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (5, 'gijane', '$2a$10$ADA1QlFpjkaXQavAZoXY..JrFxl6/PyYW8fioXX3XiOgSxUKIYVS2', 'user', 1, '2020-03-15T11:52:00');
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `creation_date`) VALUES (6, 'dobberman', '$2a$10$Ja48l6C9ziXYUAuZMHegwOi2mTr5pdieGrT4Qi7k.8cLN2gxqI.VK', 'user', 1, '2020-02-16T13:42:00');
 
 COMMIT;
 

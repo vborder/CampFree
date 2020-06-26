@@ -22,7 +22,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 	private PersonRepository personRepo;
 	
 	@Override
-	public Campsite findCampsiteById(int campsiteId) {
+	public Campsite findCampsiteById(String username, int campsiteId) {
 		Optional<Campsite> campsiteOpt = campRepo.findById(campsiteId);
 		Campsite campsite= null;
 		if(campsiteOpt.isPresent()) {
@@ -38,12 +38,12 @@ public class CampsiteServiceImpl implements CampsiteService {
 	}
 
 	@Override
-	public Campsite createCampsite(Campsite campsite) {
+	public Campsite createCampsite(String username, Campsite campsite) {
 		return campRepo.saveAndFlush(campsite);
 	}
 
 	@Override
-	public Campsite updateCampsite(Campsite campsite, int campsiteId) {
+	public Campsite updateCampsite(String username, Campsite campsite, int campsiteId) {
 		Optional<Campsite> campsiteOpt= campRepo.findById(campsiteId);
 		Campsite newerCampsite= null;
 		if(campsiteOpt.isPresent()) {
@@ -62,7 +62,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 	}
 
 	@Override
-	public boolean disableCampsite(int campsiteId) {
+	public boolean disableCampsite(String username, int campsiteId) {
 		Optional<Campsite> campsiteOpt = campRepo.findById(campsiteId);
 		if(campsiteOpt.isPresent()) {
 			Campsite deleteThis= campsiteOpt.get();
@@ -83,6 +83,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 		return campsites;
 		//Definitely needs to be tested.... Or Vince can verify this is what we need to do.
 	}
+
 	
 	
 
