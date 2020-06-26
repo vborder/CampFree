@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StateComponent } from './state.component';
+import { WhoComponent } from './who.component';
 
-describe('StateComponent', () => {
-  let component: StateComponent;
-  let fixture: ComponentFixture<StateComponent>;
+describe('WhoComponent', () => {
+  let component: WhoComponent;
+  let fixture: ComponentFixture<WhoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StateComponent ]
+      declarations: [ WhoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StateComponent);
+    fixture = TestBed.createComponent(WhoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

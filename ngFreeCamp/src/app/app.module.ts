@@ -8,29 +8,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CampsiteComponent } from './components/campsite/campsite.component';
 import { CommentComponent } from './components/comment/comment.component';
-import { FeatureComponent } from './components/feature/feature.component';
 import { PersonComponent } from './components/person/person.component';
-import { PictureComponent } from './components/picture/picture.component';
-import { StateComponent } from './components/state/state.component';
 import { UserComponent } from './components/user/user.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { WhoComponent } from './components/who/who.component';
+import { WhyComponent } from './components/why/why.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     CampsiteComponent,
     CommentComponent,
-    FeatureComponent,
     PersonComponent,
-    PictureComponent,
-    StateComponent,
     UserComponent,
     NavBarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    WhoComponent,
+    WhyComponent
 
   ],
   imports: [
@@ -43,7 +42,9 @@ import { RegisterComponent } from './components/register/register.component';
       apiKey: 'AIzaSyBsCj7AmihtNZUsUjwnDrgZS57oy_QSJN4'
     })
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
