@@ -1,7 +1,7 @@
 
 
-
-<div id='box'class='container-fluid text-center'>
+<!-- CAROUSEL AND MAP IN RELATIVE POSITION IN CONTAINER -->
+<div id='box' class='container-fluid text-center'>
 
   <div id='carousel-container'>
     <ngb-carousel class='carousel' *ngIf="images">
@@ -37,4 +37,39 @@
 <div id='map-div'>
   <div #mapContainer id="map"></div>
 </div>
+</div>
+
+
+<!-- Show campsite table -->
+<div  class='text-center mt-5'>
+  <!-- TODO ADD CAMPSITE NAME in H4 -->
+  <h4>Campsite Information Page</h4>
+
+
+  <!-- campsite image thumbnail gallery  -->
+  <div *ngFor = 'let campsite of campsites'>
+    <div class="row">
+      <div class="column">
+        <img src="{{campsite.pictureUrl}}" class="img-thumbnail" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMPSITE INFORMATION PRESENTATION -->
+  <div *ngIf ='selected'>
+    <p>{{selected.name}}</p>
+    <p>{{selected.location}}</p>
+    <p>{{selected.longitude}}</p>
+    <p>{{selected.latitude}}</p>
+    <p>{{selected.state}}</p>
+    <p>{{selected.features}}</p>
+    <p>{{selected.name}}</p>
+     <!-- CAMPSITE FEATURES LIST -->
+    <div *ngFor = 'let feature of selected.features'>
+      <p>{{feature}}</p>
+     </div>
+  </div>
+
+
+
 </div>

@@ -6,25 +6,27 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">CampFree</a>
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/CampFree-logos.jpeg" width="50" height="50" class="d-inline-block align-top">CampFree
+    </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Who we is</a>
+        <a class="nav-link" [routerLink]="['/who']">Who we is</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Why CampFree</a>
+        <a class="nav-link" [routerLink]="['/why']">Why CampFree</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign up</a>
+        <a class="nav-link" [routerLink]="['/register']">Sign up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
+        <a class="nav-link" [routerLink]="['/login']">Log In</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Profile</a>
+        <a class="nav-link" [routerLink]="['/user']">User Profile</a>
       </li>
 
     </ul>

@@ -1,6 +1,7 @@
 // import { Component, OnInit } from '@angular/core';
 import {  Component, OnInit, AfterViewInit, ViewChild, ElementRef } from
   '@angular/core';
+import { Campsite } from 'src/app/models/campsite';
 
 @Component({
   selector: 'app-campsite, ngbd-carousel-basic',
@@ -8,6 +9,9 @@ import {  Component, OnInit, AfterViewInit, ViewChild, ElementRef } from
   styleUrls: ['./campsite.component.css']
 })
 export class CampsiteComponent implements OnInit, AfterViewInit {
+
+  selected: Campsite = null;
+  campsites: Campsite [] = [];
 
   title = 'angular-gmap';
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
