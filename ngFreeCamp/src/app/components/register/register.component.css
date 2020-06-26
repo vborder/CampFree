@@ -1,0 +1,9 @@
+#form{
+  margin: auto;
+  background-color: #2068b5;
+  color: hsl(240, 100%, 99%);
+  padding: 35px;
+  border: solid gray;
+  border-radius: 180px 240px;
+  /* border-radius: 50%; */
+}
