@@ -17,7 +17,7 @@ width: 90px;
 
 #navColor
 {
-background-color: #2068b5 ;
+background-color: #2068b5 !important;
 font-size: .8em ;
 
 }
