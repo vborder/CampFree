@@ -9,17 +9,16 @@
 
 #map-div {
   height: 30%;
-  width: 80%;
+  width: 60%;
   margin-top: 30px;
 
 
  }
 
- #carousel-container
+ #logo
  {
-
-  /* height: 20em;
-  justify-content: center; */
+height: 50%;
+width: 50%;
  }
 
 
@@ -33,7 +32,7 @@
 .picsum-img-wrapper > img
 {
 /* height: 30em; */
-width: 80%;
+width: 60%;
 }
 
 .picsum-img-wrapper
