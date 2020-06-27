@@ -1,8 +1,8 @@
 
 
 <!-- create comment form -->
-<div class = 'container-fluid'>
-  <div>
+<div *ngIf='showCComs' class = 'container-fluid'>
+  <div *ngIf = "!selected">
     <h1>Create Comment</h1>
     <form class='form-group'>
       <div>
@@ -21,8 +21,8 @@
 
 <!-- update comment form -->
 
-<div class = 'container-fluid'>
-  <div>
+<div *ngIf='showEComs' class = 'container-fluid'>
+  <div *ngIf = "!selected">
     <h1>Update Comment</h1>
     <form class='form-group'>
       <div>
@@ -37,6 +37,8 @@
     </form>
   </div>
 </div>
+
+
 
 
 

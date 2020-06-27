@@ -16,11 +16,17 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     private campsiteService: CampsiteService
 
   ) { }
-
-  selected: Campsite = null;
+  select = null;
+  selected = null;
   editCampsite = null;
   newCampsite = new Campsite();
   campsites: Campsite [] = [];
+  showCamps = false;
+  showAComs = false;
+  showEComs = false;
+  showDComs = false;
+  showCComs = false;
+  remarks = [];
 
 
   title = 'angular-gmap';
@@ -58,6 +64,52 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.marker.setMap(this.map);
   }
 
+  toggleCamps(){
+    this.showCamps = !this.showCamps;
+    this.selected = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+  }
+
+  toggleAComs(){
+    this.showAComs = !this.showAComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+  }
+
+  toggleEComs(){
+    this.showEComs = !this.showEComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+  }
+
+  toggleDComs(){
+    this.showDComs = !this.showDComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showCComs = null;
+  }
+
+  toggleCComs(){
+    console.log(this.selected);
+    this.showCComs = !this.showDComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+  }
+
   ngOnInit(): void {
       this.reload();
   }
@@ -91,7 +143,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     );
 
   }
-
+// create new camp
   create(){
     console.log(this.newCampsite);
 
