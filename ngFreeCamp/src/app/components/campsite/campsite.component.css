@@ -1,5 +1,4 @@
 *{
-
   margin-left: auto;
   margin-right: auto;
   }
@@ -8,14 +7,11 @@
   height: 30%;
   width: 60%;
   margin-top: 30px;
-
  }
 
 #map
 {
-
   height: 25em;
-
 }
 
 .picsum-img-wrapper > img
@@ -27,7 +23,9 @@ margin-top: 10px;;
 .picsum-img-wrapper
 {
   width:100%;
-
 }
 
-
+#center
+{
+margin: auto;
+}
