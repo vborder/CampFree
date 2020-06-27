@@ -32,6 +32,5 @@ export class Person {
     this.user = user;
     this.state = state;
     this.bio = bio;
-
   }
 }
