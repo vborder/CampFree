@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { Person } from 'src/app/models/person';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,13 +13,15 @@ import { Person } from 'src/app/models/person';
 export class RegisterComponent implements OnInit {
   // newUser = new User();
 
-  constructor() { }
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   register(form: NgForm) {
-    console.log(form);
     const user: User = new User();
     const person: Person = new Person();
 
@@ -35,6 +39,28 @@ export class RegisterComponent implements OnInit {
     person.user = user;
 
     console.log(person);
+
+    this.auth.register(user).subscribe(
+      registeredUser => {
+        console.log('RegisterComponent.register(): User registered');
+        this.auth.login(user.username, user.password).subscribe(
+          loggedIn => {
+            console.log('RegisterComponent.register(): User logged in: ');
+            console.log(loggedIn);
+            this.router.navigateByUrl('/home'); // where is a logged in user navigating to?
+
+          },
+          notLoggedIn => {
+            console.error('RegisterCompenent.register(): login failed');
+            console.error(notLoggedIn);
+          }
+        );
+      },
+      fail => {
+        console.error('RegisterCompenent.register(): registration failed');
+        console.error(fail);
+      }
+    );
 
   }
 
