@@ -132,7 +132,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
   // update campsite
   updateReservation(campsite){
-    this.campsiteService.update(Campsite).subscribe(
+    this.campsiteService.update(campsite).subscribe(
       reserve => {console.log('reservation update success');
                   this.reload();
                   this.selected = null;
