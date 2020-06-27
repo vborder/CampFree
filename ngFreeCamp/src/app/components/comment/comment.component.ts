@@ -14,6 +14,8 @@ export class CommentComponent implements OnInit {
   selected = null;
   editComment = null;
 
+  // TODO what todo with campsiteRating to add to create new comment
+  campsiteRating = null;
 
   constructor(
     private commentService: CommentService
@@ -66,6 +68,10 @@ export class CommentComponent implements OnInit {
       }
     );
   }
+
+  // TODO campsite rating average
+
+// <app-comment><app-comment>
 
   // delete comment
   deleteComment(id: number) {

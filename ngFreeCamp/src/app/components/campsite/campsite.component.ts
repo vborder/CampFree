@@ -14,6 +14,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
   constructor(
     private campsiteService: CampsiteService
+
   ) { }
 
   selected: Campsite = null;
