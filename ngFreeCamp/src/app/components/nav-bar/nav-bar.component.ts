@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent implements OnInit {
 
+  isShown: boolean = false;
+
   constructor(
     private auth: AuthService
   ) { }

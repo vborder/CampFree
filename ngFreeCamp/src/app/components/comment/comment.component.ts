@@ -71,6 +71,7 @@ export class CommentComponent implements OnInit {
 
   // TODO campsite rating average
 
+// <app-comment><app-comment>
 
   // delete comment
   deleteComment(id: number) {
