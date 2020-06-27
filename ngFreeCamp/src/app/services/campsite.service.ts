@@ -5,6 +5,7 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Campsite } from '../models/campsite';
 import { DatePipe } from '@angular/common';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -17,7 +18,8 @@ export class CampsiteService {
 
   constructor(
     private http: HttpClient,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private auth: AuthService
   ) { }
 
 
@@ -35,10 +37,16 @@ export class CampsiteService {
   }
 
   // create campsite
-  create(reservation: Campsite){
-    console.log(reservation);
+  create(campsite: Campsite){
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
 
-    return this.http.post<Campsite>(this.url, reservation).pipe (
+    return this.http.post<Campsite>(this.url, Campsite, httpOptions).pipe (
       catchError((err: any) => {
         console.log('campsite service create is not working');
         return throwError('campsite service create is not working properly');
@@ -48,7 +56,14 @@ export class CampsiteService {
 
   // update campsite
   update(campsite: Campsite){
-    return this.http.put<Campsite>(this.url + '/' + campsite.id, campsite).pipe (
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+    return this.http.put<Campsite>(this.url + '/' + campsite.id, campsite, httpOptions).pipe (
       catchError((err: any) => {
         console.log('Campsite service update is not working');
         return throwError('Campsite service update is not working properly');
@@ -61,7 +76,14 @@ export class CampsiteService {
 
   // delete campsite (disable)
   delete(id){
-    return this.http.delete<Campsite>(this.url + '/' + id). pipe(
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+    return this.http.delete<Campsite>(this.url + '/' + id, httpOptions). pipe(
       catchError((err: any) => {
         console.log('Campsite service delete is not working');
         return throwError('Campsite service delete is not working properly');
@@ -72,7 +94,14 @@ export class CampsiteService {
 
   // show campsite by id
   show(id){
-    return this.http.get<Campsite>(this.url + '/' + id). pipe(
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+    return this.http.get<Campsite>(this.url + '/' + id, httpOptions). pipe(
       catchError((err: any) => {
         console.log('Campsite service show is not working');
         return throwError('Campsite service show is not working properly');
