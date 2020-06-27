@@ -17,13 +17,26 @@ export class CommentService {
   constructor(
     private http: HttpClient,
     private datePipe: DatePipe,
-  ) { }
+  ){
+
+  }
 
 
+   // index
+   index() {
+    return this.http.get<Comment[]>(this.url + '')
+      .pipe(
+        catchError((err: any) => {
+        console.log('comment service is not reached');
+        return throwError('comment service index is not working');
+    })
 
+  );
+
+};
 
   /*  comment delete */
-  delete(id){
+delete(id){
     return this.http.delete<Comment>(this.url + '/' + id). pipe(
       catchError((err: any) => {
         console.log('comment service delete is not working');
@@ -44,5 +57,17 @@ update(comment){
     })
   );
 
+}
+
+// create
+create(comment: Comment){
+  console.log(comment);
+
+  return this.http.post<Comment>(this.url, comment).pipe (
+    catchError((err: any) => {
+      console.log('reservation service create is not working');
+      return throwError('reservation service create is not working properly');
+    })
+  );
 }
 }
