@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { WhoComponent } from './components/who/who.component';
 import { WhyComponent } from './components/why/why.component';
 import { DatePipe } from '@angular/common';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     RegisterComponent,
     WhoComponent,
-    WhyComponent
+    WhyComponent,
+    LogoutComponent
 
   ],
   imports: [
