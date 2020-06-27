@@ -1,41 +1,29 @@
 <div id='navFont'>
-
-
 <nav id='navColor' class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/CampFree-logos.jpeg" width="90" height="70" class="d-inline-block">CampFree
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" (click)="isShown = !isShown">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">
-      <img src="assets/img/CampFree-logos.jpeg" width="50" height="50" class="d-inline-block align-top">CampFree
-    </a>
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': isShown }" id="navbarTogglerDemo01">
+
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/home']">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/who']">Who we is</a>
+        <a class="nav-link" [routerLink]="['/who']">Who we are</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/why']">Why CampFree</a>
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/register']">Sign Up</a>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']">Log In</a>
-      </li> -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/user']">User Profile</a>
-      </li> -->
       <li *ngIf="! loggedIn()">
         <a class="nav-link" [routerLink]="['/register']">Sign Up</a>
       </li>
       <li *ngIf="! loggedIn()">
         <a class="nav-link" [routerLink]="['/login']">Log In</a>
       </li>
-        <!-- <app-logout></app-logout> -->
-      <!-- </li> -->
       <li *ngIf="loggedIn()">
         <a class="nav-link" [routerLink]="['/user']">User Profile</a>
       </li>
