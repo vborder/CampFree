@@ -26,7 +26,10 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   showEComs = false;
   showDComs = false;
   showCComs = false;
+  showCCamp = false;
   remarks = [];
+  editComment = null;
+  newComment = null;
 
 
   title = 'angular-gmap';
@@ -64,6 +67,17 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.marker.setMap(this.map);
   }
 
+  toggleCCamp(){
+    this.showCCamp = !this.showCCamp;
+    this.selected = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+    this.showCamps = null;
+  }
+
+
   toggleCamps(){
     this.showCamps = !this.showCamps;
     this.selected = null;
@@ -71,6 +85,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showEComs = null;
     this.showDComs = null;
     this.showCComs = null;
+    this.showCCamp = null;
   }
 
   toggleAComs(){
@@ -80,6 +95,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showEComs = null;
     this.showDComs = null;
     this.showCComs = null;
+    this.showCCamp = null;
   }
 
   toggleEComs(){
@@ -89,6 +105,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showAComs = null;
     this.showDComs = null;
     this.showCComs = null;
+    this.showCCamp = null;
   }
 
   toggleDComs(){
@@ -98,6 +115,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showAComs = null;
     this.showEComs = null;
     this.showCComs = null;
+    this.showCCamp = null;
   }
 
   toggleCComs(){
@@ -108,6 +126,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showAComs = null;
     this.showEComs = null;
     this.showDComs = null;
+    this.showCCamp = null;
   }
 
   ngOnInit(): void {

@@ -34,20 +34,13 @@ export class PersonComponent implements OnInit {
   reload() {
     console.log('reloading');
 
-    this.personService.index().subscribe(
-      data => {
-        this.person = data;
-        this.selected = null;
-        this.editPerson = null;
-      },
-      fail => {
-        console.error('TodoListComponent.index(): error retrieving todos');
-        console.error(fail);
-      }
-    );
+
+
   }
 
+  index(){
 
+  }
   // GET person by ID
 
 
