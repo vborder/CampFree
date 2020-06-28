@@ -18,6 +18,7 @@ import { WhoComponent } from './components/who/who.component';
 import { WhyComponent } from './components/why/why.component';
 import { DatePipe } from '@angular/common';
 import { LogoutComponent } from './components/logout/logout.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     RegisterComponent,
     WhoComponent,
     WhyComponent,
-    LogoutComponent
+    LogoutComponent,
+    FooterComponent
 
   ],
   imports: [
