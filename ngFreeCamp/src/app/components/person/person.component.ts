@@ -4,6 +4,8 @@ import { PersonService } from 'src/app/services/person.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { Campsite } from 'src/app/models/campsite';
+import { CampsiteService } from 'src/app/services/campsite.service';
 
 @Component({
   selector: 'app-person',
@@ -12,10 +14,10 @@ import { throwError } from 'rxjs';
 })
 export class PersonComponent implements OnInit {
 
-
   selected = null;
   newPerson = new Person();
   editPerson = null;
+  newCampsite: Campsite = new Campsite();
 
 
 
@@ -24,7 +26,8 @@ export class PersonComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private personService: PersonService
+    private personService: PersonService,
+    private campsiteService: CampsiteService
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +45,24 @@ export class PersonComponent implements OnInit {
 
   }
   // GET person by ID
+
+  // create campsite?
+  createCampsite() {
+    this.campsiteService.create(this.newCampsite).subscribe(
+      data => {
+
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  // display profile
+  // displayPersonProfile() {
+  //   this.selected =
+  // }
+
 
 
 

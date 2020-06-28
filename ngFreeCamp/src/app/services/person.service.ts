@@ -6,16 +6,23 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Campsite } from '../models/campsite';
 import { Person } from '../models/person';
+import { Router } from '@angular/router';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonService {
   private url = environment.baseUrl + 'api/person';
+  private baseUrl = environment.baseUrl;
+
+  persons: Person[] = [];
+  user: User;
 
   constructor(
     private http: HttpClient,
     private datePipe: DatePipe,
+    private router: Router
   ) { }
 
 
@@ -32,7 +39,6 @@ export class PersonService {
 
   }
 
-
   // create a new person
   create(person: Person){
     console.log(person);
@@ -44,4 +50,42 @@ export class PersonService {
       })
     );
   }
+
+  update(person: Person) {
+    return this.http.put(this.url + '/' + person.id, person).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error updating person profile');
+      })
+    );
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.url + '/' + id).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error deleting person profile');
+      })
+    );
+  }
+
+  findPersonByUsername(username: string) {
+    return this.http.get<User>(this.url + username).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error finding person by username');
+      })
+    );
+  }
+
+  getCampsitesByUsername() {
+    return this.http.get<Campsite[]>(this.baseUrl + 'api/campsite/username').pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error finding campsites by username');
+      })
+    );
+  }
+
+
 }
