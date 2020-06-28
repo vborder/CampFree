@@ -60,7 +60,7 @@
   </div> -->
 
   <!-- INDIVIDUAL CAMPSITE INFORMATION PRESENTATION -->
-  <div *ngIf ='selected'>
+  <div *ngIf ='selected' class = 'campBtm'>
     <table class='table table-striped text-center'>
       <thead class="thead-dark">
         <tr>
@@ -88,16 +88,18 @@
       </tbody>
     </table>
 
-    <div class = 'btn-group' role="group">
+    <div class ='btn-group ' role="group">
                    <!-- TODO Inject Comments here -->
       <!-- Show all comments button-->
       <button class='btn btn-info btnTop mr-5' (click)='toggleAComs()' >See All Comments</button>
       <!-- edit comment -->
       <button class='btn btn-info btnTop mr-5' (click)='toggleEComs()' >Edit Comment</button>
-      <!-- edit comment -->
+      <!-- add comment -->
       <button class='btn btn-primary btnTop mr-5' (click)='toggleCComs()' >Add Comment</button>
       <!-- delete comment -->
       <button class='btn btn-danger btnTop mr-5' (click)='toggleDComs()' >Delete Comment</button>
+      <!-- create campsite -->
+      <button class='btn btn-primary btnTop mr-5' (click)='toggleCCamp()' >Create campsite</button>
     </div>
 
 
@@ -106,21 +108,38 @@
 
 </div>
 
+
+
+<!-- create campsite form -->
+<div class= 'contianer-flex'>
+  <div class = 'container'>
+    <h1>Create Campsite</h1>
+    <form class = 'form-control'>
+
+
+    </form>
+
+  </div>
+</div>
+
 <!-- update comment form -->
 
-<div *ngIf='showEComs' class = 'card container-fluid comColor' style="width: 38rem;">
+<div *ngIf='showEComs' class = 'card container-fluid comColor' style="width: 68rem;">
   <div *ngIf = "!selected" class='card-body'>
     <h1>Update Comment</h1>
     <form class='form-group'>
-      <div>
+      <div class='mt-3'>
         <label for="Comment Remarks">Comments</label>
-        <input class="form-control mt-3" type="text" name="remark" placeholder="Update Comment" [(ngModel)]="editComment.remark">
+        <textarea class="form-control mt-3 comWidth" type="text" name="remark" placeholder="Update Comment" [(ngModel)]="editComment.remark"></textarea>
       </div>
-      <div>
+      <div class='mt-3'>
         <label for="Campsite Rating">Campsite Rating</label>
         <input class="form-control mt-3" type="number" name="campsiteRating" placeholder="Update Campsite rating" [(ngModel)]="editComment.campsiteRating">
       </div>
-      <button class='btn btn-success btnTop mt-5' (click)="create()">Update Comment</button>
+      <div class='d-flex justify-content-center'>
+        <button class='btn btn-info mt-5' (click)="create()">Update Comment</button>
+      </div>
+
     </form>
   </div>
 </div>
@@ -165,7 +184,10 @@
         <label class='mt-3' for="Campsite Rating">Campsite Rating</label>
         <input class="form-control mt-2" type="text" name="campsiteRating" placeholder="New Campsite rating" [(ngModel)]="newComment.campsiteRating">
       </div>
-      <button class='btn btn-info btnTop mt-5 btnRight' (click)="create()">Create Comment</button>
+      <div class = 'd-flex justify-content-center'>
+        <button class='btn btn-info btnTop mt-5 btnRight' (click)="create()">Create Comment</button>
+      </div>
+
     </form>
   </div>
 </div>
