@@ -1,6 +1,7 @@
 *{
   margin-left: auto;
   margin-right: auto;
+
   }
 
 #map-div {
@@ -28,4 +29,21 @@ margin-top: 10px;;
 #center
 {
 margin: auto;
+}
+
+.comColor
+{
+  background-color: #2068b5 !important;
+  color: #f8f8ff;
+  margin-bottom: 30em;
+}
+
+.comWidth
+{
+  width: 40em;
+}
+
+.campBtm
+{
+  margin-bottom: 30em;
 }

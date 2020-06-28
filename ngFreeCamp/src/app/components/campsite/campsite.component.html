@@ -1,5 +1,6 @@
 
 <!-- CAROUSEL AND MAP IN RELATIVE POSITION IN CONTAINER -->
+<!-- CAROUSEL -->
 <div id='box' class='container-fluid text-center'>
 
   <div id='carousel-container'>
@@ -32,11 +33,15 @@
   </div>
 
 
-
+<!-- MAP -->
 <div id='map-div'>
   <div #mapContainer id="map"></div>
 </div>
 </div>
+
+
+<!-- Show all campsite button-->
+<button class='btn btn-primary btnTop mt-5' (click)='toggleCamps()'>See All Campsites</button>
 
 
 <!-- Show campsite table -->
@@ -54,25 +59,166 @@
     </div>
   </div> -->
 
-  <!-- CAMPSITE INFORMATION PRESENTATION -->
-  <div *ngIf ='selected'>
-    <p>{{selected.name}}</p>
-    <p>{{selected.location}}</p>
-    <p>{{selected.longitude}}</p>
-    <p>{{selected.latitude}}</p>
-    <p>{{selected.state}}</p>
-    <p>{{selected.features}}</p>
+  <!-- INDIVIDUAL CAMPSITE INFORMATION PRESENTATION -->
+  <div *ngIf ='selected' class = 'campBtm'>
+    <table class='table table-striped text-center'>
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Longitude</th>
+          <th>Latitude</th>
+          <th>State</th>
+          <th>Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{selected.name}}</td>
+          <td>{{selected.location}}</td>
+          <td>{{selected.longitude}}</td>
+          <td>{{selected.latitude}}</td>
+          <td>{{selected.state}}</td>
 
-     <!-- CAMPSITE FEATURES LIST -->
-    <div *ngFor = 'let feature of selected.features'>
-      <p>{{feature}}</p>
-     </div>
+           <!-- CAMPSITE FEATURES LIST -->
+          <div *ngFor = 'let feature of selected.features'>
+            <td>{{feature}}</td>
+           </div>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class ='btn-group ' role="group">
+                   <!-- TODO Inject Comments here -->
+      <!-- Show all comments button-->
+      <button class='btn btn-info btnTop mr-5' (click)='toggleAComs()' >See All Comments</button>
+      <!-- edit comment -->
+      <button class='btn btn-info btnTop mr-5' (click)='toggleEComs()' >Edit Comment</button>
+      <!-- add comment -->
+      <button class='btn btn-primary btnTop mr-5' (click)='toggleCComs()' >Add Comment</button>
+      <!-- delete comment -->
+      <button class='btn btn-danger btnTop mr-5' (click)='toggleDComs()' >Delete Comment</button>
+      <!-- create campsite -->
+      <button class='btn btn-primary btnTop mr-5' (click)='toggleCCamp()' >Create campsite</button>
+    </div>
+
+
+
   </div>
 
 </div>
 
-<div>
-  <table class='table table-striped text-center'>
+
+
+<!-- create campsite form -->
+<div class= 'contianer-flex'>
+  <div class = 'container'>
+    <h1>Create Campsite</h1>
+    <form class = 'form-control'>
+
+
+    </form>
+
+  </div>
+</div>
+
+<!-- update comment form -->
+
+<div *ngIf='showEComs' class = 'card container-fluid comColor' style="width: 68rem;">
+  <div *ngIf = "!selected" class='card-body'>
+    <h1>Update Comment</h1>
+    <form class='form-group'>
+      <div class='mt-3'>
+        <label for="Comment Remarks">Comments</label>
+        <textarea class="form-control mt-3 comWidth" type="text" name="remark" placeholder="Update Comment" [(ngModel)]="editComment.remark"></textarea>
+      </div>
+      <div class='mt-3'>
+        <label for="Campsite Rating">Campsite Rating</label>
+        <input class="form-control mt-3" type="number" name="campsiteRating" placeholder="Update Campsite rating" [(ngModel)]="editComment.campsiteRating">
+      </div>
+      <div class='d-flex justify-content-center'>
+        <button class='btn btn-info mt-5' (click)="create()">Update Comment</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!-- create comment form -->
+<div *ngIf='showCComs' class = 'card container-fluid comColor' >
+  <div *ngIf = "!selected" class="card-body container">
+    <h1>Create Comment</h1>
+    <table class='table table-striped text-center'>
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Longitude</th>
+          <th>Latitude</th>
+          <th>State</th>
+          <th>Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{selected.name}}</td>
+          <td>{{selected.location}}</td>
+          <td>{{selected.longitude}}</td>
+          <td>{{selected.latitude}}</td>
+          <td>{{selected.state}}</td>
+
+           <!-- CAMPSITE FEATURES LIST -->
+          <div *ngFor = 'let feature of selected.features'>
+            <td>{{feature}}</td>
+           </div>
+        </tr>
+      </tbody>
+    </table>
+    <form class='form-group'>
+      <div>
+        <label class='mt-3' for="Comment Remarks">Comments</label>
+        <input class="form-control mt-2" type="text" name="remark" placeholder="New Comment" [(ngModel)]="newComment.remark">
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite Rating">Campsite Rating</label>
+        <input class="form-control mt-2" type="text" name="campsiteRating" placeholder="New Campsite rating" [(ngModel)]="newComment.campsiteRating">
+      </div>
+      <div class = 'd-flex justify-content-center'>
+        <button class='btn btn-info btnTop mt-5 btnRight' (click)="create()">Create Comment</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- SHOW ALL COMMENT -->
+
+<div *ngIf='showAComs'>
+  <table *ngIf = "!selected" class='table table-striped text-center'>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">COMMENTS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let remark of remarks' (click)= 'onSubmit(remark)'>
+        <td>{{remark}}</td>
+
+       </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+<!-- SHOW ALL CAMPSITES -->
+<div *ngIf='showCamps'>
+  <table *ngIf = "!selected" class='table table-striped text-center'>
     <thead class="thead-dark">
       <tr>
         <th scope="col">Name</th>

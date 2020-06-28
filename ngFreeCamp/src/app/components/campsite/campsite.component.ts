@@ -16,11 +16,20 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     private campsiteService: CampsiteService
 
   ) { }
-
-  selected: Campsite = null;
+  select = null;
+  selected = null;
   editCampsite = null;
   newCampsite = new Campsite();
   campsites: Campsite [] = [];
+  showCamps = false;
+  showAComs = false;
+  showEComs = false;
+  showDComs = false;
+  showCComs = false;
+  showCCamp = false;
+  remarks = [];
+  editComment = null;
+  newComment = null;
 
 
   title = 'angular-gmap';
@@ -58,6 +67,68 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.marker.setMap(this.map);
   }
 
+  toggleCCamp(){
+    this.showCCamp = !this.showCCamp;
+    this.selected = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+    this.showCamps = null;
+  }
+
+
+  toggleCamps(){
+    this.showCamps = !this.showCamps;
+    this.selected = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+    this.showCCamp = null;
+  }
+
+  toggleAComs(){
+    this.showAComs = !this.showAComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+    this.showCCamp = null;
+  }
+
+  toggleEComs(){
+    this.showEComs = !this.showEComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+    this.showCCamp = null;
+  }
+
+  toggleDComs(){
+    this.showDComs = !this.showDComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showCComs = null;
+    this.showCCamp = null;
+  }
+
+  toggleCComs(){
+    console.log(this.selected);
+    this.showCComs = !this.showDComs;
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCCamp = null;
+  }
+
   ngOnInit(): void {
       this.reload();
   }
@@ -91,7 +162,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     );
 
   }
-
+// create new camp
   create(){
     console.log(this.newCampsite);
 
