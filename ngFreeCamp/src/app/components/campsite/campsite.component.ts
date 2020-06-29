@@ -51,6 +51,37 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     map: this.map,
   });
 
+
+  allFeatures = [
+    'Rv Accesible',
+    'Fishing',
+    'Hiking',
+    'Dog Friendly',
+    'Nearby Bathrooms',
+    'Geo-Caching',
+    'Fire Rings',
+    'Tent Areas',
+    'Kid Friendly',
+    'Rock Climbing',
+    'Waterfalls',
+    'Lakes ',
+    'Rivers',
+    '4X4 Accessible Only',
+    'Passenger Vehicle Accessible',
+    'Heavy Wind Area',
+    'Orienting',
+    'Natural Swimming Area',
+    'Large Family/Group Areas',
+    'Potable Water',
+    'Boat Launch',
+    'Nearby Garbage Receptacles',
+    'Nearby Town under 5 miles',
+    'Nearby Town under 10 miles',
+    'Nearby Town under 20 miles',
+    'Good Cell Service'
+  ]
+
+
   images = [
     'https://images.pexels.com/photos/3232542/pexels-photo-3232542.jpeg?auto=compress&cs=tinysrgb&dpr=1',
     'https://images.pexels.com/photos/1118785/pexels-photo-1118785.jpeg?auto=compress&cs=tinysrgb&dpr=1',
@@ -79,8 +110,9 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showECamp = null;
   }
 
-  toggleECamp(){
+  toggleECamp(campsiteEdit){
     this.showECamp = !this.showECamp;
+    this.editCampsite = campsiteEdit;
     this.selected = null;
     this.showAComs = null;
     this.showEComs = null;
@@ -92,7 +124,6 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
 
   toggleCamps(){
-    console.log(this.campsites)
     this.showCamps = !this.showCamps;
     this.selected = null;
     this.showAComs = null;
