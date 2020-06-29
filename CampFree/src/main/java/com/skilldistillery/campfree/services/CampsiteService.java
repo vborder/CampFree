@@ -1,6 +1,7 @@
 package com.skilldistillery.campfree.services;
 
 import java.util.List;
+import java.util.Set;
 
 import com.skilldistillery.campfree.entities.Campsite;
 
@@ -11,5 +12,6 @@ public interface CampsiteService {
 	Campsite updateCampsite(String username,Campsite campsite, int campsiteId);
 	boolean disableCampsite(String username, int campsiteId);
 	List<Campsite> findByName(String name);
+	public Set<Campsite> userIndex(String username);
 
 }

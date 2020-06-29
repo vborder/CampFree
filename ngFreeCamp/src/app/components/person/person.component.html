@@ -26,10 +26,15 @@
     </div>
 
     <div class="col" id="campsites">
-
        <h3>Your Created Campsites</h3>
        <br>
-       <p>Get Campsites By CreatorId == PersonId</p>
+       <!-- <table *ngIf="!personSelected">
+         <tbody>
+           <tr *ngFor="let camp of personCampsites"> -->
+       <p>{{personCampsites}}</p>
+      <!-- </tr>
+      </tbody>
+      </table> -->
 
     </div>
 
