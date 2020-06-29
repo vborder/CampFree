@@ -14,27 +14,51 @@
     <div class="col" id="profile-info">
       <div *ngIf='personSelected'>
       <h3>Camper Profile</h3>
-      <br>
+      <!-- <br> -->
       <h5>{{personSelected.user.username}}</h5>
       <img src={{personSelected.profileImage}} name="picUrl" id="profileImage" class="img-fluid img-thumbnail"/>
       <br>
       <p>Name: {{personSelected.firstName}} {{personSelected.lastName}}</p>
       <p>Email: {{personSelected.email}}</p>
-      <p>State: {{personSelected.state}}</p> // OR "FREEBIRD" if NULL--
+      <p>State: {{personSelected.state.name}}</p>
       <p>Bio: {{personSelected.bio}}</p>
-
+      <br>
     </div>
+    <h3>Your Created Campsites</h3>
 
     <div class="col" id="campsites">
-       <h3>Your Created Campsites</h3>
-       <br>
-       <!-- <table *ngIf="!personSelected">
-         <tbody>
-           <tr *ngFor="let camp of personCampsites"> -->
-       <p>{{personCampsites}}</p>
-      <!-- </tr>
-      </tbody>
-      </table> -->
+      <div class="table table-striped text-center">
+        <table>
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Location</th>
+              <th scope="col">Longitude</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">State</th>
+              <th scope="col">Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = 'let campsite of personCampsites' (click)= 'onSubmit(campsite)'>
+              <img src="{{campsite.pictureUrl}}" class="img-thumbnail" style="width:60%">
+              <td class="name mt-3">{{campsite.name}}</td>
+              <td>{{campsite.location}}</td>
+              <td>{{campsite.longitude}}</td>
+              <td>{{campsite.latitude}}</td>
+              <td>{{campsite.state.name}}</td>
+              <!-- <td>{{campsite.features.name}}</td> -->
+              <!-- CAMPSITE FEATURES LIST -->
+              <td>
+              <div *ngFor = 'let feature of campsite.features'>
+                <p>{{feature.name}}</p>
+              </div>
+            </td>
+             </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
 
