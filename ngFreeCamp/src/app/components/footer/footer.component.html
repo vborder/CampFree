@@ -5,9 +5,9 @@
         <div id="user-links" class="col-lg-4 col-xs-12">
           <h5 class="mt-lg-0 mt-sm-3">Your Account</h5>
           <div class="m-0 p-0 links">
-            <p *ngIf="! loggedIn()"><a href="#">Sign up</a></p>
+            <p *ngIf="! loggedIn()"><a href="nav-link" [routerLink]="['/register']">Sign up</a></p>
             <p *ngIf="! loggedIn()"><a href="nav-link" [routerLink]="['/login']">Log in</a></p>
-            <p *ngIf=" loggedIn()"><a href="#">Create campsite</a></p>
+            <p *ngIf=" loggedIn()"><a href="nav-link" [routerLink]="['/person']">Your profile</a></p>
             <p *ngIf=" loggedIn()"><a href="#">Add campsite photo</a></p>
             <!-- <li><a href="#">About dispersed camping</a></li> -->
           </div>
@@ -18,8 +18,8 @@
           <h5 class="mt-lg-0 mt-sm-3">Discover</h5>
             <div class="m-0 p-0 links">
               <!-- <ul class="links"> -->
-              <p><a href="#">About CampFree</a></p>
-              <p><a href="#">What is dispersed camping</a></p>
+              <p><a href="nav-link" [routerLink]="['/who']">About CampFree</a></p>
+              <p><a href="nav-link" [routerLink]="['/why']">What is dispersed camping</a></p>
               <!-- </ul> -->
               <!-- <li><a href="#">Etiam vitae mauris</a></li> -->
               <!-- <li><a href="#">Fusce scelerisque</a></li> -->
