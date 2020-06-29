@@ -36,8 +36,8 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   title = 'angular-gmap';
   @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
   map: google.maps.Map;
-  lat = 40.73061;
-  lng = -73.935242;
+  lat = 39.7392;
+  lng = -104.9903;
 
   markers: google.maps.Marker[] = [];
 
@@ -66,14 +66,22 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.mapOptions);
     console.log(this.campsites);
     this.campsites.forEach((val) => {
+      const contentString = val.name + ' ' + val.remark;
       const coordinates = new google.maps.LatLng(val.latitude, val.longitude);
-       const marker = new google.maps.Marker({
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      const marker = new google.maps.Marker({
         position: coordinates,
-        map: this.map,
-        title: val.name
+        map: this.map
+        // title: val.name
+      });
+      marker.addListener('click', () => {
+        infowindow.open(this.map, marker);
       });
       console.log(marker);
       marker.setMap(this.map);
+
     });
 
   }
