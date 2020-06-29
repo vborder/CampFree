@@ -13,10 +13,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
 })
 export class PersonComponent implements OnInit {
-
   // selected = null;
   personSelected: Person = null;
   newPerson = new Person();
@@ -32,7 +31,7 @@ export class PersonComponent implements OnInit {
     private route: ActivatedRoute,
     private auth: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     if (!this.auth.checkLogin) {
@@ -43,41 +42,50 @@ export class PersonComponent implements OnInit {
       const personIdParam = this.route.snapshot.paramMap.get('id');
       const personId = parseInt(personIdParam, 10);
       this.personService.show(personId).subscribe(
-        person => {
+        (person) => {
           this.personSelected = person;
+          this.getCampsitesByUserId();
         },
-        fail => {
+        (fail) => {
           console.error();
           console.error(fail);
           this.router.navigateByUrl('not found');
         }
       );
     } else {
-      // this.reload();
-
-    }
-
+      this.reload();
     }
   }
 
-// reload() {
-//     this.personService.index().subscribe(
-//       person => {
-//         this.person = person;
-//       },
-//       fail => {
-//         console.error();
-//         console.error(fail);
-//       }
-//     );
-//     // console.log('reloading');
-//     // console.log(this.persons);
+  reload() {
+    // this.personService.index().subscribe(
+    //     data => {
+    //     this.persons = data;
+    //   },
+    //   fail => {
+    //     console.error();
+    //     console.error(fail);
+    //   }
+    // );
+    // console.log('reloading');
+    // console.log(this.persons);
+  }
 
-//   }
+  getCampsitesByUserId() {
+    this.personService.getCampsitesByUserId().subscribe(
+      (data) => {
+        this.personCampsites = data;
+        console.log(this.personCampsites);
+
+      },
+      (fail) => {
+        console.error();
+        console.error(fail);
+      }
+    );
+  }
 
   // GET person by ID
-
-
 
   // create campsite?
   // createCampsite() {
@@ -90,17 +98,4 @@ export class PersonComponent implements OnInit {
   //     }
   //   );
   // }
-
-  // findUser(user: User) {
-  //   this.personService.findPersonByUsername(user.id).subscribe(
-  //     data => {
-  //       this.personCampsites = data;
-
-  //     },
-  //     err => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }
-
-
+}

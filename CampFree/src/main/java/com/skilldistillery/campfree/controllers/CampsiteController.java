@@ -35,7 +35,6 @@ public class CampsiteController {
 	@Autowired
 	private PersonService perSvc;
 	
-//	private String username = "outlier";
 	
 	@GetMapping("campsite")
 	public List<Campsite> findAllcampsites() {
@@ -50,6 +49,20 @@ public class CampsiteController {
 			Principal principal
 			) {
 		Campsite campsite = campSvc.findCampsiteById(principal.getName(), id);
+		if (campsite == null) {
+			response.setStatus(404);
+		}
+		return campsite;
+	}
+	
+	@GetMapping("campsite/userCampsites")
+	public Set<Campsite> findByUsername(
+			HttpServletResponse response,
+			HttpServletRequest request,
+			Principal principal
+			) {
+		Set<Campsite> campsite = campSvc.userIndex(principal.getName());
+		
 		if (campsite == null) {
 			response.setStatus(404);
 		}

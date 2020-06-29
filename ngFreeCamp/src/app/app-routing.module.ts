@@ -11,6 +11,7 @@ import { PersonComponent } from './components/person/person.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: CampsiteComponent },
+  { path: 'campsite/userCampsites', component: CampsiteComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'person', component: PersonComponent },
