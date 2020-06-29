@@ -9,6 +9,7 @@ import { CampsiteService } from 'src/app/services/campsite.service';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Picture } from 'src/app/models/picture';
 
 @Component({
   selector: 'app-person',
@@ -25,6 +26,7 @@ export class PersonComponent implements OnInit {
   persons: Person[] = [];
   showUserCamps = false;
   selected = null;
+  campPics: Picture[] = [];
 
   constructor(
     private http: HttpClient,
@@ -56,6 +58,7 @@ export class PersonComponent implements OnInit {
         (person) => {
           this.personSelected = person;
           this.getCampsitesByUserId();
+          this.getPicturesByUserId();
         },
         (fail) => {
           console.error();
@@ -87,6 +90,20 @@ export class PersonComponent implements OnInit {
       (data) => {
         this.personCampsites = data;
         console.log(this.personCampsites);
+
+      },
+      (fail) => {
+        console.error();
+        console.error(fail);
+      }
+    );
+  }
+
+  getPicturesByUserId() {
+    this.personService.getPicturesByUserId().subscribe(
+      (data) => {
+        this.campPics = data;
+        console.log(this.campPics);
 
       },
       (fail) => {

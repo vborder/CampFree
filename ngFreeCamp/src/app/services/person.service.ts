@@ -9,6 +9,7 @@ import { Person } from '../models/person';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { AuthService } from './auth.service';
+import { Picture } from '../models/picture';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class PersonService {
   private url = environment.baseUrl + 'api/person';
   private baseUrl = environment.baseUrl;
   private url2 = environment.baseUrl + 'api/campsite';
+  private url3 = environment.baseUrl + 'api/pictures';
 
   persons: Person[] = [];
   user: User;
@@ -94,6 +96,23 @@ export class PersonService {
       catchError((err: any) => {
         console.log(err);
         return throwError('Error finding campsites by username');
+      })
+    );
+  }
+
+  getPicturesByUserId() {
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+
+    return this.http.get<Picture[]>(this.url3 + '/userPictures', httpOptions).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error finding pictures by username');
       })
     );
   }
