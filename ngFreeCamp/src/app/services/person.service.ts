@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { throwError } from 'rxjs';
@@ -8,6 +8,7 @@ import { Campsite } from '../models/campsite';
 import { Person } from '../models/person';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class PersonService {
 
   constructor(
     private http: HttpClient,
+    private auth: AuthService,
     private datePipe: DatePipe,
     private router: Router
   ) { }
@@ -29,11 +31,19 @@ export class PersonService {
 
   // search person by id
 
-  show(id){
-    return this.http.get<Person>(this.url + '/' + id). pipe(
+  show(personId: number){
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+
+    return this.http.get<Person>(`${this.url}/${personId}`, httpOptions). pipe(
       catchError((err: any) => {
-        console.log('person service show is not working');
-        return throwError('person service show is not working properly');
+        console.error(err);
+        return throwError('PersonService.show(): Error retrieving person: ' + err);
       })
     );
 
@@ -69,17 +79,18 @@ export class PersonService {
     );
   }
 
-  findPersonByUsername(username: string) {
-    return this.http.get<User>(this.url + username).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError('Error finding person by username');
-      })
-    );
-  }
+  // findPersonByUsername(user: User) {
+  //   console.log(user);
+  //   return this.http.get<User>(this.url + '/' + user).pipe(
+  //     catchError((err: any) => {
+  //       console.log(err);
+  //       return throwError('Error finding person by username');
+  //     })
+  //   );
+  // }
 
-  getCampsitesByUsername() {
-    return this.http.get<Campsite[]>(this.baseUrl + 'api/campsite/username').pipe(
+  getCampsitesByCreatorId(id: number) {
+    return this.http.get<Campsite[]>(this.url + '/' + id).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('Error finding campsites by username');

@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'person', component: PersonComponent },
+  { path: 'person/:id', component: PersonComponent },
   { path: 'who', component: WhoComponent },
   { path: 'why', component: WhyComponent }
 ];

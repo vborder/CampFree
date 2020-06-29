@@ -3,6 +3,7 @@ package com.skilldistillery.campfree.controllers;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.campfree.entities.Campsite;
+import com.skilldistillery.campfree.entities.Person;
 import com.skilldistillery.campfree.services.CampsiteService;
+import com.skilldistillery.campfree.services.PersonService;
 
 @RestController
 @RequestMapping("api")
@@ -28,6 +31,9 @@ public class CampsiteController {
 	
 	@Autowired
 	private CampsiteService campSvc;
+	
+	@Autowired
+	private PersonService perSvc;
 	
 //	private String username = "outlier";
 	
@@ -115,6 +121,7 @@ public class CampsiteController {
 	public List<Campsite> campsiteForKeyword(@PathVariable String keyword) {
 		return campSvc.findByName(keyword);
 	}
+	
 	
 
 }

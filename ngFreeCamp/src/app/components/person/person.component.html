@@ -2,7 +2,9 @@
   <div class="container text-center" id="myPics">
     <h3>Your Pictures</h3>
     <!-- <div *ngFor="let picture of selected.pictures"> -->
-    <img src="person.imageUrl"
+    <div *ngIf="personSelected">
+    <img src="" />
+    </div>
   </div>
 
 
@@ -10,19 +12,16 @@
   <div class="row">
 
     <div class="col" id="profile-info">
+      <div *ngIf='personSelected'>
       <h3>Camper Profile</h3>
       <br>
-      <h5>--USER.USERNAME--</h5>
-      <!-- <img src="-IMAGE SOURCE URL-" name="picUrl" id="profileImage"/> -->
+      <h5>{{personSelected.user.username}}</h5>
+      <img src={{personSelected.profileImage}} name="picUrl" id="profileImage" class="img-fluid img-thumbnail"/>
       <br>
-      <br>
-      <p>Name: --PERSON.FIRSTNAME-- --PERSON.LASTNAME--</p>
-      <br>
-      <p>Email: --PERSON.EMAIL--</p>
-      <br>
-      <p>State: --PERSON.STATE.STATENAME  OR "FREEBIRD" if NULL--</p>
-      <br>
-      <p>Info: --PERSON.BIO--</p>
+      <p>Name: {{personSelected.firstName}} {{personSelected.lastName}}</p>
+      <p>Email: {{personSelected.email}}</p>
+      <p>State: {{personSelected.state}}</p> // OR "FREEBIRD" if NULL--
+      <p>Bio: {{personSelected.bio}}</p>
 
     </div>
 
