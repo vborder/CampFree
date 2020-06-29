@@ -39,47 +39,46 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   lat = 40.73061;
   lng = -73.935242;
 
-  coordinates = new google.maps.LatLng(this.lat, this.lng);
+  markers: google.maps.Marker[] = [];
+
+
 
   mapOptions: google.maps.MapOptions = {
-   center: this.coordinates,
-   zoom: 8
+   center: new google.maps.LatLng(this.lat, this.lng),
+   zoom: 3
   };
 
-  marker = new google.maps.Marker({
-    position: this.coordinates,
-    map: this.map,
-  });
 
 
-  allFeatures = [
-    'Rv Accesible',
-    'Fishing',
-    'Hiking',
-    'Dog Friendly',
-    'Nearby Bathrooms',
-    'Geo-Caching',
-    'Fire Rings',
-    'Tent Areas',
-    'Kid Friendly',
-    'Rock Climbing',
-    'Waterfalls',
-    'Lakes ',
-    'Rivers',
-    '4X4 Accessible Only',
-    'Passenger Vehicle Accessible',
-    'Heavy Wind Area',
-    'Orienting',
-    'Natural Swimming Area',
-    'Large Family/Group Areas',
-    'Potable Water',
-    'Boat Launch',
-    'Nearby Garbage Receptacles',
-    'Nearby Town under 5 miles',
-    'Nearby Town under 10 miles',
-    'Nearby Town under 20 miles',
-    'Good Cell Service'
-  ]
+  mapInitializer() {
+    this.campsiteService.index().subscribe(
+      data => {
+        this.campsites = data;
+
+        this.selected = null;
+      },
+      fail => {
+        console.error('CampsiteComponent.index(): error retrieving campsites');
+        console.error(fail);
+      }
+    );
+    this.map = new google.maps.Map(this.gmap.nativeElement,
+    this.mapOptions);
+    console.log(this.campsites);
+    this.campsites.forEach((val) => {
+      const coordinates = new google.maps.LatLng(val.latitude, val.longitude);
+       const marker = new google.maps.Marker({
+        position: coordinates,
+        map: this.map,
+        title: val.name
+      });
+      console.log(marker);
+      marker.setMap(this.map);
+    });
+
+  }
+
+
 
 
   images = [
@@ -93,11 +92,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.mapInitializer();
   }
 
-  mapInitializer() {
-    this.map = new google.maps.Map(this.gmap.nativeElement,
-    this.mapOptions);
-    this.marker.setMap(this.map);
-  }
+
 
   toggleCCamp(){
     this.showCCamp = !this.showCCamp;
@@ -188,6 +183,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.campsiteService.index().subscribe(
       data => {
         this.campsites = data;
+        this.mapInitializer();
         this.selected = null;
       },
       fail => {
