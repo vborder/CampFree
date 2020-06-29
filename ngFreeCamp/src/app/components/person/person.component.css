@@ -3,3 +3,9 @@
 height: 100px;
 width: 135px;
 }
+.name
+{
+font-weight: 800;
+font-size: 1.3em;
+margin: auto;
+}

@@ -451,6 +451,10 @@ COMMIT;
 START TRANSACTION;
 USE `campfreedb`;
 INSERT INTO `campsite_has_feature` (`campsite_id`, `feature_id`) VALUES (1, 1);
+INSERT INTO `campsite_has_feature` (`campsite_id`, `feature_id`) VALUES (2, 1);
+INSERT INTO `campsite_has_feature` (`campsite_id`, `feature_id`) VALUES (2, 2);
+INSERT INTO `campsite_has_feature` (`campsite_id`, `feature_id`) VALUES (2, 3);
+INSERT INTO `campsite_has_feature` (`campsite_id`, `feature_id`) VALUES (2, 4);
 
 COMMIT;
 
