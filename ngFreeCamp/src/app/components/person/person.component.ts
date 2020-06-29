@@ -23,6 +23,8 @@ export class PersonComponent implements OnInit {
   newCampsite: Campsite = new Campsite();
   personCampsites: Campsite[] = [];
   persons: Person[] = [];
+  showUserCamps = false;
+  selected = null;
 
   constructor(
     private http: HttpClient,
@@ -32,6 +34,15 @@ export class PersonComponent implements OnInit {
     private auth: AuthService,
     private router: Router
   ) {}
+
+  toggleUserCamps() {
+    this.showUserCamps = !this.showUserCamps;
+    this.selected = null;
+  }
+
+  onSubmit(campsite){
+    this.selected = campsite;
+  }
 
   ngOnInit(): void {
     if (!this.auth.checkLogin) {
