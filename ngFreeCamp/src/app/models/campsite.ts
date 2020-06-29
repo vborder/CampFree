@@ -1,4 +1,5 @@
 import { State } from './state';
+import { Feature } from './feature';
 
 export class Campsite {
   id: number;
@@ -7,14 +8,14 @@ export class Campsite {
   latitude: number;
   longitude: number;
   state: State;
-  features: string;
+  features: Feature[];
   pictureUrl: string;
   remark: string;
 
 
 
   constructor(id?: number, name?: string, location?: string, latitude?: number,
-              longitude?: number, state?: State, features?: string, pictureUrl?: string, remark?: string){
+              longitude?: number, state?: State, features?: Feature[], pictureUrl?: string, remark?: string){
       this.id = id;
 		  this.name = name;
 		  this.location = location;
