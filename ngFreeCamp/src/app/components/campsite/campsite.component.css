@@ -15,10 +15,11 @@
   height: 25em;
 }
 
+
 .picsum-img-wrapper > img
 {
 width: 60%;
-margin-top: 10px;;
+margin-top: 10px;
 }
 
 .picsum-img-wrapper
@@ -47,3 +48,14 @@ margin: auto;
 {
   margin-bottom: 30em;
 }
+
+.btm
+{
+  margin-bottom: 2.5em;
+}
+
+/* .wrapper{
+min-height: 100%;
+margin-bottom: -50%;
+} */
+

@@ -27,6 +27,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   showDComs = false;
   showCComs = false;
   showCCamp = false;
+  showECamp = false;
   remarks = [];
   editComment = null;
   newComment = null;
@@ -75,10 +76,23 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showDComs = null;
     this.showCComs = null;
     this.showCamps = null;
+    this.showECamp = null;
+  }
+
+  toggleECamp(){
+    this.showECamp = !this.showECamp;
+    this.selected = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCComs = null;
+    this.showCamps = null;
+    this.showCCamp = null;
   }
 
 
   toggleCamps(){
+    console.log(this.campsites)
     this.showCamps = !this.showCamps;
     this.selected = null;
     this.showAComs = null;
@@ -86,6 +100,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showDComs = null;
     this.showCComs = null;
     this.showCCamp = null;
+    this.showECamp = null;
   }
 
   toggleAComs(){
@@ -96,6 +111,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showDComs = null;
     this.showCComs = null;
     this.showCCamp = null;
+    this.showECamp = null;
   }
 
   toggleEComs(){
@@ -106,6 +122,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showDComs = null;
     this.showCComs = null;
     this.showCCamp = null;
+    this.showECamp = null;
   }
 
   toggleDComs(){
@@ -116,10 +133,10 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showEComs = null;
     this.showCComs = null;
     this.showCCamp = null;
+    this.showECamp = null;
   }
 
   toggleCComs(){
-    console.log(this.selected);
     this.showCComs = !this.showDComs;
     this.selected = null;
     this.showCamps = null;
@@ -127,6 +144,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showEComs = null;
     this.showDComs = null;
     this.showCCamp = null;
+    this.showECamp = null;
   }
 
   ngOnInit(): void {
@@ -200,11 +218,11 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
     this.selected = campsite;
     this.editCampsite = Object.assign({}, this.selected);
-    // this.reload();
+    this.updateCampsite(campsite);
   }
 
   // update campsite
-  updateReservation(campsite){
+  updateCampsite(campsite){
     this.campsiteService.update(campsite).subscribe(
       reserve => {console.log('reservation update success');
                   this.reload();
