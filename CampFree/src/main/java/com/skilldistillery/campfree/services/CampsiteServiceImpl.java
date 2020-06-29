@@ -87,6 +87,11 @@ public class CampsiteServiceImpl implements CampsiteService {
 		return campsites;
 		//Definitely needs to be tested.... Or Vince can verify this is what we need to do.
 	}
+
+	@Override
+	public Set<Campsite> userIndex(String username) {
+		return campRepo.findByCreator_UserUsername(username);
+	}
 	
 
 	

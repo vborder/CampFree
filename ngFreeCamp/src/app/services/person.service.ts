@@ -16,6 +16,7 @@ import { AuthService } from './auth.service';
 export class PersonService {
   private url = environment.baseUrl + 'api/person';
   private baseUrl = environment.baseUrl;
+  private url2 = environment.baseUrl + 'api/campsite';
 
   persons: Person[] = [];
   user: User;
@@ -79,18 +80,17 @@ export class PersonService {
     );
   }
 
-  // findPersonByUsername(user: User) {
-  //   console.log(user);
-  //   return this.http.get<User>(this.url + '/' + user).pipe(
-  //     catchError((err: any) => {
-  //       console.log(err);
-  //       return throwError('Error finding person by username');
-  //     })
-  //   );
-  // }
 
-  getCampsitesByCreatorId(id: number) {
-    return this.http.get<Campsite[]>(this.url + '/' + id).pipe(
+  getCampsitesByUserId() {
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+
+    return this.http.get<Campsite[]>(this.url2 + '/userCampsites', httpOptions).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('Error finding campsites by username');
