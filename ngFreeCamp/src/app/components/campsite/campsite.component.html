@@ -29,6 +29,24 @@
 
           </div>
         </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="images[3]" alt="Random first slide" >
+            </div>
+            <div class="carousel-caption">
+
+            </div>
+
+          </ng-template>
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img [src]="images[4]" alt="Random first slide" >
+              </div>
+              <div class="carousel-caption">
+
+              </div>
+            </ng-template>
+
       </ngb-carousel>
     </div>
 
@@ -47,14 +65,14 @@
           <!-- Show all campsite button-->
           <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCamps()'>See All Campsites</button>
           <!-- Show all comments button-->
-          <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='toggleAComs()' >See All Comments</button>
+          <!-- <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='toggleAComs()' >See All Comments</button> -->
           <!-- edit comment -->
-          <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='toggleEComs()' >Edit A Comment</button>
+          <!-- <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='toggleEComs()' >Edit A Comment</button> -->
 
           <!-- delete comment -->
-          <button class='btn btn-danger btn-outline-warning text-white mr-5' (click)='toggleDComs()' > Delete A Comment </button>
+          <!-- <button class='btn btn-danger btn-outline-warning text-white mr-5' (click)='toggleDComs()' > Delete A Comment </button> -->
           <!-- create campsite -->
-          <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCCamp()' >Create Campsite</button>
+          <!-- <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCCamp()' >Create Campsite</button> -->
 
 
           </div>
@@ -89,6 +107,7 @@
             <th>Latitude</th>
             <th>State</th>
             <th>Features</th>
+            <th>Main Image</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +122,7 @@
             <div *ngFor = 'let feature of selected.features'>
               <td>{{feature.name}}</td>
              </div>
+             <td><img [src]="selected.pictureUrl" class="img-thumbnail" style="width:100%"></td>
           </tr>
         </tbody>
       </table>
