@@ -1,6 +1,7 @@
 package com.skilldistillery.campfree.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -11,9 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.skilldistillery.campfree.entities.Campsite;
+import com.skilldistillery.campfree.entities.Feature;
 import com.skilldistillery.campfree.entities.Person;
+import com.skilldistillery.campfree.entities.State;
 import com.skilldistillery.campfree.repositories.CampsiteRepository;
+import com.skilldistillery.campfree.repositories.FeaturesRepository;
 import com.skilldistillery.campfree.repositories.PersonRepository;
+import com.skilldistillery.campfree.repositories.StateRepository;
 
 
 @Service
@@ -24,6 +29,12 @@ public class CampsiteServiceImpl implements CampsiteService {
 	
 	@Autowired
 	private PersonRepository personRepo;
+	
+	@Autowired
+	private FeaturesRepository featRepo;
+	
+	@Autowired
+	private StateRepository stRepo;
 	
 	@Override
 	public Campsite findCampsiteById(String username, int campsiteId) {
@@ -43,7 +54,25 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite createCampsite(String username, Campsite campsite) {
-		return campRepo.saveAndFlush(campsite);
+		State  campsiteState = campsite.getState();
+		campsiteState = stRepo.findByName(campsiteState.getName());
+		Person campsiteCreator = personRepo.findByUserUsername(username);
+		List<Feature> incomingFeatures = campsite.getFeatures();
+		List<Feature> managedFeatures = new ArrayList<Feature>();
+		for (Feature feature : incomingFeatures) {
+			managedFeatures.add(featRepo.findById(feature.getId()));
+			
+		}
+		
+		
+		if (campsiteState != null  && campsiteCreator != null) {
+			campsite.setState(campsiteState);
+			campsite.setCreator(campsiteCreator);
+			campsite.setFeatures(managedFeatures);
+			
+			return campRepo.saveAndFlush(campsite);
+		}
+		return null;
 	}
 
 	@Override
@@ -91,6 +120,12 @@ public class CampsiteServiceImpl implements CampsiteService {
 	@Override
 	public Set<Campsite> userIndex(String username) {
 		return campRepo.findByCreator_UserUsername(username);
+	}
+
+	@Override
+	public List<Feature> findAll() {
+		// TODO Auto-generated method stub
+		return featRepo.findAll();
 	}
 	
 

@@ -3,6 +3,8 @@ import {  Component, OnInit, AfterViewInit, ViewChild, ElementRef } from
   '@angular/core';
 import { Campsite } from 'src/app/models/campsite';
 import { CampsiteService } from 'src/app/services/campsite.service';
+import { State } from 'src/app/models/state';
+import { features } from 'process';
 
 @Component({
   selector: 'app-campsite, ngbd-carousel-basic',
@@ -42,6 +44,12 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     'https://images.pexels.com/photos/618848/pexels-photo-618848.jpeg?auto=compress&cs=tinysrgb&dpr=1'
 
   ];
+
+  newCampsiteFeatures = [];
+  featuresForNewCampsite = [];
+
+  newCampsiteState: State = new State();
+
 
 
 
@@ -98,6 +106,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
 
       marker.addListener('click', () => {
+        this.selected = val;
         this.closeOtherInfo();
         infowindow.open(this.map, marker);
         // infowindow.close();
@@ -210,14 +219,17 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+
       this.reload();
   }
+
 
   reload(){
     console.log('reloading');
 
     this.campsiteService.index().subscribe(
       data => {
+
         this.campsites = data;
         this.mapInitializer();
         this.selected = null;
@@ -227,6 +239,16 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
         console.error(fail);
       }
     );
+    this.campsiteService.indexFeature().subscribe(
+      data => {
+        this.newCampsiteFeatures = data;
+        this.selected = null;
+      },
+      fail => {
+        console.error('Features.index(): error retrieving campsites Features');
+        console.error(fail);
+      }
+    )
 
   }
 
@@ -243,9 +265,21 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     );
 
   }
-// create new camp
-  create(newCampsite){
+
+
+addFeatureToCampsite(feature){
+  this.featuresForNewCampsite.push(feature);
+
+}
+
+
+// create new campsite
+  create(newCampsite, campsiteState){
     console.log(this.newCampsite);
+    newCampsite.state = campsiteState;
+    newCampsite.features = this.featuresForNewCampsite;
+    console.log(newCampsite);
+    console.log(features);
 
     this.campsiteService.create(newCampsite).subscribe(
       data => {
@@ -261,6 +295,8 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
       }
     );
   }
+
+
 // delete campsite
   deleteCampsite(id: number) {
     this.campsiteService.delete(id).subscribe(

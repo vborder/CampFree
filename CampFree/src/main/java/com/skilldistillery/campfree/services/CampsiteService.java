@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.skilldistillery.campfree.entities.Campsite;
+import com.skilldistillery.campfree.entities.Feature;
 
 public interface CampsiteService {
 	Campsite findCampsiteById(String username, int campsiteId);
@@ -13,5 +14,6 @@ public interface CampsiteService {
 	boolean disableCampsite(String username, int campsiteId);
 	List<Campsite> findByName(String name);
 	public Set<Campsite> userIndex(String username);
+	List<Feature> findAll();
 
 }
