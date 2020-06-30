@@ -31,6 +31,18 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   remarks = [];
   editComment = null;
   newComment = null;
+  infoWindowOpened = null;
+  InforObj = [];
+
+
+
+  images = [
+    'https://images.pexels.com/photos/3232542/pexels-photo-3232542.jpeg?auto=compress&cs=tinysrgb&dpr=1',
+    'https://images.pexels.com/photos/1118785/pexels-photo-1118785.jpeg?auto=compress&cs=tinysrgb&dpr=1',
+    'https://images.pexels.com/photos/618848/pexels-photo-618848.jpeg?auto=compress&cs=tinysrgb&dpr=1'
+
+  ];
+
 
 
   title = 'angular-gmap';
@@ -49,7 +61,6 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   };
 
 
-
   mapInitializer() {
     this.campsiteService.index().subscribe(
       data => {
@@ -65,39 +76,54 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.map = new google.maps.Map(this.gmap.nativeElement,
     this.mapOptions);
     console.log(this.campsites);
+
     this.campsites.forEach((val) => {
-      const contentString = val.name + ' ' + val.remark;
+
+      const contentString = val.name + ' \n' + val.latitude + ':' + val.longitude  + ' \n' + val.state.name + '  ' + "<img src='" + val.pictureUrl + "' width='100' height='100' />";
       const coordinates = new google.maps.LatLng(val.latitude, val.longitude);
       const infowindow = new google.maps.InfoWindow({
         content: contentString
       });
+
+
       const marker = new google.maps.Marker({
         position: coordinates,
         map: this.map
         // title: val.name
       });
+
+
+
+
       marker.addListener('click', () => {
+        this.closeOtherInfo();
         infowindow.open(this.map, marker);
+        // infowindow.close();
+        this.InforObj[0] = infowindow;
       });
-      console.log(marker);
+
       marker.setMap(this.map);
+
+
 
     });
 
   }
 
-
-
-
-  images = [
-    'https://images.pexels.com/photos/3232542/pexels-photo-3232542.jpeg?auto=compress&cs=tinysrgb&dpr=1',
-    'https://images.pexels.com/photos/1118785/pexels-photo-1118785.jpeg?auto=compress&cs=tinysrgb&dpr=1',
-    'https://images.pexels.com/photos/618848/pexels-photo-618848.jpeg?auto=compress&cs=tinysrgb&dpr=1'
-
-  ];
+  closeOtherInfo() {
+    if (this.InforObj.length > 0) {
+        /* detach the info-window from the marker ... undocumented in the API docs */
+        this.InforObj[0].set("marker", null);
+        /* and close it */
+        this.InforObj[0].close();
+        /* blank the array */
+        this.InforObj.length = 0;
+    }
+}
 
   ngAfterViewInit() {
     this.mapInitializer();
+
   }
 
 
@@ -216,10 +242,10 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
   }
 // create new camp
-  create(){
+  create(newCampsite){
     console.log(this.newCampsite);
 
-    this.campsiteService.create(this.newCampsite).subscribe(
+    this.campsiteService.create(newCampsite).subscribe(
       data => {
         console.log('creation success');
         this.selected = null;
