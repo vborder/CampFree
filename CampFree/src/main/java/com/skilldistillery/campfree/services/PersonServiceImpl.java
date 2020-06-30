@@ -1,9 +1,12 @@
 package com.skilldistillery.campfree.services;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.campfree.entities.Person;
+import com.skilldistillery.campfree.entities.Picture;
 import com.skilldistillery.campfree.repositories.PersonRepository;
 
 @Service
@@ -35,6 +38,11 @@ public class PersonServiceImpl implements PersonService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+//	@Override
+//	public Set<Picture> userIndex(String username) {
+//		return peRepo.findByPerson_UserUsername(username);
+//	}
 	
 	
 

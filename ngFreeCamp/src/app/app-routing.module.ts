@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'person', component: PersonComponent },
   { path: 'person/:id', component: PersonComponent },
+  { path: 'person/userPictures', component: PersonComponent },
   { path: 'who', component: WhoComponent },
   { path: 'why', component: WhyComponent }
 ];

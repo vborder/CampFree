@@ -109,7 +109,7 @@ export class PersonService {
       })
     };
 
-    return this.http.get<Picture[]>(this.url3 + '/userPictures', httpOptions).pipe(
+    return this.http.get<Picture[]>(this.url + '/userPictures', httpOptions).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('Error finding pictures by username');

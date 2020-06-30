@@ -1,7 +1,7 @@
 <div class="container-fluid" id="profile">
   <div class="container text-center" id="myPics">
     <h3>Your Pictures</h3>
-    <div *ngFor='let picture of campPics'>
+    <div *ngFor='let picture of campPics' (click)= 'onSubmit(picture)'>
       <img src="{{picture.imageUrl}}" class="img-thumbnail" style="width:60%">
     <!-- <div *ngIf="personSelected"> -->
     </div>

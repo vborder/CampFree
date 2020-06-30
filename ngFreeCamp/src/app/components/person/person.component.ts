@@ -10,6 +10,7 @@ import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Picture } from 'src/app/models/picture';
+import { PictureService } from 'src/app/services/picture.service';
 
 @Component({
   selector: 'app-person',
@@ -32,6 +33,7 @@ export class PersonComponent implements OnInit {
     private http: HttpClient,
     private personService: PersonService,
     private campsiteService: CampsiteService,
+    private pictureService: PictureService,
     private route: ActivatedRoute,
     private auth: AuthService,
     private router: Router
