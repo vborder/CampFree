@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { WhoComponent } from './components/who/who.component';
 import { WhyComponent } from './components/why/why.component';
 import { PersonComponent } from './components/person/person.component';
+import { UserComponent } from './components/user/user.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'person', component: PersonComponent },
-  { path: 'person/:id', component: PersonComponent },
+  { path: 'person/username', component: PersonComponent },
+  { path: 'person/userPictures', component: PersonComponent },
   { path: 'who', component: WhoComponent },
   { path: 'why', component: WhyComponent }
 ];

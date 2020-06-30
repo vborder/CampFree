@@ -9,6 +9,7 @@ import { Person } from '../models/person';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { AuthService } from './auth.service';
+import { Picture } from '../models/picture';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class PersonService {
   private url = environment.baseUrl + 'api/person';
   private baseUrl = environment.baseUrl;
   private url2 = environment.baseUrl + 'api/campsite';
+  private url3 = environment.baseUrl + 'api/pictures';
 
   persons: Person[] = [];
   user: User;
@@ -41,14 +43,29 @@ export class PersonService {
       })
     };
 
-    return this.http.get<Person>(`${this.url}/${personId}`, httpOptions). pipe(
+    return this.http.get<Person>(this.url + `/${personId}`, httpOptions). pipe(
       catchError((err: any) => {
         console.error(err);
         return throwError('PersonService.show(): Error retrieving person: ' + err);
       })
     );
-
   }
+
+display() {
+  const credentials = this.auth.getCredentials();
+  const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+  return this.http.get<Person>(this.url + '/username', httpOptions). pipe(
+    catchError((err: any) => {
+      console.error(err);
+      return throwError('UserService.show(): Error retrieving user: ' + err);
+    })
+  );
+}
 
   // create a new person
   create(person: Person){
@@ -97,6 +114,24 @@ export class PersonService {
       })
     );
   }
+
+  getPicturesByUserId() {
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+
+    return this.http.get<Picture[]>(this.url + '/userPictures', httpOptions).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('Error finding pictures by username');
+      })
+    );
+  }
+
 
 
 }

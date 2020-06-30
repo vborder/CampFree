@@ -406,6 +406,10 @@ COMMIT;
 START TRANSACTION;
 USE `campfreedb`;
 INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (1, 1, 'https://www.alltrails.com/trail/us/colorado/ute-creek-trail/photos', 1, '2020-05-27T010:12:00', 1);
+INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (2, 2, 'https://images.unsplash.com/photo-1519395612667-3b754d7b9086?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80', 1, '2020-04-11T010:12:00', 2);
+INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (3, 7, 'https://images.unsplash.com/photo-1487750404521-0bc4682c48c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80', 1, '2020-04-15T010:12:00', 2);
+INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (4, 12, 'https://images.unsplash.com/photo-1557292916-eaa52c7e5939?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=746&q=80', 1, '2020-04-16T010:12:00', 2);
+INSERT INTO `picture` (`id`, `campsite_id`, `image_url`, `enabled`, `creation_date`, `person_user_id`) VALUES (5, 23, 'https://images.unsplash.com/photo-1533575770077-052fa2c609fc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80', 1, '2020-04-18T010:12:00', 2);
 
 COMMIT;
 
