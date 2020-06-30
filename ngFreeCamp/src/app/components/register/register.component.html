@@ -2,151 +2,188 @@
   <div class="card mt-5" id="form" style="width: 32rem;">
     <div class="card-body">
       <form #newAccount="ngForm" class="text-center">
-          <div class="form-row">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Username" length="50%" ngModel/>
+        <div class="form-row">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            id="username"
+            placeholder="Username"
+            length="50%"
+            ngModel
+          />
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="inputPassword1">Choose a Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="inputPassword1"
+              placeholder="Password"
+              ngModel
+            />
           </div>
-          <div class="form-row">
-            <div>
-              <label for="inputPassword1">Choose a Password</label>
-              <input type="password" class="form-control" name="password" id="inputPassword1" placeholder="Password" ngModel/>
-            </div>
-            <div>
-              <label for="inputPassword2">Re-enter your Password</label>
-              <input type="password" class="form-control" name = "password" id="inputPassword2" placeholder="Re-type Password" ngModel/>
-            </div>
+          <div>
+            <label for="inputPassword2">Re-enter your Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="inputPassword2"
+              placeholder="Re-type Password"
+              ngModel
+            />
           </div>
+        </div>
         <!-- <form #newPerson="ngForm" class="text-center"></form> -->
-          <div class="form-row">
+        <div class="form-row"></div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="inputEmail"
+            placeholder="Email"
+            ngModel
+          />
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="inputFirstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              id="inputFirstName"
+              placeholder="First name"
+              ngModel
+            />
           </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" ngModel/>
+          <div>
+            <label for="inputLastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              id="inputLastName"
+              placeholder="Last name"
+              ngModel
+            />
           </div>
-          <div class="form-row">
-            <div>
-              <label for="inputFirstName">First Name</label>
-              <input type="text" class="form-control" name="firstName" id="inputFirstName" placeholder="First name" ngModel/>
-            </div>
-            <div>
-              <label for="inputLastName">Last Name</label>
-              <input type="text" class="form-control" name="lastName" id="inputLastName" placeholder="Last name" ngModel/>
-            </div>
+        </div>
+        <div class="form-row">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <option>Arizona</option>
+            <option>Arkansa</option>
+            <option>California</option>
+            <option>Colorado</option>
+            <option>Conneticut</option>
+            <option>Delaware</option>
+            <option>Florida</option>
+            <option>Georgia</option>
+            <option>Hawaii</option>
+            <option>Idaho</option>
+            <option>Illinois</option>
+            <option>Indiana</option>
+            <option>Iowa</option>
+            <option>Kansas</option>
+            <option>Kentucky</option>
+            <option>Louisiana</option>
+            <option>Maine</option>
+            <option>Maryland</option>
+            <option>Massachusets</option>
+            <option>Michigan</option>
+            <option>Minnesota</option>
+            <option>Mississippi</option>
+            <option>Missouri</option>
+            <option>Montana</option>
+            <option>Nebraska</option>
+            <option>Nevada</option>
+            <option>New Hampshire</option>
+            <option>New Jersey</option>
+            <option>New Mexico</option>
+            <option>New York</option>
+            <option>North Carolina</option>
+            <option>North Dakota</option>
+            <option>Ohio</option>
+            <option>Oklahoma</option>
+            <option>Oregon</option>
+            <option>Pennsylvania</option>
+            <option>Rhode Island</option>
+            <option>South Carolina</option>
+            <option>South Dakota</option>
+            <option>Tennessee</option>
+            <option>Texas</option>
+            <option>Utah</option>
+            <option>Vermont</option>
+            <option>Virginia</option>
+            <option>Washington</option>
+            <option>West Virginia</option>
+            <option>Wisonsin</option>
+            <option>Wyoming</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="profileImage">Profile Picture Url</label>
+            <input
+              type="text"
+              class="form-control"
+              name="profileImage"
+              id="profileImage"
+              placeholder="URL of Chosen Profile Pic"
+              ngModel
+            />
           </div>
-          <div class="form-row">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-              <option selected>Choose...</option>
-              <option>Alabama</option>
-              <option>Alaska</option>
-              <option>Arizona</option>
-              <option>Arkansa</option>
-              <option>California</option>
-              <option>Colorado</option>
-              <option>Conneticut</option>
-              <option>Delaware</option>
-              <option>Florida</option>
-              <option>Georgia</option>
-              <option>Hawaii</option>
-              <option>Idaho</option>
-              <option>Illinois</option>
-              <option>Indiana</option>
-              <option>Iowa</option>
-              <option>Kansas</option>
-              <option>Kentucky</option>
-              <option>Louisiana</option>
-              <option>Maine</option>
-              <option>Maryland</option>
-              <option>Massachusets</option>
-              <option>Michigan</option>
-              <option>Minnesota</option>
-              <option>Mississippi</option>
-              <option>Missouri</option>
-              <option>Montana</option>
-              <option>Nebraska</option>
-              <option>Nevada</option>
-              <option>New Hampshire</option>
-              <option>New Jersey</option>
-              <option>New Mexico</option>
-              <option>New York</option>
-              <option>North Carolina</option>
-              <option>North Dakota</option>
-              <option>Ohio</option>
-              <option>Oklahoma</option>
-              <option>Oregon</option>
-              <option>Pennsylvania</option>
-              <option>Rhode Island</option>
-              <option>South Carolina</option>
-              <option>South Dakota</option>
-              <option>Tennessee</option>
-              <option>Texas</option>
-              <option>Utah</option>
-              <option>Vermont</option>
-              <option>Virginia</option>
-              <option>Washington</option>
-              <option>West Virginia</option>
-              <option>Wisonsin</option>
-              <option>Wyoming</option>
-            </select>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="bio">Short Bio or Personal Description</label>
+            <textarea
+              class="form-control"
+              name="bio"
+              id="inputBio"
+              rows="4"
+            ></textarea>
           </div>
-          <div class="form-row">
-            <div>
-              <label for="profileImage">Profile Picture Url</label>
-              <input type="text" class="form-control" name="profileImage" id="profileImage" placeholder="URL of Chosen Profile Pic" ngModel/>
-            </div>
+        </div>
+        <div class="form-row">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="formCheck"
+            />
+            <label class="form-check-label" for="formCheck"
+              >"I agree to the
+              <a href="https://youtu.be/oHg5SJYRHA0">Terms and Conditions</a>"
+            </label>
           </div>
-          <div class="form-row">
-            <div>
-              <label for="bio">Short Bio or Personal Description</label>
-              <textarea class="form-control" name="bio" id="inputBio" rows="4"></textarea>
-            </div>
+          <div>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              (click)="register(newAccount)"
+            >
+              Join
+            </button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
           </div>
-          <div class="form-row">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="formCheck">
-              <label class="form-check-label" for="formCheck">"I agree to the <a href="https://youtu.be/oHg5SJYRHA0">Terms and Conditions</a>"
-              </label>
-            </div>
-            <div>
-              <button type="submit" class="btn btn-primary" (click)="register(newAccount)">Join</button>
-            </div>
-          </div>
-        </form>
+        </div>
+      </form>
     </div>
   </div>
 </div>
-<!--
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button> -->
