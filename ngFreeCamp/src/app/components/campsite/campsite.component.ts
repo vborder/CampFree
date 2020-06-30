@@ -75,14 +75,16 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     );
     this.map = new google.maps.Map(this.gmap.nativeElement,
     this.mapOptions);
+
     console.log(this.campsites);
 
     this.campsites.forEach((val) => {
 
-      const contentString = val.name + ' \n' + val.latitude + ':' + val.longitude  + ' \n' + val.state.name + '  ' + "<img src='" + val.pictureUrl + "' width='100' height='100' font-weight='800'  />";
+      const contentString ='<div>' + '<h4>' + val.name + '</h4>' + '<h6>' + val.latitude + '  :  ' + val.longitude  + '</h6>' + '<h5>' + val.state.name + '</h5>' + "<img src='" + val.pictureUrl + "' width='120' height='100' />" +'</div>';
       const coordinates = new google.maps.LatLng(val.latitude, val.longitude);
       const infowindow = new google.maps.InfoWindow({
-        content: contentString
+        content: contentString,
+        maxWidth: 400
       });
 
 
