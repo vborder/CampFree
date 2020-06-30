@@ -142,90 +142,19 @@
         </div>
         <div>
           <label class='mt-3' for="Campsite State">Campsite State</label>
-          <input class="form-control mt-2" type="text" name="state" placeholder="Campsite State" [(ngModel)]="newCampsite.state">
+          <input class="form-control mt-2" type="text" name="state" placeholder="Campsite State" [(ngModel)]="newCampsiteState.name">
         </div>
         <div>
-          <label class='mt-3' for="Campsite Features">Campsite Features</label>
+          <label class='mt-3' for="Campsite Features">Campsite {{newCampsiteFeatures}}</label>
 
             <div class= 'container'>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Rv Accesible"> Rv Accesible
+
+              <label *ngFor ='let feature of newCampsiteFeatures'          class="checkbox-inline mr-2">
+                <input type="checkbox" value="feature" name= 'feature' (click) ='addFeatureToCampsite(feature)'> {{feature.name}}
               </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Fishing"> Fishing
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Hiking"> Hiking
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Dog Friendly"> Dog Friendly
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Nearby Bathrooms"> Nearby Bathrooms
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Geo-Caching"> Geo-Caching
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Fire Rings"> Fire Rings
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Tent Areas"> Tent Areas
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Kid Friendly"> Kid Friendly
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Rock Climbing"> Rock Climbing
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Waterfalls"> Waterfalls
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Lakes"> Lakes
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Rivers"> Rivers
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="4X4 Accessible Only"> 4X4 Accessible Only
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Passenger Vehicle Accessible"> Passenger Vehicle Accessible
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Heavy Wind Area"> Heavy Wind Area
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Orienting"> Orienting
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Natural Swimming Area"> Natural Swimming Area
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Large Family/Group Areas"> Large Family/Group Areas
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Potable Water"> Potable Water
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Boat Launch"> Boat Launch
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Nearby Garbage Receptacles"> Nearby Garbage Receptacles
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Nearby Town under 5 miles"> Nearby Town under 5 miles
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Nearby Town under 10 miles"> Nearby Town under 10 miles
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Nearby Town under 20 miles"> Nearby Town under 20 miles
-              </label>
-              <label class="checkbox-inline mr-2">
-                <input type="checkbox" value="Good Cell Service"> Good Cell Service
-              </label>
+
+
+
             </div>
 
 
@@ -237,7 +166,7 @@
 
 
       </form>
-      <button (click)="create(newCampsite)">Create your new Campsite !</button>
+      <button (click)="create(newCampsite, newCampsiteState)">Create your new Campsite !</button>
 
     </div>
     </div>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.campfree.entities.Campsite;
+import com.skilldistillery.campfree.entities.Feature;
 import com.skilldistillery.campfree.entities.Person;
 import com.skilldistillery.campfree.services.CampsiteService;
 import com.skilldistillery.campfree.services.PersonService;
@@ -34,6 +35,11 @@ public class CampsiteController {
 	
 	@Autowired
 	private PersonService perSvc;
+	
+	@GetMapping("campsite/feature")
+	public List<Feature> findAllFeatures() {
+		return campSvc.findAll();
+	}
 	
 	
 	@GetMapping("campsite")
@@ -75,6 +81,7 @@ public class CampsiteController {
 			HttpServletRequest request,
 			HttpServletResponse response,
 			Principal principal) {
+		System.out.println(campsite);
 		try {
 			campsite = campSvc.createCampsite(principal.getName(), campsite);
 			response.setStatus(201);

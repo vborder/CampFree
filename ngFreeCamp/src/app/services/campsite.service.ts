@@ -6,6 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { Campsite } from '../models/campsite';
 import { DatePipe } from '@angular/common';
 import { AuthService } from './auth.service';
+import { Feature } from '../models/feature';
 
 
 @Injectable({
@@ -35,6 +36,18 @@ export class CampsiteService {
     );
 
   }
+// find all features
+  indexFeature(){
+    return this.http.get<Feature[]>(this.url + '/feature')
+    .pipe(
+      catchError((err: any) => {
+        console.log('campsite service is not reached');
+        return throwError('campsite service index is not working');
+      })
+
+    );
+
+  }
 
   // create campsite
   create(campsite: Campsite){
@@ -45,8 +58,8 @@ export class CampsiteService {
         'X-Requested-With': 'XMLHttpRequest'
       })
     };
-
-    return this.http.post<Campsite>(this.url, Campsite, httpOptions).pipe (
+      console.log(campsite);
+    return this.http.post<Campsite>(this.url, campsite, httpOptions).pipe (
       catchError((err: any) => {
         console.log('campsite service create is not working');
         return throwError('campsite service create is not working properly');
