@@ -79,7 +79,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
     this.campsites.forEach((val) => {
 
-      const contentString = val.name + ' \n' + val.latitude + ':' + val.longitude  + ' \n' + val.state.name + '  ' + "<img src='" + val.pictureUrl + "' width='100' height='100' />";
+      const contentString = val.name + ' \n' + val.latitude + ':' + val.longitude  + ' \n' + val.state.name + '  ' + "<img src='" + val.pictureUrl + "' width='100' height='100' font-weight='800'  />";
       const coordinates = new google.maps.LatLng(val.latitude, val.longitude);
       const infowindow = new google.maps.InfoWindow({
         content: contentString
