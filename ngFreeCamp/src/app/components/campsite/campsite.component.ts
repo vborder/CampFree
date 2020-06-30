@@ -153,6 +153,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   toggleECamp(campsiteEdit){
     this.showECamp = !this.showECamp;
     this.editCampsite = campsiteEdit;
+    this.newCampsiteState = campsiteEdit.state;
     this.selected = null;
     this.showAComs = null;
     this.showEComs = null;
@@ -218,6 +219,17 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showECamp = null;
   }
 
+  clearPage(){
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCCamp = null;
+    this.showECamp = null;
+    this.showCComs = null;
+  }
+
   ngOnInit(): void {
 
       this.reload();
@@ -233,6 +245,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
         this.campsites = data;
         this.mapInitializer();
         this.selected = null;
+        this.clearPage();
       },
       fail => {
         console.error('CampsiteComponent.index(): error retrieving campsites');
@@ -257,6 +270,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   }
 
   loadCampsite(){
+
     this.campsiteService.index().subscribe(
       data => this.campsites = data,
       err => console.error('Observer got an error: ' + err)
@@ -286,6 +300,7 @@ addFeatureToCampsite(feature){
         console.log('creation success');
         this.selected = null;
         this.loadCampsite();
+        // this.ngAfterViewInit();
 
 
       },
@@ -300,8 +315,8 @@ addFeatureToCampsite(feature){
 // delete campsite
   deleteCampsite(id: number) {
     this.campsiteService.delete(id).subscribe(
-      reservation => {
-        console.log('reservation delete was successful');
+      data => {
+        console.log('campsite delete was successful');
         this.reload();
       },
       fail => {
@@ -316,16 +331,23 @@ addFeatureToCampsite(feature){
     console.log(campsite);
 
     this.selected = campsite;
+
+
+    this.newCampsite.features = this.featuresForNewCampsite;
     this.editCampsite = Object.assign({}, this.selected);
+    campsite.state = this.newCampsiteState;
+    campsite.features = this.featuresForNewCampsite;
+
     this.updateCampsite(campsite);
   }
 
   // update campsite
   updateCampsite(campsite){
     this.campsiteService.update(campsite).subscribe(
-      reserve => {console.log('reservation update success');
+      reserve => {console.log('campsite update success');
                   this.reload();
                   this.selected = null;
+
       },
       fail => {
         console.error('Campsite component error');
