@@ -56,6 +56,7 @@
           <!-- create campsite -->
           <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCCamp()' >Create Campsite</button>
 
+
           </div>
       </div>
     </div>
@@ -109,6 +110,8 @@
         <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='toggleECamp(selected)' >Edit Campsite</button>
         <!-- add comment -->
         <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCComs()' >Add New Comment</button>
+        <!-- delete campsite -->
+        <button class='btn btn-danger btn-outline-warning text-white mr-5' (click)='deleteCampsite(selected.id)' > Delete A CAMPSITE </button>
 
 
 
@@ -268,7 +271,7 @@
 
   <!-- SHOW ALL CAMPSITES -->
 
-  <div *ngIf='showCamps'class='btm'>
+  <div *ngIf='showCamps' class='btm'>
     <table *ngIf = "!selected" class='table table-striped text-center'>
       <thead class="thead-dark">
         <tr>
@@ -288,7 +291,7 @@
           <td>{{campsite.longitude}}</td>
           <td>{{campsite.latitude}}</td>
           <td>{{campsite.state.name}}</td>
-          <td><img src="{{campsite.pictureUrl}}" class="img-thumbnail" style="width:100%"></td>
+          <td><img [src]="campsite.pictureUrl" class="img-thumbnail" style="width:100%"></td>
          <!-- CAMPSITE FEATURES LIST -->
          <td>
           <div *ngFor = 'let feature of campsite.features'>
@@ -324,92 +327,19 @@
       </div>
       <div>
         <label class='mt-3' for="Campsite State">Campsite State</label>
-        <input class="form-control mt-2" type="text" name="state" placeholder="{{editCampsite.state.name}}" [(ngModel)]="editCampsite.state.name">
+        <input class="form-control mt-2" type="text" name="state" placeholder="{{newCampsiteState.name}}" [(ngModel)]="newCampsiteState.name">
       </div>
-      <div ng-app=''>
-        <label class='mt-3' for="Campsite Features" >Select All Campsite Features That Apply</label>
-
+      <div>
+        <label class='mt-3' for="Campsite Features">Campsite</label>
 
           <div class= 'container'>
-            <label class="checkbox-inline mr-2" >
-              <!-- *ngIf='editCampsite.' -->
-              <input type="checkbox" value="Rv Accesible" placeholder='{{editCampsite.features}}' [(ngModel)]="editCampsite.features.name"> Rv Accesible
+
+            <label *ngFor ='let feature of newCampsiteFeatures' class="checkbox-inline mr-2">
+              <input type="checkbox" value="feature" name= 'feature' (click) ='addFeatureToCampsite(feature)'> {{feature.name}}
             </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Fishing" placeholder='{{editCampsite.features}}' [(ngModel)]="editCampsite.features.name"> Fishing
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Hiking" placeholder='{{editCampsite.features}}' [(ngModel)]="editCampsite.features.name"> Hiking
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Dog Friendly" placeholder='{{editCampsite.features}}' [(ngModel)]="editCampsite.features.name"> Dog Friendly
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Nearby Bathrooms" placeholder='{{editCampsite.features}}'> Nearby Bathrooms
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Geo-Caching" placeholder='{{editCampsite.features}}'> Geo-Caching
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Fire Rings" placeholder='{{editCampsite.features}}'> Fire Rings
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Tent Areas" placeholder='{{editCampsite.features}}'> Tent Areas
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Kid Friendly" placeholder='{{editCampsite.features}}'> Kid Friendly
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Rock Climbing" placeholder='{{editCampsite.features}}'> Rock Climbing
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Waterfalls" placeholder='{{editCampsite.features}}'> Waterfalls
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Lakes" placeholder='{{editCampsite.features}}'> Lakes
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Rivers" placeholder='{{editCampsite.features}}'> Rivers
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="4X4 Accessible Only" placeholder='{{editCampsite.features}}'> 4X4 Accessible Only
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Passenger Vehicle Accessible" placeholder='{{editCampsite.features}}'> Passenger Vehicle Accessible
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Heavy Wind Area" placeholder='{{editCampsite.features}}'> Heavy Wind Area
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Orienting" placeholder='{{editCampsite.features}}'> Orienting
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Natural Swimming Area" placeholder='{{editCampsite.features}}'> Natural Swimming Area
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Large Family/Group Areas" placeholder='{{editCampsite.features}}'> Large Family/Group Areas
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Potable Water" placeholder='{{editCampsite.features}}'> Potable Water
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Boat Launch" placeholder='{{editCampsite.features}}'> Boat Launch
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Nearby Garbage Receptacles" placeholder='{{editCampsite.features}}'> Nearby Garbage Receptacles
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Nearby Town under 5 miles" placeholder='{{editCampsite.features}}'> Nearby Town under 5 miles
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Nearby Town under 10 miles" placeholder='{{editCampsite.features}}'> Nearby Town under 10 miles
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Nearby Town under 20 miles" placeholder='{{editCampsite.features}}'> Nearby Town under 20 miles
-            </label>
-            <label class="checkbox-inline mr-2">
-              <input type="checkbox" value="Good Cell Service" placeholder='{{editCampsite.features}}'> Good Cell Service
-            </label >
+
+
+
           </div>
 
 

@@ -88,7 +88,7 @@ export class CampsiteService {
 
 
   // delete campsite (disable)
-  delete(id){
+  delete(id: number){
     const credentials = this.auth.getCredentials();
     const httpOptions = {
       headers: new HttpHeaders({
