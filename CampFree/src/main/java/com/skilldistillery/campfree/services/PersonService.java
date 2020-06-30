@@ -10,6 +10,7 @@ public interface PersonService {
 	Person create(Person person);
 	Person update(Person person, int id);
 	Boolean delete(int id);
+	Person findByUsername(String username);
 //	public Set<Picture> userIndex(String username);
 	
 	

@@ -49,10 +49,23 @@ export class PersonService {
         return throwError('PersonService.show(): Error retrieving person: ' + err);
       })
     );
-
   }
 
-
+display() {
+  const credentials = this.auth.getCredentials();
+  const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+  return this.http.get<Person>(this.url + '/username', httpOptions). pipe(
+    catchError((err: any) => {
+      console.error(err);
+      return throwError('UserService.show(): Error retrieving user: ' + err);
+    })
+  );
+}
 
   // create a new person
   create(person: Person){
@@ -118,6 +131,7 @@ export class PersonService {
       })
     );
   }
+
 
 
 }

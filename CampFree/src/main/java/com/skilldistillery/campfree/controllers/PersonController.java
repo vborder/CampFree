@@ -40,6 +40,16 @@ public class PersonController {
 		return person;
 	}
 	
+	@GetMapping("person/username")
+	public Person personById(HttpServletResponse req, HttpServletResponse res,
+			Principal principal) {
+		Person person = perSvc.findByUsername(principal.getName());
+		if (person == null) {
+			res.setStatus(404);
+		}
+		return person;
+	}
+	
 //	// retrieve pictures by username
 //	@GetMapping("person/userPictures")
 //	public Set<Picture> findByUsername(
@@ -103,5 +113,7 @@ public class PersonController {
 		}
 		return person;
 	}
+	
+	
 
 }

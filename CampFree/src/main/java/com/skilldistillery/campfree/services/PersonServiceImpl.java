@@ -39,6 +39,12 @@ public class PersonServiceImpl implements PersonService{
 		return null;
 	}
 
+	@Override
+	public Person findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return peRepo.findByUserUsername(username);
+	}
+
 //	@Override
 //	public Set<Picture> userIndex(String username) {
 //		return peRepo.findByPerson_UserUsername(username);
