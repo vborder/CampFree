@@ -8,13 +8,19 @@
   height: 30%;
   width: 60%;
   margin-top: 30px;
+
  }
+
+img
+{
+
+}
 
 #map
 {
   height: 25em;
-}
 
+}
 
 .picsum-img-wrapper > img
 {

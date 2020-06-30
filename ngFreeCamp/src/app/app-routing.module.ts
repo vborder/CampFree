@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { WhoComponent } from './components/who/who.component';
 import { WhyComponent } from './components/why/why.component';
 import { PersonComponent } from './components/person/person.component';
+import { UserComponent } from './components/user/user.component';
 
 
 const routes: Routes = [

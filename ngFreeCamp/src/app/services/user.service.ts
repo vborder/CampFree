@@ -17,7 +17,6 @@ export class UserService {
     private datePipe: DatePipe,
   ) { }
 
-
   // update user
   update(user){
     return this.http.put<User>(this.url + '/' + user.id, user).pipe (
@@ -29,4 +28,6 @@ export class UserService {
     );
 
   }
+
+
 }

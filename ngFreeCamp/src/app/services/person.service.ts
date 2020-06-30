@@ -43,7 +43,7 @@ export class PersonService {
       })
     };
 
-    return this.http.get<Person>(`${this.url}/${personId}`, httpOptions). pipe(
+    return this.http.get<Person>(this.url + `/${personId}`, httpOptions). pipe(
       catchError((err: any) => {
         console.error(err);
         return throwError('PersonService.show(): Error retrieving person: ' + err);
@@ -51,6 +51,8 @@ export class PersonService {
     );
 
   }
+
+
 
   // create a new person
   create(person: Person){

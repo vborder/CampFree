@@ -3,13 +3,13 @@ import { Person } from './person';
 
 export class Picture {
   id: number;
-  imageUrl: string;
+  imageURL: string;
   campsite: Campsite;
   person: Person;
 
-  constructor(id?: number, imageUrl?: string, campsite?: Campsite, person?: Person) {
+  constructor(id?: number, imageURL?: string, campsite?: Campsite, person?: Person) {
     this.id = id;
-    this.imageUrl = imageUrl;
+    this.imageURL = imageURL;
 
   }
 }
