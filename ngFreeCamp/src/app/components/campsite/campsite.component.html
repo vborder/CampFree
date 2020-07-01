@@ -101,28 +101,48 @@
       <table class='table table-striped text-center'>
         <thead class="thead-dark">
           <tr>
+            <th>Campsite Rating</th>
             <th>Name</th>
             <th>Location</th>
             <th>Longitude</th>
             <th>Latitude</th>
             <th>State</th>
-            <th>Features</th>
             <th>Main Image</th>
+            <th>Features</th>
           </tr>
+
         </thead>
         <tbody>
           <tr>
+            <td>{{selected.camp}}</td>
             <td>{{selected.name}}</td>
             <td>{{selected.location}}</td>
             <td>{{selected.longitude}}</td>
             <td>{{selected.latitude}}</td>
             <td>{{selected.state.name}}</td>
-
+            <td><img [src]="selected.pictureUrl" class="img-thumbnail" style="width: '120'; height: '100'"></td>
              <!-- CAMPSITE FEATURES LIST -->
             <div *ngFor = 'let feature of selected.features'>
               <td>{{feature.name}}</td>
              </div>
-             <td><img [src]="selected.pictureUrl" class="img-thumbnail" style="width:100%"></td>
+
+          </tr>
+
+        </tbody>
+        <thead class='textC'>
+          <tr>
+            <th >Campsite Rating</th>
+            <th >Camper</th>
+            <th >Remarks</th>
+            <th >Date/Time Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let comment of selected.comments'>
+            <td><h1><span class="badge badge-primary">{{comment.campsiteRating}}</span></h1></td>
+            <td>{{comment.person.firstName}}{{comment.person.lastName}}</td>
+            <td>{{comment.remark}} </td>
+            <td>{{comment.createdDateTime}}</td>
           </tr>
         </tbody>
       </table>
@@ -313,7 +333,7 @@
           <td>{{campsite.longitude}}</td>
           <td>{{campsite.latitude}}</td>
           <td>{{campsite.state.name}}</td>
-          <td><img [src]="campsite.pictureUrl" class="img-thumbnail" style="width:100%"></td>
+          <td><img [src]="campsite.pictureUrl" class="imgT" ></td>
          <!-- CAMPSITE FEATURES LIST -->
          <td>
           <div *ngFor = 'let feature of campsite.features'>

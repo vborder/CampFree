@@ -96,7 +96,7 @@ export class CampsiteService {
         'X-Requested-With': 'XMLHttpRequest'
       })
     };
-    return this.http.delete<Campsite>(this.url + '/' + id, httpOptions). pipe(
+    return this.http.delete(this.url + '/' + id, httpOptions). pipe(
       catchError((err: any) => {
         console.log('Campsite service delete is not working');
         return throwError('Campsite service delete is not working properly');

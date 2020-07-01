@@ -105,6 +105,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
       const marker = new google.maps.Marker({
         position: coordinates,
+        icon: 'http://maps.google.com/mapfiles/ms/micons/campground.png',
         map: this.map,
         // title: val.name
       });
@@ -118,6 +119,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
       });
 
       marker.setMap(this.map);
+
     }
     });
   }
@@ -303,7 +305,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
         this.reload();
       },
       (fail) => {
-        console.error('TodoListComponent.index(): error retrieving todos');
+        console.error('DELETE ERRORS');
         console.error(fail);
       }
     );
