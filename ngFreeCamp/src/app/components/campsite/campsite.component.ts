@@ -79,6 +79,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     console.log(this.campsites);
 
     this.campsites.forEach((val) => {
+      if(val.enabled){
       const contentString =
         '<div>' +
         '<h4>' +
@@ -117,6 +118,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
       });
 
       marker.setMap(this.map);
+    }
     });
   }
 
