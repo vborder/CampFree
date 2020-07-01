@@ -51,10 +51,10 @@ public class CampsiteController {
 	public Campsite show(
 			@PathVariable Integer id, 
 			HttpServletResponse response,
-			HttpServletRequest request,
-			Principal principal
+			HttpServletRequest request
+			
 			) {
-		Campsite campsite = campSvc.findCampsiteById(principal.getName(), id);
+		Campsite campsite = campSvc.findCampsiteById(id);
 		if (campsite == null) {
 			response.setStatus(404);
 		}

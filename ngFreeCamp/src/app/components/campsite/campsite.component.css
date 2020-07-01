@@ -6,7 +6,7 @@
 
 #map-div {
   height: 30%;
-  width: 60%;
+  width: 70%;
   margin-top: 30px;
 
  }
@@ -26,7 +26,7 @@ img
 {
 width: 100%;
 margin-top: 10px;
-min-height: 546px;
+min-height: 599px;
 max-height: 600px;
 }
 
@@ -68,8 +68,15 @@ min-height: 100%;
 margin-bottom: -50%;
 } */
 
-.noShow
+.textC
 {
-  display: none;
+  background-color: #2068b5 !important;
+  color:#f8f8ff !important;
 }
 
+
+.imgT
+{
+  width: 200px;
+  height: 150px;
+}
