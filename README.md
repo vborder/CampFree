@@ -37,10 +37,25 @@ TODO: Link to deployed project, credentials to log in, explanation of how to use
 
 ### Screenshots
 
-<img src="images/Map w Data.png">
+<center><img src="images/Map w Data.png"></center>
 Interactive Map
 
 More Screenshots to come
+
+### User Stories
+
+A nonuser can view all created campsites and their details.
+A nonuser can register a new account and profile and become a user.
+A user can view all created campsites and their details.
+A user can view their personal profile information, including a user picture.
+A user can create a new campsite with detailed information and a picture.
+A user can edit their own campsite creations.
+A user can delete their own campsite creations.
+A user can view a list of their created campsites on their profile page.
+A user can view a gallery of their photos on their profile page.
+A user or nonuser can view dispersed camping education, dispersed camping tips, and information about CampFree.
+A user can comment on created campsite.
+A user or nonuser can view all comments on all campsites.
 
 ### Database Model
 
@@ -58,31 +73,7 @@ This is a sample from the user table showing the passwords are NOT saved in plai
 
 ### Technologies Used
 
-* Java
-* JPA
-* Hibernate
-* Spring Boot
-* Gradle
-* Bootstrap
-* Angular JS
-* Google Maps API
-* HTML
-* CSS
-* MySQL
-* MySQL Workbench
-* MAMP
-* TypeScript
-* Visual Studio Code
-* Slack
-* Zoom
-* Terminal Shell
-* Trello
-* Atom
-* Git
-* Amazon Web Services
-* Apache Tomcat
-* Spring Tools Suite
-* Spring Security Tools
+<img src="images/TechUsed.png">
 
 ### Lessons Learned
 
