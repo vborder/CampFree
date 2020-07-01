@@ -23,3 +23,7 @@ font-size: .8em ;
 {
   float: right !important;
 }
+
+ul:last-child{
+  float: right !important;
+}
