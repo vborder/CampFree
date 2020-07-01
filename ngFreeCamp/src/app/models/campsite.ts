@@ -7,6 +7,7 @@ export class Campsite {
   location: string;
   latitude: number;
   longitude: number;
+  comments: Comment[];
   state: State;
   features: Feature[];
   pictureUrl: string;

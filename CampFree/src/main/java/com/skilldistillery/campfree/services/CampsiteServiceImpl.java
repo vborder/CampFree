@@ -37,7 +37,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 	private StateRepository stRepo;
 	
 	@Override
-	public Campsite findCampsiteById(String username, int campsiteId) {
+	public Campsite findCampsiteById(int campsiteId) {
 		Optional<Campsite> campsiteOpt = campRepo.findById(campsiteId);
 		Campsite campsite= null;
 		if(campsiteOpt.isPresent()) {

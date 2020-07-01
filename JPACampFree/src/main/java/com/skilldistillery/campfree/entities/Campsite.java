@@ -13,10 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "campsite")
@@ -35,6 +38,19 @@ public class Campsite {
 	@JoinColumn(name = "state_id")
 	private State state;
 	
+	
+	@OneToMany(mappedBy = "campsite")
+	@JsonIgnoreProperties("campsite")
+	private List<Comment> comments;
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	@CreationTimestamp
 	@Column(name = "creation_date")
 	// TODO: AutoGenerate

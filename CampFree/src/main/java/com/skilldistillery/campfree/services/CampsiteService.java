@@ -7,7 +7,7 @@ import com.skilldistillery.campfree.entities.Campsite;
 import com.skilldistillery.campfree.entities.Feature;
 
 public interface CampsiteService {
-	Campsite findCampsiteById(String username, int campsiteId);
+	Campsite findCampsiteById(int campsiteId);
 	List<Campsite> findAllCampsites();
 	Campsite createCampsite(String username, Campsite campsite);
 	Campsite updateCampsite(String username,Campsite campsite, int campsiteId);
