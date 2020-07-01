@@ -1,8 +1,29 @@
+<div class="col" id="profile-info">
+  <div *ngIf='personSelected'>
+  <h3>Camper Profile</h3>
+  <!-- <br> -->
+  <h5>{{personSelected.user.username}}</h5>
+  <img src={{personSelected.profileImage}} name="picUrl" id="profileImage" class="img-fluid img-thumbnail"/>
+  <br>
+  <p>Name: {{personSelected.firstName}} {{personSelected.lastName}}</p>
+  <p>Email: {{personSelected.email}}</p>
+  <p>State: {{personSelected.state.name}}</p>
+  <p>Bio: {{personSelected.bio}}</p>
+  <!-- <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='update(personSelected)'>Update Profile</button> -->
+  <!-- <ul class="list-group"> -->
+    <!-- <li class="list-group-item" (click)='update(personSelected)'>Update profile</li> -->
+    <!-- <li class="list-group-item" (click)='toggleCamps()'>See created campsites</li> -->
+    <!-- <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li> -->
+  <!-- </ul> -->
+</div>
+
 <div class="container-fluid" id="profile">
   <div class="container text-center" id="myPics">
     <h3>Your Pictures</h3>
     <div *ngFor='let picture of campPics' (click)= 'onSubmit(picture)'>
-      <img [src]="picture.imageURL" class="img-thumbnail" style="width:60%">
+      <img [src]="picture.imageURL" class="img-thumbnail" style="width:20%">
     <!-- <div *ngIf="personSelected"> -->
     </div>
   </div>
@@ -10,27 +31,6 @@
   <div class="container">
   <div class="row">
 
-    <div class="col" id="profile-info">
-      <div *ngIf='personSelected'>
-      <h3>Camper Profile</h3>
-      <!-- <br> -->
-      <h5>{{personSelected.user.username}}</h5>
-      <img src={{personSelected.profileImage}} name="picUrl" id="profileImage" class="img-fluid img-thumbnail"/>
-      <br>
-      <p>Name: {{personSelected.firstName}} {{personSelected.lastName}}</p>
-      <p>Email: {{personSelected.email}}</p>
-      <p>State: {{personSelected.state.name}}</p>
-      <p>Bio: {{personSelected.bio}}</p>
-      <!-- <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='update(personSelected)'>Update Profile</button> -->
-      <ul class="list-group">
-        <!-- <li class="list-group-item" (click)='update(personSelected)'>Update profile</li> -->
-        <!-- <li class="list-group-item" (click)='toggleCamps()'>See created campsites</li> -->
-        <!-- <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li> -->
-      </ul>
-    </div>
-    <br>
 
     <!-- ALL USER CAMPSITES -->
     <h3>Your Created Campsites</h3>

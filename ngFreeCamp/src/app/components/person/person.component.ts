@@ -137,7 +137,7 @@ export class PersonComponent implements OnInit {
         console.error('Features.index(): error retrieving campsites Features');
         console.error(fail);
       }
-    )
+    );
     // console.log('reloading');
     // console.log(this.persons);
   }
@@ -218,12 +218,8 @@ export class PersonComponent implements OnInit {
 
     this.newCampsite.features = this.featuresForNewCampsite;
     this.editCampsite = Object.assign({}, this.selected);
-    // campsite = this.editCampsite;
-    campsite.state = this.newCampsiteState;
-    // this.editCampsite = this.newCampsiteState;
+    // campsite.state = this.newCampsiteState;
     campsite.features = this.featuresForNewCampsite;
-    // this.editCampsite = this.featuresForNewCampsite;
-    // campsite = this.editCampsite;
 
     this.updateCampsite(campsite);
   }
