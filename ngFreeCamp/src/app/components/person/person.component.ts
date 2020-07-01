@@ -21,8 +21,10 @@ import { State } from 'src/app/models/state';
 export class PersonComponent implements OnInit {
   showCamps = false;
   personSelected: Person = null;
+  profileInfo = false;
   newPerson = new Person();
   editPerson = null;
+  editPersonForm = false;
   newCampsite: Campsite = new Campsite();
   personCampsites: Campsite[] = [];
   persons: Person[] = [];
@@ -43,6 +45,7 @@ export class PersonComponent implements OnInit {
   toggleCamps() {
     this.showCamps = !this.showCamps;
     this.selected = null;
+    this.editPersonForm = null;
   }
 
   constructor(
@@ -198,6 +201,12 @@ export class PersonComponent implements OnInit {
     this.showCCamp = null;
     this.showECamp = null;
     this.showCComs = null;
+  }
+
+  toggleEpf() {
+    this.profileInfo = !this.profileInfo;
+    this.selected = null;
+    this.showCamps = null;
   }
 
   // update campsite information

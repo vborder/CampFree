@@ -110,7 +110,7 @@ display() {
           'X-Requested-With': 'XMLHttpRequest'
         })
       };
-    return this.http.put(this.url + '/' + person.id, person).pipe(
+    return this.http.put(this.url + '/' + person.id, person, httpOptions).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('Error updating person profile');
