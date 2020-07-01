@@ -1,17 +1,18 @@
 package com.skilldistillery.campfree.controllers;
 
-import java.util.List;
+import java.security.Principal;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.campfree.entities.Comment;
@@ -59,6 +60,21 @@ public class CommentController {
 		}
 		return comment;
 	}
+	
+	@PostMapping("campsite/{cid}/comment")
+	public Comment addComment(
+			@PathVariable Integer cid,
+			@RequestBody Comment comment,
+			HttpServletResponse response,
+			Principal principal
+			) {
+			comment = comSvc.createComment(comment, cid, principal.getName());
+			
+				return comment;
+		
+	}
+			
+	
 	
 	
 }

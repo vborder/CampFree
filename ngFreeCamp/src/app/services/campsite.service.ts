@@ -7,6 +7,7 @@ import { Campsite } from '../models/campsite';
 import { DatePipe } from '@angular/common';
 import { AuthService } from './auth.service';
 import { Feature } from '../models/feature';
+import { Comment } from 'src/app/models/comment';
 
 
 @Injectable({
@@ -14,6 +15,7 @@ import { Feature } from '../models/feature';
 })
 export class CampsiteService {
   private url = environment.baseUrl + 'api/campsite';
+
   private baseUrl = environment.baseUrl;
 
 
@@ -65,6 +67,26 @@ export class CampsiteService {
         return throwError('campsite service create is not working properly');
       })
     );
+  }
+
+
+  // create comment
+  createComment(comment: Comment,  cid: number){
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${credentials}`,
+        'X-Requested-With': 'XMLHttpRequest'
+      })
+    };
+
+    return this.http.post<Comment>(this.url + '/' + cid + '/comment/' , comment, httpOptions).pipe (
+      catchError((err: any) => {
+        console.log('comment create is not working');
+        return throwError('comment service create is not working properly');
+      })
+    );
+
   }
 
   // update campsite
@@ -122,6 +144,8 @@ export class CampsiteService {
     );
 
   }
+
+
 
 
 

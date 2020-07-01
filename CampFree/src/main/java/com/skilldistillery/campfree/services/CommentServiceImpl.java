@@ -7,14 +7,24 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.campfree.entities.Campsite;
 import com.skilldistillery.campfree.entities.Comment;
+import com.skilldistillery.campfree.entities.Person;
+import com.skilldistillery.campfree.repositories.CampsiteRepository;
 import com.skilldistillery.campfree.repositories.CommentRepository;
+import com.skilldistillery.campfree.repositories.PersonRepository;
 
 @Service
 public class CommentServiceImpl implements CommentService{
 
 	@Autowired
 	private CommentRepository commentRepo;
+	
+	@Autowired
+	private CampsiteRepository campRepo;
+	
+	@Autowired
+	private PersonRepository perRepo;
 	
 	@Override
 	public Comment updateComment(Comment comment, int id) {
@@ -47,8 +57,18 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public Comment createComment(Comment comment) {
-		return commentRepo.saveAndFlush(comment);
+	public Comment createComment(Comment comment, int cid, String username) {
+		Optional<Campsite> campOpt = campRepo.findById(cid);
+		if(campOpt.isPresent()) {
+			Person person = perRepo.findByUserUsername(username);
+			Campsite campsite = campOpt.get();
+			comment.setCampsite(campsite);
+			comment.setPerson(person);
+			return commentRepo.saveAndFlush(comment);
+			
+		}
+		
+		return null;
 	}
 
 	@Override

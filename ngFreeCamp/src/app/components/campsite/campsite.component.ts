@@ -7,9 +7,12 @@ import {
   ElementRef,
 } from '@angular/core';
 import { Campsite } from 'src/app/models/campsite';
+import { Comment } from 'src/app/models/comment';
 import { CampsiteService } from 'src/app/services/campsite.service';
 import { State } from 'src/app/models/state';
 import { features } from 'process';
+import { MvcArrayMock } from '@agm/core/utils/mvcarray-utils';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-campsite, ngbd-carousel-basic',
@@ -17,7 +20,12 @@ import { features } from 'process';
   styleUrls: ['./campsite.component.css'],
 })
 export class CampsiteComponent implements OnInit, AfterViewInit {
-  constructor(private campsiteService: CampsiteService) {}
+
+  constructor(
+    private campsiteService: CampsiteService,
+    private authService: AuthService
+    ) {}
+
   select = null;
   selected = null;
   editCampsite = null;
@@ -32,9 +40,12 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   showECamp = false;
   remarks = [];
   editComment = null;
-  newComment = null;
+  newComment: Comment = new Comment();
   infoWindowOpened = null;
   InforObj = [];
+  selectedAverageRating: number;
+  campsiteCount: number;
+
 
   images = [
     'https://images.pexels.com/photos/3232542/pexels-photo-3232542.jpeg?auto=compress&cs=tinysrgb&dpr=1&h=750&w=1260',
@@ -79,7 +90,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     console.log(this.campsites);
 
     this.campsites.forEach((val) => {
-      if(val.enabled){
+      if (val.enabled){
       const contentString =
         '<div>' +
         '<h4>' +
@@ -208,8 +219,8 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   }
 
   toggleCComs() {
-    this.showCComs = !this.showDComs;
-    this.selected = null;
+    this.showCComs = !this.showCComs;
+    // this.selected = null;
     this.showCamps = null;
     this.showAComs = null;
     this.showEComs = null;
@@ -230,6 +241,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.campsiteCount = this.calculateCampsiteCount();
     this.reload();
   }
 
@@ -240,7 +252,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
       (data) => {
         this.campsites = data;
         this.mapInitializer();
-        this.selected = null;
+        // this.selected = null;
         this.clearPage();
       },
       (fail) => {
@@ -251,7 +263,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.campsiteService.indexFeature().subscribe(
       (data) => {
         this.newCampsiteFeatures = data;
-        this.selected = null;
+        // this.selected = null;
       },
       (fail) => {
         console.error('Features.index(): error retrieving campsites Features');
@@ -262,6 +274,22 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
   onSubmit(campsite) {
     this.selected = campsite;
+    this.selectedAverageRating = this.calculateAverageCampsiteRating();
+
+  }
+
+  calculateAverageCampsiteRating(){
+    let total = 0;
+    let index;
+    for ( index = 0; index < this.selected.comments.length; index++) {
+      total  += this.selected.comments[index].campsiteRating;
+    }
+    return total / index;
+  }
+  calculateCampsiteCount(){
+
+    const totalC = this.campsites.length;
+    return totalC;
   }
 
   loadCampsite() {
@@ -341,4 +369,17 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   displayAll() {
     this.selected = null;
   }
+
+
+createComment(){
+  console.log(this.authService.getCredentials());
+  this.campsiteService.createComment(this.newComment, this.selected.id ).subscribe(
+    data => {
+      this.reload();
+    },
+    fail =>  {
+      console.error('Comment add failed');
+    }
+  )
+}
 }

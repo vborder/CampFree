@@ -72,6 +72,7 @@ margin-bottom: -50%;
 {
   background-color: #2068b5 !important;
   color:#f8f8ff !important;
+
 }
 
 
@@ -79,4 +80,9 @@ margin-bottom: -50%;
 {
   width: 200px;
   height: 150px;
+}
+
+#badg
+{
+  padding: 20px important;
 }
