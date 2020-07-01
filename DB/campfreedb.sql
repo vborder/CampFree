@@ -411,6 +411,10 @@ INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabl
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (15, '2020-05-14T06:14:00', 'Barebones, quiet but not much else going on here', 2, 1, 7, 2);
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (16, '2020-05-06T06:14:00', 'Passenger cars and RVs can navigate the road, but it may be too challenging for some vehicles.', 3, 1, 1, 1);
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (17, '2020-05-11T06:14:00', 'First come, first served. Pit toilets, no drinking water or trash service.', 3, 1, 4, 4);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (18, '2020-05-01T06:14:00', '14 sites here. Visitors must camp in designated campsites within the campground', 4, 1, 4, 6);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (19, '2020-05-09T06:14:00', 'One of the first sites I camped at when I started dispersed camping. Still a decent spot', 3, 1, 2, 2);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (20, '2020-03-10T07:12:00', 'As good of a site as you\'ll find in the lower 48', 4, 1, 5, 5);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (21, '2020-03-11T09:12:00', 'Dispersed camping all along the road. You have to be 300 feet from the road', 3, 1, 7, 2);
 
 COMMIT;
 
