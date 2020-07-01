@@ -27,10 +27,11 @@
       <li *ngIf="loggedIn()">
         <a class="nav-link" [routerLink]="['/person/username']">User Profile</a>
       </li>
+    </ul>
+    <ul style="float: right;">
       <li *ngIf="loggedIn()">
         <app-logout></app-logout>
       </li>
-
     </ul>
   </div>
 </nav>

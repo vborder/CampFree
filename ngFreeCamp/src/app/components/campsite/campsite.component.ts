@@ -299,6 +299,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     );
   }
 
+
   addFeatureToCampsite(feature) {
     this.featuresForNewCampsite.push(feature);
   }
@@ -347,8 +348,10 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
     this.newCampsite.features = this.featuresForNewCampsite;
     this.editCampsite = Object.assign({}, this.selected);
+    // this.editCampsite.state = this.newCampsiteState;
     campsite.state = this.newCampsiteState;
     campsite.features = this.featuresForNewCampsite;
+    // this.editCampsite.features = this.featuresForNewCampsite;
 
     this.updateCampsite(campsite);
   }

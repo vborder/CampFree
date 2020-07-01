@@ -108,7 +108,6 @@ export class CampsiteService {
 
   }
 
-
   // delete campsite (disable)
   delete(id: number){
     const credentials = this.auth.getCredentials();
