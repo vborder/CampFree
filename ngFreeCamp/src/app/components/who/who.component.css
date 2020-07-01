@@ -3,3 +3,52 @@
   height: 60px;
   object-fit: contain;
 }
+
+.container{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.top-left{
+  position: absolute;
+  top: 35px;
+  left: 75px;
+  font-size: 4em;
+}
+
+.toppish-center{
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  font-size: 1.25em;
+}
+
+.the-rest{
+  text-justify: auto;
+  font-weight: bolder;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-family: 'Farro' !important;
+
+}
+.the-rest > h3{
+  color: #2068b5;
+  font-size: 3em;
+  font-weight: bolder;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.team{
+  font-weight: bold;
+}
+
+
+
+
+ul{
+  list-style-type: none;
+}
