@@ -10,12 +10,13 @@ export class Campsite {
   state: State;
   features: Feature[];
   pictureUrl: string;
+  enabled: boolean;
   remark: string;
 
 
 
   constructor(id?: number, name?: string, location?: string, latitude?: number,
-              longitude?: number, state?: State, features?: Feature[], pictureUrl?: string, remark?: string){
+              longitude?: number, state?: State, features?: Feature[], pictureUrl?: string,enabled?: boolean, remark?: string){
       this.id = id;
 		  this.name = name;
 		  this.location = location;
@@ -24,6 +25,7 @@ export class Campsite {
 		  this.state = state;
 		  this.features = features;
       this.pictureUrl = pictureUrl;
+      this.enabled = enabled;
       this.remark = remark;
   }
 

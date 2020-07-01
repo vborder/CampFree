@@ -292,6 +292,7 @@
   <!-- SHOW ALL CAMPSITES -->
 
   <div *ngIf='showCamps' class='btm'>
+
     <table *ngIf = "!selected" class='table table-striped text-center'>
       <thead class="thead-dark">
         <tr>
@@ -305,7 +306,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = 'let campsite of campsites' (click)= 'onSubmit(campsite)'>
+        <tr *ngFor = 'let campsite of campsites | enabled' (click)= 'onSubmit(campsite)'>
+
           <td>{{campsite.name}}</td>
           <td>{{campsite.location}}</td>
           <td>{{campsite.longitude}}</td>
@@ -318,6 +320,7 @@
             <td>{{feature.name}}</td>
           </div>
          </td>
+
          </tr>
       </tbody>
     </table>
