@@ -77,21 +77,30 @@ public class CampsiteServiceImpl implements CampsiteService {
 
 	@Override
 	public Campsite updateCampsite(String username, Campsite campsite, int campsiteId) {
+		State  campsiteState = campsite.getState();
+		campsiteState = stRepo.findByName(campsiteState.getName());
 		Optional<Campsite> campsiteOpt= campRepo.findById(campsiteId);
+		List<Feature> incomingFeatures = campsite.getFeatures();
+		List<Feature> managedFeatures = new ArrayList<Feature>();
+		for (Feature feature : incomingFeatures) {
+			managedFeatures.add(featRepo.findById(feature.getId()));
+			
+		}
 		Campsite newerCampsite= null;
-		if(campsiteOpt.isPresent()) {
+		if(campsiteOpt.isPresent() && campsiteState != null) {
 			newerCampsite= campsiteOpt.get();
 			newerCampsite.setCreationTime(LocalDateTime.now());
-			newerCampsite.setFeatures(campsite.getFeatures());
+			newerCampsite.setFeatures(managedFeatures);
 			newerCampsite.setLatitude(campsite.getLatitude());
 			newerCampsite.setLongitude(campsite.getLongitude());
 			newerCampsite.setName(campsite.getName());
 			newerCampsite.setCreator(campsite.getCreator());
 			newerCampsite.setPictureUrl(campsite.getPictureUrl());
 			newerCampsite.setLocation(campsite.getLocation());
-			newerCampsite.setState(campsite.getState());
+			newerCampsite.setState(campsiteState);
+			return campRepo.saveAndFlush(newerCampsite);
 		}
-		return newerCampsite;
+		return null;
 	}
 
 	@Override
