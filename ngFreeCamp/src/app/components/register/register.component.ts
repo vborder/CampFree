@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { Person } from 'src/app/models/person';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { State } from 'src/app/models/state';
 
 @Component({
   selector: 'app-register',
@@ -33,14 +34,15 @@ export class RegisterComponent implements OnInit {
     console.log(form.value.email);
     person.firstName = form.value.firstName;
     person.lastName = form.value.lastName;
-    person.state = form.value.state;
+    person.state = new State();
+    person.state.name = form.value.state;
     person.bio = form.value.bio;
 
     person.user = user;
 
     console.log(person);
 
-    this.auth.register(user).subscribe(
+    this.auth.register(person).subscribe(
       registeredUser => {
         console.log('RegisterComponent.register(): User registered');
         this.auth.login(user.username, user.password).subscribe(

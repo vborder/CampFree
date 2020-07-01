@@ -3,13 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { User } from '../models/user';
+import { Person } from '../models/person';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8088/';
+  private baseUrl = 'http://localhost:8088/api/';
 
   constructor(private http: HttpClient) { }
 
@@ -39,13 +40,22 @@ export class AuthService {
       );
   }
 
-  register(user: User) {
+  register(person: Person) {
     // create request to register a new account
-    return this.http.post(this.baseUrl + 'register', user)
+    return this.http.post(this.baseUrl + 'register', person)
     .pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('AuthService.register(): error registering user.');
+      })
+    );
+  }
+
+  registerPerson(person: Person) {
+    return this.http.post(this.baseUrl + '/username', person).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('AuthService.registerPerson(): error registering user.');
       })
     );
   }

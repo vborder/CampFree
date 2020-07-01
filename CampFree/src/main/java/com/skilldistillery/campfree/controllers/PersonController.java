@@ -67,10 +67,15 @@ public class PersonController {
 
 //	 create Person
 	@PostMapping("person")
-	public Person create(@RequestBody Person person, HttpServletRequest req, HttpServletResponse res) {
+	public Person create(
+			@RequestBody Person person, 
+			HttpServletRequest req, 
+			HttpServletResponse res,
+			Principal principal
+			) {
 
 		try {
-			person = perSvc.create(person);
+			person = perSvc.create(principal.getName(), person);
 			res.setStatus(201);
 			StringBuffer url = req.getRequestURL();
 			url.append("/").append(person.getId());
@@ -83,37 +88,41 @@ public class PersonController {
 		return person;
 	}
 
-//	delete a person
-	@DeleteMapping("person/{id}")
-	public void delete(@PathVariable Integer id, HttpServletResponse response) {
-		try {
-			if (perSvc.delete(id)) {
-				response.setStatus(204);
-			} else {
-				response.setStatus(404);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.setStatus(409);
-		}
-	}
-	
 //  update a person
 	@PutMapping("person/{id}")
-	public Person update(@PathVariable Integer id, @RequestBody Person person, HttpServletResponse response) {
+	public Person update(HttpServletResponse res,
+			HttpServletRequest req,
+			Principal principal,
+			@PathVariable Integer id,
+			@RequestBody Person person
+			) {
 		try {
-			person = perSvc.update(person, id);
+			person = perSvc.update(principal.getName(), person, id);
 			if (person == null) {
-				response.setStatus(404);
+				res.setStatus(404);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.setStatus(400);
+			res.setStatus(400);
 			person = null;
 		}
 		return person;
 	}
 	
+//	delete a person
+//	@DeleteMapping("person/{id}")
+//	public void delete(@PathVariable Integer id, HttpServletResponse response) {
+//		try {
+//			if (perSvc.delete(id)) {
+//				response.setStatus(204);
+//			} else {
+//				response.setStatus(404);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			response.setStatus(409);
+//		}
+//	}
 	
 
 }
