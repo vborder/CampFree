@@ -429,7 +429,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `campfreedb`;
-INSERT INTO `feature` (`id`, `name`, `description`) VALUES (1, 'RV accessible', NULL);
+INSERT INTO `feature` (`id`, `name`, `description`) VALUES (1, '\'RV accessible\'', NULL);
 INSERT INTO `feature` (`id`, `name`, `description`) VALUES (2, '\'Fishing\'', NULL);
 INSERT INTO `feature` (`id`, `name`, `description`) VALUES (3, '\'Hiking\'', NULL);
 INSERT INTO `feature` (`id`, `name`, `description`) VALUES (4, '\'Dog friendly\'', NULL);

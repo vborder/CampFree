@@ -42,6 +42,7 @@ export class PersonComponent implements OnInit {
   featuresForNewCampsite = [];
   newCampsiteState: State = new State();
 
+
   toggleCamps() {
     this.showCamps = !this.showCamps;
     this.selected = null;

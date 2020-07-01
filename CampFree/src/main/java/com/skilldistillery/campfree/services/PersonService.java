@@ -7,9 +7,9 @@ import com.skilldistillery.campfree.entities.Picture;
 
 public interface PersonService {
 	Person findById(int id); // may change method name in future
-	Person create(Person person);
-	Person update(Person person, int id);
-	Boolean delete(int id);
+	Person create(String username, Person person);
+	Person update(String username, Person person, int id);
+//	Boolean delete(int id);
 	Person findByUsername(String username);
 //	public Set<Picture> userIndex(String username);
 	
