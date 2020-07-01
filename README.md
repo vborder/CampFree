@@ -1,6 +1,6 @@
 ## CampFree
 
-<center>![CampFreeLogo](https://github.com/mikematosky/FinalProject/ngFreeCamp/src/assets/img/CampFree-logos.jpeg)</center
+<center><img src="images/CampFree-logos.jpeg"></center>
 
 ### Final Capstone Project for 16-week Skill Distillery Bootcamp
 
@@ -28,32 +28,32 @@ The functionality focuses on the profile page and the main homepage with the map
 and expansive list of campsite data. It is reliant on crowd-sourced information
 from its users.
 
-<center>[Come on in and check us out!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)</center>
-
 
 ### Link to the live site
+
+[Come on in and check us out!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 TODO: Link to deployed project, credentials to log in, explanation of how to use
 
 ### Screenshots
 
-<center>![Michael's Google Conquest](https://github.com/mikematosky/FinalProject/ngFreeCamp/src/assets/img/Map w Data.png)</center>
+<img src="images/Map w Data.png">
 Interactive Map
 
 More Screenshots to come
 
 ### Database Model
 
-![CampFreeDB](https://github.com/mikematosky/FinalProject/DB/campfreedb.png)
+<img src= "images/campfreedb.png">
 
 ### Sample Table Data
 
 This is a sample from the user table showing the passwords are NOT saved in plain text
-![SampleTable](https://github.com/mikematosky/FinalProject/ngFreeCamp/src/assets/img/SampleTable.png)
+<img src="images/SampleTable.png">
 
 ### Routing Endpoints
 
-![RoutingEndpoints](https://github.com/mikematosky/FinalProject/ngFreeCamp/src/assets/img/Endpoints.png)
+<img src="images/Endpoints.png">
 
 
 ### Technologies Used
