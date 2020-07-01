@@ -406,6 +406,11 @@ INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabl
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (10, '2020-04-11T06:14:00', 'Squirty cheese swiss the big cheese danish fontina rubber cheese macaroni cheese pepper jack feta. Parmesan roquefort feta squirty cheese.', 4, 1, 10, 6);
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (11, '2020-04-12T06:14:00', 'Smelly cheese cheddar hard cheese. Cream cheese monterey jack fromage frais cheese and wine goat fondue manchego when the cheese comes out everybody\'s happy. ', 2, 1, 11, 4);
 INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (12, '2020-04-13T06:14:00', 'Croque monsieur parmesan brie cauliflower cheese cheese slices airedale goat cut the cheese. ', 5, 1, 12, 4);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (13, '2020-04-14T06:14:00', 'Nice primitive site that has bear lockers at the sites for securing your food.', 4, 1, 2, 3);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (14, '2020-04-15T06:14:00', 'has three picnic tables, three tent pads and a group fire ring', 4, 1, 3, 3);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (15, '2020-05-14T06:14:00', 'Barebones, quiet but not much else going on here', 2, 1, 7, 2);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (16, '2020-05-06T06:14:00', 'Passenger cars and RVs can navigate the road, but it may be too challenging for some vehicles.', 3, 1, 1, 1);
+INSERT INTO `comment` (`id`, `comment_date`, `remark`, `campsite_rating`, `enabled`, `campsite_id`, `person_id`) VALUES (17, '2020-05-11T06:14:00', 'First come, first served. Pit toilets, no drinking water or trash service.', 3, 1, 4, 4);
 
 COMMIT;
 

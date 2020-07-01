@@ -218,7 +218,7 @@ export class PersonComponent implements OnInit {
 
     this.newCampsite.features = this.featuresForNewCampsite;
     this.editCampsite = Object.assign({}, this.selected);
-    campsite = this.editCampsite;
+    // campsite = this.editCampsite;
     campsite.state = this.newCampsiteState;
     // this.editCampsite = this.newCampsiteState;
     campsite.features = this.featuresForNewCampsite;
