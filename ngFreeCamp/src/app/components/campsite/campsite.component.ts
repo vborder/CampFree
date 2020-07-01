@@ -318,15 +318,17 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
     this.newCampsite.features = this.featuresForNewCampsite;
     this.editCampsite = Object.assign({}, this.selected);
-    campsite.state = this.newCampsiteState;
-    campsite.features = this.featuresForNewCampsite;
+    this.editCampsite.state = this.newCampsiteState;
+    // campsite.state = this.newCampsiteState;
+    // campsite.features = this.featuresForNewCampsite;
+    this.editCampsite.features = this.featuresForNewCampsite;
 
-    this.updateCampsite(campsite);
+    this.updateCampsite(this.editCampsite);
   }
 
   // update campsite
   updateCampsite(campsite) {
-    this.campsiteService.update(campsite).subscribe(
+    this.campsiteService.update(this.editCampsite).subscribe(
       (reserve) => {
         console.log('campsite update success');
         this.reload();
