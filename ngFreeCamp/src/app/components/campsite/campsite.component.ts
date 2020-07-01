@@ -280,12 +280,10 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
   }
 
-
 addFeatureToCampsite(feature){
   this.featuresForNewCampsite.push(feature);
 
 }
-
 
 // create new campsite
   create(newCampsite, campsiteState){

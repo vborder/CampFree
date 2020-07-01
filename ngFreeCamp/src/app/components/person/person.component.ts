@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Picture } from 'src/app/models/picture';
 import { PictureService } from 'src/app/services/picture.service';
+import { State } from 'src/app/models/state';
 
 @Component({
   selector: 'app-person',
@@ -35,6 +36,9 @@ export class PersonComponent implements OnInit {
   showCComs = false;
   showCCamp = false;
   showECamp = false;
+  newCampsiteFeatures = [];
+  featuresForNewCampsite = [];
+  newCampsiteState: State = new State();
 
   toggleCamps() {
     this.showCamps = !this.showCamps;
@@ -61,13 +65,13 @@ export class PersonComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.reload();
+
     if (!this.auth.checkLogin) {
       this.router.navigateByUrl('/login');
     }
 
     if (!this.personSelected) {
-      // const personIdParam = this.route.snapshot.paramMap.get('id');
-      // const personId = parseInt(personIdParam, 10);
       this.personService.display().subscribe(
         (person) => {
           console.log(person);
@@ -99,15 +103,37 @@ export class PersonComponent implements OnInit {
   }
 
   reload() {
+
     // this.personService.index().subscribe(
-    //     data => {
+    //   data => {
     //     this.persons = data;
     //   },
-    //   fail => {
-    //     console.error();
-    //     console.error(fail);
-    //   }
-    // );
+    //     fail => {
+    //       console.error();
+    //       console.error(fail);
+    //     }
+    //   );
+    this.campsiteService.index().subscribe(
+        data => {
+        this.selected = null;
+        this.clearPage();
+      },
+      fail => {
+        console.error();
+        console.error(fail);
+      }
+    );
+
+    this.campsiteService.indexFeature().subscribe(
+      data => {
+        this.newCampsiteFeatures = data;
+        this.selected = null;
+      },
+      fail => {
+        console.error('Features.index(): error retrieving campsites Features');
+        console.error(fail);
+      }
+    )
     // console.log('reloading');
     // console.log(this.persons);
   }
@@ -163,19 +189,39 @@ export class PersonComponent implements OnInit {
     this.showECamp = null;
   }
 
+  clearPage() {
+    this.selected = null;
+    this.showCamps = null;
+    this.showAComs = null;
+    this.showEComs = null;
+    this.showDComs = null;
+    this.showCCamp = null;
+    this.showECamp = null;
+    this.showCComs = null;
+  }
+
   // update campsite information
   updatePassRes(campsite: Campsite){
     console.log(campsite);
 
     this.selected = campsite;
+
+    this.newCampsite.features = this.featuresForNewCampsite;
     this.editCampsite = Object.assign({}, this.selected);
+    campsite = this.editCampsite;
+    campsite.state = this.newCampsiteState;
+    // this.editCampsite = this.newCampsiteState;
+    campsite.features = this.featuresForNewCampsite;
+    // this.editCampsite = this.featuresForNewCampsite;
+    // campsite = this.editCampsite;
+
     this.updateCampsite(campsite);
   }
 
   // update campsite
   updateCampsite(campsite){
     this.campsiteService.update(campsite).subscribe(
-      reserve => {console.log('reservation update success');
+      reserve => {console.log('campsite update success');
                   this.reload();
                   this.selected = null;
       },
@@ -203,18 +249,28 @@ export class PersonComponent implements OnInit {
   displayAll() {
     this.selected = null;
 
-  // GET person by ID
-
-  // create campsite?
-  // createCampsite() {
-  //   this.campsiteService.create(this.newCampsite).subscribe(
-  //     data => {
-
-  //     },
-  //     err => {
-  //       console.log(err);
-  //     }
-  //   );
-  // }
 }
+
+addFeatureToCampsite(feature){
+  this.featuresForNewCampsite.push(feature);
+
+}
+
+update(person: Person) {
+  this.personService.update(person).subscribe(
+    updated => {
+      this.reload();
+      this.selected = this.editPerson;
+      this.editPerson = null;
+    },
+    failed => {
+
+    }
+  );
+  this.editPerson = null;
+  this.reload();
+
+}
+
+
 }

@@ -31,6 +31,29 @@ export class PersonService {
   ) { }
 
 
+index() {
+  return this.http.get<Person[]>(this.url + '')
+  .pipe(
+    catchError((err: any) => {
+      console.log('person service is not reached');
+      return throwError('person service index is not working');
+    })
+
+  );
+
+}
+
+indexFeature(){
+  return this.http.get<Person[]>(this.url + '/feature')
+  .pipe(
+    catchError((err: any) => {
+      console.log('person service is not reached');
+      return throwError('person service index is not working');
+    })
+
+  );
+
+}
 
   // search person by id
 
@@ -80,6 +103,13 @@ display() {
   }
 
   update(person: Person) {
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+        headers: new HttpHeaders({
+          Authorization: `Basic ${credentials}`,
+          'X-Requested-With': 'XMLHttpRequest'
+        })
+      };
     return this.http.put(this.url + '/' + person.id, person).pipe(
       catchError((err: any) => {
         console.log(err);
@@ -89,6 +119,13 @@ display() {
   }
 
   delete(id: number) {
+    const credentials = this.auth.getCredentials();
+    const httpOptions = {
+        headers: new HttpHeaders({
+          Authorization: `Basic ${credentials}`,
+          'X-Requested-With': 'XMLHttpRequest'
+        })
+      };
     return this.http.delete(this.url + '/' + id).pipe(
       catchError((err: any) => {
         console.log(err);
@@ -131,7 +168,5 @@ display() {
       })
     );
   }
-
-
 
 }
