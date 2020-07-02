@@ -1,4 +1,4 @@
-#profileImage
+/* #profileImage
 {
 height: 100px;
 width: 135px;
@@ -8,4 +8,28 @@ width: 135px;
 font-weight: 800;
 font-size: 1.3em;
 margin: auto;
+} */
+
+.container{
+  padding-top:3%;
+  padding-bottom:4%;
+}
+.container .img{
+  text-align:center;
+}
+.container .details{
+  border-left:3px solid #ded4da;
+}
+
+.myPics{
+  padding-top:5%;
+}
+
+.myCampsites{
+  padding:4%;
+}
+
+.container .details p{
+  font-size:15px;
+  font-weight:bold;
 }
