@@ -20,9 +20,9 @@
 
 ### Team
 
-* Michael Degginger- Developer, SCRUM Master
-* Vince Borden- Developer, DBA
-* Mike Matosky- Developer, Repo Owner
+* Michael Degginger- Developer, SCRUM Master, Plating Specialist
+* Vince Borden- Developer, Database Administrator, Security Specialist
+* Mike Matosky- Developer, Repository Owner, QA Specialist
 
 ***
 
