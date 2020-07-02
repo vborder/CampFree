@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Picture } from 'src/app/models/picture';
 import { PictureService } from 'src/app/services/picture.service';
 import { State } from 'src/app/models/state';
+import { features } from 'process';
 
 @Component({
   selector: 'app-person',
@@ -41,6 +42,7 @@ export class PersonComponent implements OnInit {
   newCampsiteFeatures = [];
   featuresForNewCampsite = [];
   newCampsiteState: State = new State();
+  campsites: Campsite[] = [];
 
 
   toggleCamps() {
@@ -276,6 +278,35 @@ update(person: Person) {
   this.editPerson = null;
   this.reload();
 
+}
+
+create(newCampsite, campsiteState) {
+  console.log(this.newCampsite);
+  newCampsite.state = campsiteState;
+  newCampsite.features = this.featuresForNewCampsite;
+  console.log(newCampsite);
+  console.log(features);
+
+  this.campsiteService.create(newCampsite).subscribe(
+    (data) => {
+      console.log('data');
+      console.log('creation success');
+      this.selected = null;
+      this.loadCampsite();
+      this.reload();
+      // this.ngAfterViewInit();
+    },
+    (err) => {
+      console.log('problem with creation');
+    }
+  );
+}
+
+loadCampsite() {
+  this.campsiteService.index().subscribe(
+    (data) => (this.campsites = data),
+    (err) => console.error('Observer got an error: ' + err)
+  );
 }
 
 
