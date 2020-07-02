@@ -291,7 +291,7 @@ COMMIT;
 START TRANSACTION;
 USE `campfreedb`;
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (1, 'adminguy@gmail.com', 'Steven', 'Pinker', '1', 1, 1, 'Just a camper trying to find great sites');
-INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (2, 'msadwell@gmail.com', 'Malcom', 'Sadwell', 'https://previews.123rf.com/images/maridav/maridav1203/maridav120300062/12720689-young-man-hiking-smiling-happy-portrait-male-hiker-walking-in-forest-.jpg', 2, 1, 'Exploring an alternative lifestyle');
+INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (2, 'nevagonnal@gmail.com', 'Rick', 'Roll', 'https://ca.slack-edge.com/T052X7BAZ-U010414UTD4-5fc90363f037-512', 2, 1, 'Exploring an alternative lifestyle');
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (3, 'breakinggood@gmail.com', 'Jimmy', 'McGill', '3', 3, 1, 'I like to get away from it all when I can');
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (4, 'maxrota@gmail.com', 'Max', 'Rockatansky', '4', 4, 1, 'I like to live the DISPERSED way whenever I can to prepre for the apocalypse');
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (5, 'sweave@hotmail.com', 'Sigourney', 'Weaver', '5', 5, 1, 'Dispersed camping reminds me a lot of my time in the military');
