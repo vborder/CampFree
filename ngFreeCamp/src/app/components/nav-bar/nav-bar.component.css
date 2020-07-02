@@ -24,6 +24,10 @@ font-size: .8em ;
   float: right !important;
 }
 
+ul{
+  list-style-type: none;
+}
+
 ul:last-child{
   float: right !important;
 }
