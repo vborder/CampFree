@@ -100,7 +100,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
         '<h6>' +
         val.latitude +
         '  :  ' +
-
+        val.longitude +
         '</h6>' +
         '<h5>' +
         val.state.name +
