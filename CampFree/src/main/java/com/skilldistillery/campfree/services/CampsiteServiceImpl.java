@@ -66,6 +66,7 @@ public class CampsiteServiceImpl implements CampsiteService {
 		
 		
 		if (campsiteState != null  && campsiteCreator != null) {
+			campsite.setEnabled(true);
 			campsite.setState(campsiteState);
 			campsite.setCreator(campsiteCreator);
 			campsite.setFeatures(managedFeatures);
