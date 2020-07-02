@@ -1,33 +1,44 @@
 ## CampFree
 
-<center><img src="images/CampFree-logos.jpeg"></center>
+<img src="images/CampFree-logos.jpeg">
 
 ### Final Capstone Project for 16-week Skill Distillery Bootcamp
 
-  CampFree is an online guide to dispersed camping in the United States. Our community
-members can view, create, and comment on our list of dispersed camping sites. Non registered
-users are still afforded most of the functionality, but cannot create campsites or make
-community comments. Our goal is to educate and provide the best community-sourced
-dispersed camping information.
+  This project is a culmination of our 16 weeks of training through the Skill
+  Distillery Bootcamp and is a great demonstration of the full-stack skills learned
+  through the program. The coding begins in the back-end with Java entities and
+  displayed with an Angular front-end, with various technologies used in between.
+  Software engineering principles highlighted include Object Oriented Programming,
+  Test Driven Development, Pair-Programming, Git Collaboration, and User Story
+  Requirements.
+
+  Nearly all of this program was done remotely. The entirety of this project
+  was done remotely across all 4 timezones in the Continental US and emphasized
+  the importance of teamwork, patience, and persistence.   
+
+***
 
 ### Team
+
 * Michael Degginger- Developer, SCRUM Master
 * Vince Borden- Developer, DBA
 * Mike Matosky- Developer, Repo Owner
 
+***
+
 ### Overview
 
-A NonUser can view all campsites and information, along with the ability to register
-to become a member of our community.
-
-A User can maintain a user profile, as well as create and edit campsites and comment
-on other campsites. The user profile contains previous images, created campsites,
-and personal information.
+CampFree is a free application for the dispersed camping community that focuses
+on crowd-sourcing created or existing campsites with no fees or reservations. While
+some may opt to pay and hassle with reservations for busy campgrounds, not many
+realize that there is plenty of public land available for camping which results
+in a better connection with nature and a more somber camping experience.
 
 The functionality focuses on the profile page and the main homepage with the map
-and expansive list of campsite data. It is reliant on crowd-sourced information
-from its users.
+and expansive list of interactive campsite data. This map and list is reliant on
+crowd sourced data from its enthusiastic users.
 
+***
 
 ### Link to the live site
 
@@ -35,45 +46,69 @@ from its users.
 
 TODO: Link to deployed project, credentials to log in, explanation of how to use
 
-### Screenshots
+## Screenshots
 
-<center><img src="images/Map w Data.png"></center>
+<img src="images/Map w Data.png" height="250px">
 Interactive Map
 
-More Screenshots to come
+***
 
+<img src="images/ScreenShot1.png" height="250px">
+Homepage Carousel
+
+***
+
+<img src="images/ScreenShot2.png" height="250px">
+Login Egg
+
+***
+
+<img src="images/ScreenShot3.png" height="250px">
+Have you checked our blog?
+
+***
 ### User Stories
 
-A nonuser can view all created campsites and their details.
-A nonuser can register a new account and profile and become a user.
-A user can view all created campsites and their details.
-A user can view their personal profile information, including a user picture.
-A user can create a new campsite with detailed information and a picture.
-A user can edit their own campsite creations.
-A user can delete their own campsite creations.
-A user can view a list of their created campsites on their profile page.
-A user can view a gallery of their photos on their profile page.
-A user or nonuser can view dispersed camping education, dispersed camping tips, and information about CampFree.
-A user can comment on created campsite.
-A user or nonuser can view all comments on all campsites.
+* A nonuser can view all created campsites and their details.
+* A nonuser can register a new account and profile and become a user.  
+* A user can view all created campsites and their details.  
+* A user can view their personal profile information, including a user picture.
+* A user can create a new campsite with detailed information and a picture.
+* A user can edit their own campsite creations.   
+* A user can delete their own campsite creations.
+* A user can view a list of their created campsites on their profile page.
+* A user can view a gallery of their photos on their profile page.
+* A user or nonuser can view dispersed camping education, dispersed camping tips, and information about CampFree.
+* A user can log out.
+* A user can comment on created campsite.
+* A user or nonuser can view all comments on all campsites.
+
+***
 
 ### Database Model
 
-<img src= "images/campfreedb.png">
+<img src= "DB/campfreedb.png">
+
+***
 
 ### Sample Table Data
 
 This is a sample from the user table showing the passwords are NOT saved in plain text
 <img src="images/SampleTable.png">
 
+***
+
 ### Routing Endpoints
 
 <img src="images/Endpoints.png">
 
+***
 
 ### Technologies Used
 
 <img src="images/TechUsed.png">
+
+***
 
 ### Lessons Learned
 
