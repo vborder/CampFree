@@ -42,7 +42,7 @@ crowd sourced data from its enthusiastic users.
 
 ### Link to the live site
 
-[Come on in and check us out!](http://3.22.22.68:8080/CampFree)
+[Come on in and check us out!](http://18.224.85.94:8080/CampFree)
 
 TODO: Link to deployed project, credentials to log in, explanation of how to use
 
