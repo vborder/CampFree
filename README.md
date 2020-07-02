@@ -11,22 +11,22 @@ community comments. Our goal is to educate and provide the best community-source
 dispersed camping information.
 
 ### Team
+
 * Michael Degginger- Developer, SCRUM Master
 * Vince Borden- Developer, DBA
 * Mike Matosky- Developer, Repo Owner
 
 ### Overview
 
-A NonUser can view all campsites and information, along with the ability to register
-to become a member of our community.
-
-A User can maintain a user profile, as well as create and edit campsites and comment
-on other campsites. The user profile contains previous images, created campsites,
-and personal information.
+CampFree is a free application for the dispersed camping community that focuses
+on crowd-sourcing created or existing campsites with no fees or reservations. While
+some may opt to pay and hassle with reservations for busy campgrounds, not many
+realize that there is plenty of public land available for camping which results
+in a better connection with nature and a more somber camping experience.
 
 The functionality focuses on the profile page and the main homepage with the map
-and expansive list of campsite data. It is reliant on crowd-sourced information
-from its users.
+and expansive list of interactive campsite data. This map and list is reliant on
+crowd sourced data from its enthusiastic users.
 
 
 ### Link to the live site
@@ -40,20 +40,28 @@ TODO: Link to deployed project, credentials to log in, explanation of how to use
 <center><img src="images/Map w Data.png"></center>
 Interactive Map
 
-More Screenshots to come
+<center><img src="images/ScreenShot1.png"></center>
+Homepage Carousel
+
+<center><img src="images/ScreensShot2.png"></center>
+Login Egg
+
+<center><img src="images/ScreenShot3.png"></center>
+
 
 ### User Stories
 
 A nonuser can view all created campsites and their details.
-A nonuser can register a new account and profile and become a user.
-A user can view all created campsites and their details.
+A nonuser can register a new account and profile and become a user.  
+A user can view all created campsites and their details.  
 A user can view their personal profile information, including a user picture.
 A user can create a new campsite with detailed information and a picture.
-A user can edit their own campsite creations.
+A user can edit their own campsite creations.   
 A user can delete their own campsite creations.
 A user can view a list of their created campsites on their profile page.
 A user can view a gallery of their photos on their profile page.
 A user or nonuser can view dispersed camping education, dispersed camping tips, and information about CampFree.
+A user can log out.
 A user can comment on created campsite.
 A user or nonuser can view all comments on all campsites.
 
