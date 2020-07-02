@@ -40,15 +40,22 @@ TODO: Link to deployed project, credentials to log in, explanation of how to use
 <img src="images/Map w Data.png" height="250px" align-center>
 Interactive Map
 
+***
+
 <img src="images/ScreenShot1.png" height="250px">
 Homepage Carousel
----
+
+***
+
 <img src="images/ScreenShot2.png" height="250px">
 Login Egg
----
+
+***
+
 <img src="images/ScreenShot3.png" height="250px">
 Have you checked our blog?
 
+***
 ### User Stories
 
 A nonuser can view all created campsites and their details.
