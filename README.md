@@ -35,20 +35,27 @@ crowd sourced data from its enthusiastic users.
 
 TODO: Link to deployed project, credentials to log in, explanation of how to use
 
-### Screenshots
+## Screenshots
 
-<img src="images/Map w Data.png" height="250px" align-center>
+<img src="images/Map w Data.png" height="250px">
 Interactive Map
+
+***
 
 <img src="images/ScreenShot1.png" height="250px">
 Homepage Carousel
----
+
+***
+
 <img src="images/ScreenShot2.png" height="250px">
 Login Egg
----
+
+***
+
 <img src="images/ScreenShot3.png" height="250px">
 Have you checked our blog?
 
+***
 ### User Stories
 
 A nonuser can view all created campsites and their details.
@@ -67,7 +74,7 @@ A user or nonuser can view all comments on all campsites.
 
 ### Database Model
 
-<img src= "images/campfreedb.png">
+<img src= "DB/campfreedb.png">
 
 ### Sample Table Data
 
