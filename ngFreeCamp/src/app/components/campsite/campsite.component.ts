@@ -241,6 +241,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     this.showCCamp = null;
     this.showECamp = null;
     this.showCComs = null;
+    this.featuresForNewCampsite = [];
   }
 
   ngOnInit(): void {
