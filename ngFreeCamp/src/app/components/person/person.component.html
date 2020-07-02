@@ -31,6 +31,59 @@
     <br><br><br><br><br>
   </div>
 </div>
+<!--
+<div *ngIf='showCCamp' class = 'card container-fluid comColor' style="width: 68rem;">
+  <div class="container-fluid" id="profile-pics"></div>
+  <div *ngIf="showUserCamps"  class ='container'>
+    <h1>Create Campsite</h1>
+    <button class='btn btn-primary btn-outline-red text-black mr-5' (click)='toggleUserCamps()'>See all your campsites</button>
+      <div>
+        <label class='mt-3' for="Campsite Name">Campsite Name</label>
+        <input class="form-control mt-2" type="text" name="name" placeholder="Campsite Name" [(ngModel)]="newCampsite.name">
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite Location">Campsite Location</label>
+        <textarea class="form-control mt-2" type="text" name="location" placeholder="Campsite Location" [(ngModel)]="newCampsite.location"></textarea>
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite Latitude">Campsite Latitude</label>
+        <input class="form-control mt-2" type="text" name="latitude" placeholder="Campsite Latitude" [(ngModel)]="newCampsite.latitude">
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite Longitude">Campsite Longitude</label>
+        <input class="form-control mt-2" type="text" name="longitude" placeholder="Campsite Longitude" [(ngModel)]="newCampsite.longitude">
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite State">Campsite State</label>
+        <input class="form-control mt-2" type="text" name="state" placeholder="Campsite State" [(ngModel)]="newCampsiteState.name">
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite Features">Campsite Features</label>
+
+          <div class= 'container'>
+
+            <label *ngFor ='let feature of newCampsiteFeatures'          class="checkbox-inline mr-2">
+              <input type="checkbox" value="feature" name= 'feature' (click) ='addFeatureToCampsite(feature)'> {{feature.name}}
+            </label>
+
+
+
+          </div>
+
+
+      </div>
+      <div>
+        <label class='mt-3' for="Campsite Creation Default Image">Campsite Image</label>
+        <input class="form-control mt-2" type="text" name="pictureUrl" placeholder="{{newCampsite.pictureUrl}}" [(ngModel)]="newCampsite.pictureUrl">
+      </div>
+
+
+    </form> -->
+    <!-- <button (click)="create(newCampsite, newCampsiteState)">Create your new Campsite !</button>
+
+  </div> -->
+<!-- </div> -->
+<!-- </div> -->
 
 <div class="container-fluid bg-info" id="profile-sites">
   <div class="container" id="myCampsites">
