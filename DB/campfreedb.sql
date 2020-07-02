@@ -295,7 +295,7 @@ INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`,
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (3, 'breakinggood@gmail.com', 'Jimmy', 'McGill', '3', 3, 1, 'I like to get away from it all when I can');
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (4, 'maxrota@gmail.com', 'Max', 'Rockatansky', '4', 4, 1, 'I like to live the DISPERSED way whenever I can to prepre for the apocalypse');
 INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (5, 'sweave@hotmail.com', 'Sigourney', 'Weaver', '5', 5, 1, 'Dispersed camping reminds me a lot of my time in the military');
-INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (6, 'bdobbs@gmail.com', 'Bob', 'Dobbs', '6', 6, 1, NULL);
+INSERT INTO `person` (`id`, `email`, `first_name`, `last_name`, `profile_image`, `user_id`, `state_id`, `bio`) VALUES (6, 'bdobbs@gmail.com', 'Bob', 'Dobbs', 'https://skilldistillery.slack.com/archives/D0143CH33J9/p1593652751000100', 6, 1, NULL);
 
 COMMIT;
 
