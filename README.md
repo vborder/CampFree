@@ -37,9 +37,9 @@ TODO: Link to deployed project, credentials to log in, explanation of how to use
 
 ### Screenshots
 
-<img src="images/Map w Data.png" height="250px">
+<img src="images/Map w Data.png" height="250px" align-center>
 Interactive Map
----
+
 <img src="images/ScreenShot1.png" height="250px">
 Homepage Carousel
 ---
