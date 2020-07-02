@@ -43,7 +43,7 @@ Interactive Map
 <center><img src="images/ScreenShot1.png"></center>
 Homepage Carousel
 
-<center><img src="images/ScreensShot2.png"></center>
+<center><img src="images/ScreenShot2.png"></center>
 Login Egg
 
 <center><img src="images/ScreenShot3.png"></center>
