@@ -1,14 +1,20 @@
 ## CampFree
 
-<center><img src="images/CampFree-logos.jpeg"></center>
+<img src="images/CampFree-logos.jpeg">
 
 ### Final Capstone Project for 16-week Skill Distillery Bootcamp
 
-  CampFree is an online guide to dispersed camping in the United States. Our community
-members can view, create, and comment on our list of dispersed camping sites. Non registered
-users are still afforded most of the functionality, but cannot create campsites or make
-community comments. Our goal is to educate and provide the best community-sourced
-dispersed camping information.
+  This project is a culmination of our 16 weeks of training through the Skill
+  Distillery Bootcamp and is a great demonstration of the full-stack skills learned
+  through the program. The coding begins in the back-end with Java entities and
+  displayed with an Angular front-end, with various technologies used in between.
+  Software engineering principles highlighted include Object Oriented Programming,
+  Test Driven Development, Pair-Programming, Git Collaboration, and User Story
+  Requirements.
+
+  Nearly all of this program was done remotely. The entirety of this project
+  was done remotely across all 4 timezones in the Continental US and emphasized
+  the importance of teamwork, patience, and persistence.   
 
 ### Team
 
