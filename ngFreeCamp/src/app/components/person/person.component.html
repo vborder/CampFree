@@ -1,40 +1,42 @@
-<div class="col" id="profile-info">
-  <div *ngIf='personSelected'>
-  <h3>Camper Profile</h3>
-  <!-- <br> -->
-  <h5>{{personSelected.user.username}}</h5>
-  <img src={{personSelected.profileImage}} name="picUrl" id="profileImage" class="img-fluid img-thumbnail"/>
-  <br>
-  <p>Name: {{personSelected.firstName}} {{personSelected.lastName}}</p>
-  <p>Email: {{personSelected.email}}</p>
-  <p>State: {{personSelected.state.name}}</p>
-  <p>Bio: {{personSelected.bio}}</p>
-  <!-- <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='update(personSelected)'>Update Profile</button> -->
-  <!-- <ul class="list-group"> -->
-    <!-- <li class="list-group-item" (click)='update(personSelected)'>Update profile</li> -->
-    <!-- <li class="list-group-item" (click)='toggleCamps()'>See created campsites</li> -->
-    <!-- <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li> -->
-  <!-- </ul> -->
-</div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<div class="container-fluid" id="profile">
-  <div class="container text-center" id="myPics">
-    <h3>Your Pictures</h3>
-    <div *ngFor='let picture of campPics' (click)= 'onSubmit(picture)'>
-      <img [src]="picture.imageURL" class="img-thumbnail" style="width:20%">
-    <!-- <div *ngIf="personSelected"> -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 img" id="profile-info">
+    <h3>Camper Profile</h3>
+    <h5>{{personSelected.user.username}}</h5>
+      <img src={{personSelected.profileImage}} name="picUrl" id="profileImage" class="img-fluid img-thumbnail"/>
+    </div>
+  <div class="col-md-6 details">
+<br><br><br><br><br>
+      <blockquote>
+        <h5>Name: {{personSelected.firstName}} {{personSelected.lastName}}</h5>
+        <h5>Email: {{personSelected.email}}</h5>
+        <h5>State: {{personSelected.state.name}}</h5>
+        <h5>Bio: {{personSelected.bio}}</h5>
+      </blockquote>
     </div>
   </div>
+</div>
 
-  <div class="container">
-  <div class="row">
+<div class="container-fluid" id="profile-pics">
+  <div class="container" id="myPics">
+    <h3>Your Pictures</h3>
+    <div *ngFor='let picture of campPics' (click)= 'onSubmit(picture)'>
+      <img [src]="picture.imageURL" class="img-thumbnail rounded float-left" style="width:25%">
+    </div>
+    <br><br><br><br>
+  </div>
+</div>
 
-
+<div class="container-fluid" id="profile-sites">
+  <div class="container" id="myCampsites">
     <!-- ALL USER CAMPSITES -->
     <h3>Your Created Campsites</h3>
-    <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCamps()'>See all your campsites</button>
+    <button class='btn btn-primary btn-outline-red text-black mr-5' (click)='toggleCamps()'>See all your campsites</button>
     <div *ngIf="showCamps" class="col" id="campsites">
       <div class="table table-striped">
         <table *ngIf="!selected">
@@ -71,6 +73,8 @@
       </div>
 
     </div>
+  </div>
+</div>
 
     <!-- <div class="col" id="comments">
 
@@ -82,13 +86,7 @@
     </div> -->
 
 
-    </div>
-    </div>
-    <!-- <div class="container text-center" id="myOptions">
-      <button class="btn-primary" value="updateProfile">Update Profile</button>
-      <button class="btn-primary" value="addNewCampsite">Add a Campsite</button>
-    </div> -->
-  </div>
+
 
   <!-- INDIVIDUAL CAMPSITE INFORMATION PRESENTATION -->
   <div *ngIf ='selected' class = 'campBtm'>
@@ -118,11 +116,11 @@
       </tbody>
     </table>
       <!-- edit campsite -->
-      <button class='btn btn-info btn-outline-warning text-white mr-5' (click)='toggleECamp(selected)' >Edit Campsite</button>
+      <button class='btn btn-info btn-outline-red text-black mr-5' (click)='toggleECamp(selected)' >Edit Campsite</button>
       <!-- add comment -->
       <!-- <button class='btn btn-primary btn-outline-warning text-white mr-5' (click)='toggleCComs()' >Add New Comment</button> -->
       <!-- delete campsite -->
-      <button class='btn btn-danger btn-outline-warning text-white mr-5' (click)='deleteCampsite(selected.id)' > Delete Campsite </button>
+      <button class='btn btn-danger btn-outline-red text-black mr-5' (click)='deleteCampsite(selected.id)' > Delete Campsite </button>
   </div>
 
   <!-- Edit campsite form -->
@@ -170,8 +168,8 @@
 
 
     </form>
-    <button class='btn btn-info btn-outline-warning text-white mr-5' (click)="updatePassRes(editCampsite)">Edit campsite </button>
+    <button class='btn btn-info btn-outline-red text-black mr-5' (click)="updatePassRes(editCampsite)">Edit campsite </button>
 
-    <button class='btn btn-danger btn-outline-warning text-white mr-5' (click)='deleteCampsite(selected.id)' > Delete campsite </button>
+    <button class='btn btn-danger btn-outline-red text-black mr-5' (click)='deleteCampsite(selected.id)' > Delete campsite </button>
 
 </div>
