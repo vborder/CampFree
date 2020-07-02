@@ -37,13 +37,13 @@ TODO: Link to deployed project, credentials to log in, explanation of how to use
 
 ### Screenshots
 
-<center><img src="images/Map w Data.png"></center>
+<center><img src="images/Map w Data.png" height="200px"></center>
 Interactive Map
 
-<center><img src="images/ScreenShot1.png"></center>
+<center><img src="images/ScreenShot1.png" | height=75></center>
 Homepage Carousel
 
-<center><img src="images/ScreenShot2.png"></center>
+<center><img src="images/ScreenShot2.png" =250x250></center>
 Login Egg
 
 <center><img src="images/ScreenShot3.png"></center>
