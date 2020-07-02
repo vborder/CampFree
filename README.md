@@ -35,9 +35,9 @@ crowd sourced data from its enthusiastic users.
 
 TODO: Link to deployed project, credentials to log in, explanation of how to use
 
-### Screenshots
+## Screenshots
 
-<img src="images/Map w Data.png" height="250px" align-center>
+<img src="images/Map w Data.png" height="250px">
 Interactive Map
 
 ***
@@ -74,7 +74,7 @@ A user or nonuser can view all comments on all campsites.
 
 ### Database Model
 
-<img src= "images/campfreedb.png">
+<img src= "DB/campfreedb.png">
 
 ### Sample Table Data
 
