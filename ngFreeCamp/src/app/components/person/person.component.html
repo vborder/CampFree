@@ -32,11 +32,11 @@
   </div>
 </div>
 
-<div class="container-fluid" id="profile-sites">
+<div class="container-fluid bg-info" id="profile-sites">
   <div class="container" id="myCampsites">
     <!-- ALL USER CAMPSITES -->
     <h3>Your Created Campsites</h3>
-    <button class='btn btn-primary btn-outline-red text-black mr-5' (click)='toggleCamps()'>See all your campsites</button>
+    <button class='btn btn-primary btn-outline-red text-black mb-5 mr-5' (click)='toggleCamps()'>See all your campsites</button>
     <div *ngIf="showCamps" class="col" id="campsites">
       <div class="table table-striped">
         <table *ngIf="!selected">
@@ -51,7 +51,7 @@
               <th scope="col">Features</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class='comColor'>
             <tr *ngFor = 'let campsite of personCampsites' (click)= 'onSubmit(campsite)'>
               <img src="{{campsite.pictureUrl}}" class="img-thumbnail" style="width:60%">
               <td class="name mt-3">{{campsite.name}}</td>
@@ -125,7 +125,7 @@
 
   <!-- Edit campsite form -->
 
-  <div *ngIf='showECamp' class = 'card container-fluid comColor' style="width: 68rem;">
+  <div *ngIf='showECamp' class = 'card container-fluid comColor mt-5' style="width: 68rem;">
     <div *ngIf = '!selected'  class ='container card-body'>
       <h1>EDIT Campsite</h1>
       <form class = 'form-group'>

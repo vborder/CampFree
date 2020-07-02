@@ -84,7 +84,7 @@
   <!-- Show campsite table -->
   <div  class='text-center mt-5'>
     <!-- TODO ADD CAMPSITE NAME in H4 -->
-    <h4>Campsite Information Page</h4>
+    <!-- <h4>Campsite Information Page</h4> -->
 
 
     <!-- campsite image thumbnail gallery  -->
@@ -140,7 +140,7 @@
         <tbody>
           <tr *ngFor = 'let comment of selected.comments '>
             <td><h1><span class="badge badge-primary">{{comment.campsiteRating}}</span></h1></td>
-            <td>{{comment.person.firstName}}{{comment.person.lastName}}</td>
+            <td>{{comment.person.firstName}}  {{comment.person.lastName}}</td>
             <td>{{comment.remark}} </td>
             <td>{{comment.createdDateTime}}</td>
           </tr>
@@ -209,7 +209,7 @@
 
 
       </form>
-      <button (click)="create(newCampsite, newCampsiteState)">Create your new Campsite !</button>
+      <button class='btn btn-info' (click)="create(newCampsite, newCampsiteState)">Create your new Campsite !</button>
 
     </div>
     </div>
@@ -253,17 +253,17 @@
             <th>Features</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class=' comColor'>
           <tr>
             <td>{{selected.name}}</td>
             <td>{{selected.location}}</td>
             <td>{{selected.longitude}}</td>
             <td>{{selected.latitude}}</td>
-            <td>{{selected.state}}</td>
+            <td>{{selected.state.name}}</td>
 
              <!-- CAMPSITE FEATURES LIST -->
             <div *ngFor = 'let feature of selected.features'>
-              <td>{{feature}}</td>
+              <td>{{feature.name}}</td>
              </div>
           </tr>
         </tbody>
