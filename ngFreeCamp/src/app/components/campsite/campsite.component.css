@@ -45,7 +45,7 @@ margin: auto;
 {
   background-color: #2068b5 !important;
   color: #f8f8ff;
-  margin-bottom: 30em;
+  /* margin-bottom: 30em; */
 }
 
 .comWidth
@@ -55,12 +55,12 @@ margin: auto;
 
 .campBtm
 {
-  margin-bottom: 30em;
+  margin-bottom: 3em;
 }
 
 .btm
 {
-  margin-bottom: 4.5em;
+  /* margin-bottom: 4.5em; */
 }
 
 /* .wrapper{
