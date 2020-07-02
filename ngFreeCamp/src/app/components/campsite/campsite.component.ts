@@ -45,6 +45,7 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
   InforObj = [];
   selectedAverageRating: number;
   campsiteCount: number;
+  numberZero: number = 0;
 
 
   images = [
@@ -122,7 +123,9 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
       });
 
       marker.addListener('click', () => {
+
         this.selected = val;
+        this.calculateAverageCampsiteRating();
         this.closeOtherInfo();
         infowindow.open(this.map, marker);
         // infowindow.close();
@@ -284,7 +287,11 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
     for ( index = 0; index < this.selected.comments.length; index++) {
       total  += this.selected.comments[index].campsiteRating;
     }
-    return total / index;
+    this.selectedAverageRating = total / index;
+    if(this.selected.comments.length === 0){
+      this.selectedAverageRating = 0;
+    }
+    return this.selectedAverageRating;
   }
   calculateCampsiteCount(){
 
@@ -314,9 +321,11 @@ export class CampsiteComponent implements OnInit, AfterViewInit {
 
     this.campsiteService.create(newCampsite).subscribe(
       (data) => {
+        console.log('data');
         console.log('creation success');
         this.selected = null;
         this.loadCampsite();
+        this.reload();
         // this.ngAfterViewInit();
       },
       (err) => {
