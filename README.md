@@ -40,32 +40,6 @@ crowd sourced data from its enthusiastic users.
 
 ***
 
-### Link to the live site
-
-[Come on in and check us out!](http://18.224.85.94:8080/CampFree)
-
-
-## Screenshots
-
-<img src="images/Map w Data.png" height="250px">
-Interactive Map
-
-***
-
-<img src="images/ScreenShot1.png" height="250px">
-Homepage Carousel
-
-***
-
-<img src="images/ScreenShot2.png" height="250px">
-Login Egg
-
-***
-
-<img src="images/ScreenShot3.png" height="250px">
-Have you checked our blog?
-
-***
 ### User Stories
 
 * A nonuser can view all created campsites and their details.
