@@ -2,11 +2,7 @@
 
 <img src="images/CampFree-logos.jpeg">
 
-### Final Capstone Project for 16-week Skill Distillery Bootcamp
-
-  This project is a culmination of our 16 weeks of training through the Skill
-  Distillery Bootcamp and is a great demonstration of the full-stack skills learned
-  through the program. The coding begins in the back-end with Java entities and
+  The coding begins in the back-end with Java entities and
   displayed with an Angular front-end, with various technologies used in between.
   Software engineering principles highlighted include Object Oriented Programming,
   Test Driven Development, Pair-Programming, Git Collaboration, and User Story
